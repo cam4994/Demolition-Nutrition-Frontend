@@ -3,12 +3,13 @@ import SignUp from './components/SignUp'
 import LogIn from './components/LogIn'
 import Search from './components/Search'
 import FoodDisplay from './containers/FoodDisplay'
+import Profile from './containers/Profile'
 import './App.css';
 
 class App extends React.Component {
   
   state = {
-    userId: 0,
+    user: '',
     foods: [] 
   }
 
@@ -49,7 +50,7 @@ class App extends React.Component {
       .then(resp => resp.json())
       .then(user => {
         console.log(user)
-        this.fetchUser()
+        this.setState({user})
       })
   }
 
@@ -69,12 +70,9 @@ class App extends React.Component {
     fetch('http://localhost:3001/login', configObj)
       .then(resp => resp.json())
       .then(user => {
-        console.log(user)
-        
+        console.log(user) 
+        this.setState({user})
       })
-      setTimeout(()=> {
-        this.fetchUser()
-      }, 1000)
   }
 
   foodSearch = (name) => {
@@ -84,8 +82,8 @@ class App extends React.Component {
       headers: {
         "Content-Type": "application/json",
         "Accept": "application/json", 
-        "x-app-id": "37aaef45",
-        "x-app-key": "6371a284014275be2b901f9bcbe22d94", 
+        "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
+        "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`, 
         "x-remote-user-id": "0", 
       }
     }
@@ -104,8 +102,8 @@ class App extends React.Component {
         headers: {
           "Content-Type": "application/json",
           "Accept": "application/json", 
-          "x-app-id": "37aaef45",
-          "x-app-key": "6371a284014275be2b901f9bcbe22d94",
+          "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
+          "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`, 
           "x-remote-user-id": "0" 
         },
         body: JSON.stringify({
@@ -128,14 +126,19 @@ class App extends React.Component {
           foods_array.push(newFood)
           })
     })
-    setTimeout(()=>this.setState({foods: foods_array}), 900)
+    setTimeout(()=>this.setState({foods: foods_array}), 600)
   }
 
-  render() { console.log(this.state.foods)
+  changeUser = () => {
+
+  }
+
+  render() { console.log(this.state.user)
     return (
       <div className="App">
-        <Search foodSearch={this.foodSearch}/>
-        <FoodDisplay foods={this.state.foods}/>
+        <Profile user={this.state.user} changeUser={this.changeUser}/>
+        {/* <Search foodSearch={this.foodSearch}/>
+        <FoodDisplay foods={this.state.foods}/> */}
         <SignUp signUp={this.signUp}/>
         <LogIn logIn={this.logIn}/>
       </div>
