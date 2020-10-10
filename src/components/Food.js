@@ -13,9 +13,10 @@ class Food extends React.Component {
         let food = this.props.item
         return (
             <div className="food">
-                <h3>{food.name}</h3>
+                <h4>{food.name}</h4>
                 <span>Serving Size: {food.serving_qty} {food.serving_unit} </span>
                 <button onClick={this.handleClick}>{this.state.showNutrition ? "Hide Nutrition" : "View Nutrition"}</button>
+                <button onClick={()=> this.props.selectItem(food)}>Select</button>
                 {this.state.showNutrition ? (
                     <div className="nutrition">
                         <span className="calories">{food.calories} kcal</span><br/>

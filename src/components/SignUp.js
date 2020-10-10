@@ -14,6 +14,7 @@ const SignUp = (props) => {
           <input name="weight" required/> lbs <br/>
           <label>Height: </label>
           <select name="height_ft">
+            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -55,7 +56,7 @@ const SignUp = (props) => {
           <label>Female</label>
           <br />
           <label>Select Image (Optional): </label>
-          <input type="file" name="image" /><br />
+          <input type="file" name="image" accept="image/*" /><br />
         </div><br/>
         <input type="submit" value="Sign Up" />
       </form>
