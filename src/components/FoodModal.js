@@ -82,7 +82,8 @@ class FoodModal extends React.Component {
     handleSubmit = (e) => {
         //Once add is clicked on the food modal, this function will trigger
         e.preventDefault()
-        this.props.newEntry(this.state.selectedFood, e.target.category.value, e.target.servings.value)
+        this.props.addEntry(this.state.selectedFood, e.target.category.value, e.target.servings.value)
+        this.toggle()
     }
 
     render() {

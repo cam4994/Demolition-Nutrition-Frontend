@@ -103,7 +103,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <Journal user={this.state.user}/>
-        <Profile user={this.state.user} updateUser={this.updateUser}/>
+        {/* <Profile user={this.state.user} updateUser={this.updateUser}/> */}
         <SignUp signUp={this.signUp}/>
         <LogIn logIn={this.logIn}/>
       </div>

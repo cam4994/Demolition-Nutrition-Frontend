@@ -1,18 +1,29 @@
 import React from 'react';
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 import FoodModal from '../components/FoodModal'
+import MealsTable from '../components/MealsTable.js'
+import "react-datepicker/dist/react-datepicker.css";
 
 class Journal extends React.Component {
 
     state = {
         startDate: '', 
-        journal: ''
+        journal: '', 
+        newEntry: '',
+        meals: [],
+        consumed: '', 
+
     }
 
-    componentDidMount() {
-        // Get the entries and workouts 
-    }
+    componentDidUpdate(prevProps, prevState) {
+        // fetch all entries if a journal date is selected or if a new entry is made
+        if (prevState.journal !== this.state.journal || prevState.newEntry !== this.state.newEntry) {
+   
+            // fetch all entries then calculate the total nutrition 
+            this.fetchEntries()
+                .then(() => this.calculateNutrition())
+        }
+      }
 
     handleChange = (date) => {
         // Convert the date to a useable format
@@ -44,10 +55,10 @@ class Journal extends React.Component {
             })
     }
 
-    newEntry = (food, category, servings) => {
+    addEntry = (food, category, servings) => {
+        // Need to create a meal before an entry can be created
         this.createMeal(food)
             .then((meal) => {
-                console.log(meal)
                 this.createEntry(meal.id, category, parseFloat(servings))
               })
     }
@@ -90,8 +101,36 @@ class Journal extends React.Component {
           fetch('http://localhost:3001/entries', configObj)
             .then(resp => resp.json())
             .then(entry => {
-              console.log(entry) 
+              this.setState({newEntry: entry})
             })
+    }
+
+    fetchEntries = () => {
+       return fetch(`http://localhost:3001/journals/${this.state.journal.id}`)
+        .then(resp => resp.json())
+        .then(entries => {
+            console.log(entries)
+            this.setState({ meals: entries})
+        })
+    }
+
+    calculateNutrition = () => {
+        let calories, carbs, fat, protein
+        calories = carbs = fat = protein  = 0
+        this.state.meals.forEach(meal => {
+            calories = calories + (meal.calories * meal.servings)
+            carbs = carbs + (meal.carbs * meal.servings)
+            fat = fat + (meal.fat * meal.servings)
+            protein = protein + (meal.protein * meal.servings)
+        })
+        // Total consumed calories, carbs, fat and protein saved to state
+        let consumed = {
+            calories: parseInt(calories),
+            carbs: parseInt(carbs),
+            fat: parseInt(fat),
+            protein: parseInt(protein)
+        }
+        this.setState({consumed})
     }
 
     render() {
@@ -101,13 +140,21 @@ class Journal extends React.Component {
                 <div className="calendar">
                     <DatePicker isClearable placeholderText="Select a Journal Date" selected={this.state.startDate} onChange={date => this.handleChange(date)} />
                 </div>
-                <FoodModal newEntry={this.newEntry}/>
-                <div className="meals-table">
-
+                <FoodModal addEntry={this.addEntry}/>
+                <div className="meals-table-container">
+                    <MealsTable meals={this.state.meals}/>
                 </div>
                 <button>Add Exercise</button>
                 <div className="exercise-table">
 
+                </div>
+                <div className="journal-nutrition-summary">
+                    <h2>Calories Summary</h2>
+                    <span>Consumed: {this.state.consumed.calories}</span><br />
+                    <h2>Macronutrient Summary</h2>
+                    <span>Carbs: {this.state.consumed.carbs}</span><br />
+                    <span>Protein: {this.state.consumed.protein}</span><br />
+                    <span>Fat: {this.state.consumed.fat}</span>
                 </div>
 
             </div>
