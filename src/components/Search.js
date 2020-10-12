@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Search extends React.Component {
+export default class Search extends React.Component {
 
     handleSubmit= (e) => {
         e.preventDefault()
@@ -20,5 +20,3 @@ class Search extends React.Component {
         )
     }
 }
-
-export default Search;

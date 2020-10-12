@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Profile extends React.Component {
+export default class Profile extends React.Component {
 
     state = {
         updated: false
@@ -96,6 +96,3 @@ class Profile extends React.Component {
         )
     }
 }
-
-export default Profile;
-

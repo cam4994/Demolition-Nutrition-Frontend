@@ -1,6 +1,6 @@
 import React from 'react';
 
-class Food extends React.Component {
+export default class Food extends React.Component {
 
     state = {
         showNutrition: false
@@ -29,6 +29,3 @@ class Food extends React.Component {
         )
     }
 }
-
-export default Food;
-

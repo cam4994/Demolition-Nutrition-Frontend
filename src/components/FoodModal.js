@@ -4,12 +4,11 @@ import Search from './Search'
 import FoodDisplay from '../containers/FoodDisplay'
 import '../Styles/modal.css'
 
-class FoodModal extends React.Component {
+export default class FoodModal extends React.Component {
 
     state = {
         modal: false,
         foods: [],
-        showItem: false,
         selectedFood: ''
     }
 
@@ -73,16 +72,17 @@ class FoodModal extends React.Component {
 
     selectItem = (food) => {
         //Food that was selected from the search feature
-        this.setState({
-            showItem: true,
-            selectedFood: food
-        })
+        this.setState({ selectedFood: food })
     }
 
     handleSubmit = (e) => {
         //Once add is clicked on the food modal, this function will trigger
         e.preventDefault()
         this.props.addEntry(this.state.selectedFood, e.target.category.value, e.target.servings.value)
+        this.setState( {
+            foods: [],
+            selectedFood: '', 
+        })
         this.toggle()
     }
 
@@ -97,7 +97,7 @@ class FoodModal extends React.Component {
                         <FoodDisplay selectItem={this.selectItem} foods={this.state.foods} />
                     </ModalBody>
                     <ModalFooter>
-                        {this.state.showItem ? (
+                        {this.state.selectedFood !== '' ? (
                             <div>
                                 <h3>{this.state.selectedFood.name}</h3>
                                 <span>Serving Size: {this.state.selectedFood.serving_qty} {this.state.selectedFood.serving_unit}</span>
@@ -122,4 +122,3 @@ class FoodModal extends React.Component {
         );
     }
 }
-export default FoodModal;

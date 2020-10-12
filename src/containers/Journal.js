@@ -2,26 +2,40 @@ import React from 'react';
 import DatePicker from "react-datepicker";
 import FoodModal from '../components/FoodModal'
 import MealsTable from '../components/MealsTable.js'
+import ExercisesTable from '../components/ExercisesTable'
+import ExerciseModal from '../components/ExerciseModal';
 import "react-datepicker/dist/react-datepicker.css";
 
-class Journal extends React.Component {
+export default class Journal extends React.Component {
 
     state = {
         startDate: '', 
         journal: '', 
         newEntry: '',
+        newWorkout: '',
         meals: [],
+        exercises: [],
+        workouts: [],
         consumed: '', 
 
     }
 
+    componentDidMount() {
+        fetch('http://localhost:3001/exercises')
+        .then(resp => resp.json())
+        .then(exercises => {
+          this.setState({exercises})
+        })
+    }
+
     componentDidUpdate(prevProps, prevState) {
         // fetch all entries if a journal date is selected or if a new entry is made
-        if (prevState.journal !== this.state.journal || prevState.newEntry !== this.state.newEntry) {
-   
+        if (prevState.journal !== this.state.journal || prevState.newEntry !== this.state.newEntry || prevState.newWorkout !== this.state.newWorkout) {
             // fetch all entries then calculate the total nutrition 
             this.fetchEntries()
                 .then(() => this.calculateNutrition())
+
+            this.fetchWorkouts()
         }
       }
 
@@ -109,7 +123,6 @@ class Journal extends React.Component {
        return fetch(`http://localhost:3001/journals/${this.state.journal.id}`)
         .then(resp => resp.json())
         .then(entries => {
-            console.log(entries)
             this.setState({ meals: entries})
         })
     }
@@ -125,13 +138,43 @@ class Journal extends React.Component {
         })
         // Total consumed calories, carbs, fat and protein saved to state
         let consumed = {
-            calories: parseInt(calories),
-            carbs: parseInt(carbs),
-            fat: parseInt(fat),
-            protein: parseInt(protein)
+            calories: Math.round(calories),
+            carbs: Math.round(carbs),
+            fat: Math.round(fat),
+            protein: Math.round(protein)
         }
         this.setState({consumed})
     }
+
+    addWorkout = (exercise_id, duration, calories) => {
+        let configObj = {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                exercise_id, 
+                journal_id: this.state.journal.id, 
+                duration: parseFloat(duration), 
+                calories: parseFloat(calories)
+            })
+          }
+
+          fetch('http://localhost:3001/workouts', configObj)
+            .then(resp => resp.json())
+            .then(workout => {
+                this.setState({newWorkout: workout})
+            })
+    }
+
+    fetchWorkouts = () => {
+        fetch(`http://localhost:3001/journals/${this.state.journal.id}/workouts`)
+         .then(resp => resp.json())
+         .then(workouts => {
+             this.setState({ workouts })
+         })
+     }
 
     render() {
         return (
@@ -142,11 +185,13 @@ class Journal extends React.Component {
                 </div>
                 <FoodModal addEntry={this.addEntry}/>
                 <div className="meals-table-container">
+                    <h2>Today's Meal Entries</h2>
                     <MealsTable meals={this.state.meals}/>
                 </div>
-                <button>Add Exercise</button>
-                <div className="exercise-table">
-
+                <ExerciseModal addWorkout={this.addWorkout} user={this.props.user} exercises={this.state.exercises} exerciseNames={this.state.exercises.map(exercise => exercise.name)}/>
+                <div className="exercise-table-container">
+                    <h2>Today's Workouts</h2>
+                    <ExercisesTable workouts={this.state.workouts}/>
                 </div>
                 <div className="journal-nutrition-summary">
                     <h2>Calories Summary</h2>
@@ -161,5 +206,3 @@ class Journal extends React.Component {
         )
     }
 }
-
-export default Journal;

@@ -1,7 +1,7 @@
 import React from 'react';
 import Food from '../components/Food'
 
-const FoodDisplay = (props) => {
+export default function FoodDisplay(props) {
     let i = 0;
     return (
         <div className="food-display">
@@ -12,6 +12,4 @@ const FoodDisplay = (props) => {
         </div>
     )
 }
-
-export default FoodDisplay;
 
