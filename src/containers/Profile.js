@@ -20,21 +20,6 @@ export default class Profile extends React.Component {
     render() {
         const {calories, carbs, protein, fat} = this.props.userNutrition
         const {username, sex, weight, height, bodyfat, age, goal, image} = this.props.user
-        // const base_calories = sex === "Male" ? 
-        //     parseInt((88.362 + (13.397 * weight / 2.205) + (4.799 * height / 0.394) - (5.677 * age))) 
-        //     : parseInt((447.593 + (9.247 * weight / 2.205) + (3.098 * height / 0.394) - (4.330 * age)))
-        // let calories
-        // if (goal === "Weight Loss") {
-        //     calories = base_calories - 500
-        // } else if (goal === "Maintenance") {
-        //     calories = base_calories
-        // } else if (goal === "Weight Gain") {
-        //     calories = base_calories + 500
-        // }
-        // let protein = parseInt(weight * 0.9)
-        // let fat = parseInt(calories * 0.25 / 9)
-        // let carbs = parseInt((calories - (protein * 4) - (fat * 9))/4)
-
         return (
             <div className="profile-page">
                 <h1>Profile</h1>

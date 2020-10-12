@@ -34,19 +34,16 @@ export default class Journal extends React.Component {
             // fetch all entries then calculate the total nutrition 
             this.fetchEntries()
                 .then(() => this.calculateNutrition())
-
+            // fetch all workouts then calculate the burned calories
             this.fetchWorkouts()
                 .then(() => this.calculateBurnedCalories())
         }
       }
 
     handleChange = (date) => {
-        // Convert the date to a useable format
         this.setState({startDate: date})
+        // Convert the date to a useable format
         let altered_date = JSON.stringify(date).split('T')[0].slice(1)
-        // let year = parseInt(altered_date[0])
-        // let month = parseInt(altered_date[1])
-        // let day = parseInt(altered_date[2])
         this.fetchOrCreateJournal(altered_date)
     }
 
