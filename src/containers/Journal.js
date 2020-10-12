@@ -17,7 +17,7 @@ export default class Journal extends React.Component {
         exercises: [],
         workouts: [],
         consumed: '', 
-
+        burned: ''
     }
 
     componentDidMount() {
@@ -36,6 +36,7 @@ export default class Journal extends React.Component {
                 .then(() => this.calculateNutrition())
 
             this.fetchWorkouts()
+                .then(() => this.calculateBurnedCalories())
         }
       }
 
@@ -169,12 +170,18 @@ export default class Journal extends React.Component {
     }
 
     fetchWorkouts = () => {
-        fetch(`http://localhost:3001/journals/${this.state.journal.id}/workouts`)
+        return fetch(`http://localhost:3001/journals/${this.state.journal.id}/workouts`)
          .then(resp => resp.json())
          .then(workouts => {
              this.setState({ workouts })
          })
      }
+
+    calculateBurnedCalories = () => {
+        let burned = 0
+        this.state.workouts.forEach(workout => burned = burned + workout.calories)
+        this.setState({ burned })
+    }
 
     render() {
         return (
@@ -196,10 +203,15 @@ export default class Journal extends React.Component {
                 <div className="journal-nutrition-summary">
                     <h2>Calories Summary</h2>
                     <span>Consumed: {this.state.consumed.calories}</span><br />
+                    <span>Goal: {this.props.userNutrition.calories}</span><br />
+                    <span>Burned: {this.state.burned}</span><br />
                     <h2>Macronutrient Summary</h2>
-                    <span>Carbs: {this.state.consumed.carbs}</span><br />
-                    <span>Protein: {this.state.consumed.protein}</span><br />
+                    <span>Carbs: {this.state.consumed.carbs}</span> 
+                    <span> Goal: {this.props.userNutrition.carbs}</span><br />
+                    <span>Protein: {this.state.consumed.protein}</span>
+                    <span> Goal: {this.props.userNutrition.protein}</span><br />
                     <span>Fat: {this.state.consumed.fat}</span>
+                    <span> Goal: {this.props.userNutrition.fat}</span>
                 </div>
 
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 import { Table } from 'reactstrap';
 
 
-export default function MealsTable(props) {
+export default function ExercisesTable(props) {
     return (
         <Table hover>
             <thead>
