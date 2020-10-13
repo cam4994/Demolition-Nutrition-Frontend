@@ -74,7 +74,7 @@ export default class Profile extends React.Component {
                     <label>Daily Protein Goal: {protein} g</label>
                     <label>Daily Fat Goal: {fat} g</label><br/>
                     <span>*Note that these values are estimates and that everybody's body is different.</span><br/>
-                    <span>These values are based off your basal metabolic rate, or the number of calories required to keep your body functioning at rest.</span>
+                    <span>*These values are based off your basal metabolic rate, or the number of calories required to keep your body functioning at rest.</span>
                 </div>
                 
             </div>

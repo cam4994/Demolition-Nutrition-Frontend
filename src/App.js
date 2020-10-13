@@ -4,7 +4,8 @@ import LogIn from './components/LogIn'
 import Profile from './containers/Profile'
 import Journal from './containers/Journal'
 import NavBar from './components/NavBar'
-import { BrowserRouter as Router, Route, NavLink, Switch } from 'react-router-dom';
+import Tips from './components/Tips'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
@@ -27,14 +28,17 @@ class App extends React.Component {
         parseInt((88.362 + (13.397 * weight / 2.205) + (4.799 * height / 0.394) - (5.677 * age)))
         : parseInt((447.593 + (9.247 * weight / 2.205) + (3.098 * height / 0.394) - (4.330 * age)))
       let calories
+      let protein
       if (goal === "Weight Loss") {
         calories = base_calories - 500
+        protein = parseInt(weight * 0.9)
       } else if (goal === "Maintenance") {
         calories = base_calories
+        protein = parseInt(weight * 0.9)
       } else if (goal === "Weight Gain") {
         calories = base_calories + 500
+        protein = parseInt(weight * 1.1)
       }
-      let protein = parseInt(weight * 0.9)
       let fat = parseInt(calories * 0.25 / 9)
       let carbs = parseInt((calories - (protein * 4) - (fat * 9)) / 4)
 
@@ -134,7 +138,7 @@ class App extends React.Component {
     return (
       <>
         <Router>
-          <NavBar />
+          <NavBar user={this.state.user}/>
           <Switch>
             <Route exact path="/" component={null} />
             <Route exact path="/login" render={(props) => (this.state.user === '' ? (
@@ -150,6 +154,9 @@ class App extends React.Component {
             )} />
             <Route exact path="/profile" render={(props) => (
               <Profile user={this.state.user} updateUser={this.updateUser} userNutrition={this.state.userNutrition} />
+            )} />
+            <Route exact path="/tips" render={(props) => (
+              <Tips user={this.state.user} />
             )} />
           </Switch>
         </Router>

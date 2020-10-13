@@ -1,0 +1,88 @@
+
+.journal {
+    display: grid;
+    grid-template-areas: 
+    "a a"
+    "b c"
+    "b d";
+    grid-template-rows: 125px 0.5fr 0.5fr;
+    grid-template-columns: 0.3fr 0.7fr;             
+    /* background-color: black; */
+    /* top: 65px;
+    left:0;
+    right: 0;
+    bottom: 0; */
+    position: absolute;
+    width: 100vw;
+    height: 100vh-65px;
+    color:white;
+  }
+
+.calendar {
+    grid-area: a;
+    text-align: center;
+}
+.meals-table-container {
+    grid-area: c;
+    text-align: center;
+}
+
+.meals-table {
+    width: 850px;
+    margin:auto;
+    background: black;
+    /* border-style: solid; */
+}
+
+th, tr, td {
+    color:white;
+}
+
+.exercises-table {
+    width: 850px;
+    margin:auto;
+    background:black;
+    /* border-style: solid; */
+}
+
+.exercise-table-container {
+    grid-area: d;
+    text-align: center;
+}
+
+.journal-nutrition-summary {
+    grid-area: b;
+    text-align: center;
+}
+
+.gradient-border {
+    --borderWidth: 3px;;
+    position: relative;
+    border-radius: var(--borderWidth);
+  }
+  .gradient-border:after {
+    content: '';
+    position: absolute;
+    top: calc(-1 * var(--borderWidth));
+    left: calc(-1 * var(--borderWidth));
+    height: calc(100% + var(--borderWidth) * 2);
+    width: calc(100% + var(--borderWidth) * 2);
+    background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
+    border-radius: calc(2 * var(--borderWidth));
+    z-index: -1;
+    animation: animatedgradient 3s ease alternate infinite;
+    background-size: 300% 300%;
+  }
+  
+  
+  @keyframes animatedgradient {
+      0% {
+          background-position: 0% 50%;
+      }
+      50% {
+          background-position: 100% 50%;
+      }
+      100% {
+          background-position: 0% 50%;
+      }
+  }

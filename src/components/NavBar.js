@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
 
@@ -10,10 +10,21 @@ const NavBar = (props) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
-                    <Nav.Link as={Link} to="/profile">My Profile</Nav.Link>
-                    <Nav.Link as={Link} to="/Journal">Journal</Nav.Link>
+                    {props.user !== '' ? (
+                        <>
+                            <Nav.Link as={Link} to="/profile">My Profile</Nav.Link>
+                            <Nav.Link as={Link} to="/journal">Journal</Nav.Link>
+                            <Nav.Link as={Link} to="/search">Food Search</Nav.Link>
+                            <Nav.Link as={Link} to="/tips">Tips</Nav.Link>
+                        </>
+                    ) : null}
+                    
                 </Nav>
-                <Nav.Link as={Link} to="/login">Log In</Nav.Link>
+                {props.user === '' ? (
+                    <Nav.Link as={Link} to="/login">Log In</Nav.Link>
+                ) : (
+                    <Nav.Link as={Link} to="/signout">Sign Out</Nav.Link>
+                )}
             </Navbar.Collapse>
         </Navbar>
     );

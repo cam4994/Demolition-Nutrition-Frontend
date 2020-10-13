@@ -30,7 +30,7 @@ export default class ExerciseModal extends React.Component {
 
     handleClick = (e) => {
         //Use the exercise name that is clicked to find the exercise object using .filter
-        let selectedExercise = this.props.exercises.filter(exercise => exercise.name == e.target.textContent)
+        let selectedExercise = this.props.exercises.filter(exercise => exercise.name === e.target.textContent)
         this.setState({ 
             filteredExercises: [], 
             selectedExercise: selectedExercise[0]
