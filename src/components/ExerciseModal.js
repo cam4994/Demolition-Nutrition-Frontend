@@ -49,6 +49,7 @@ export default class ExerciseModal extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.addWorkout(this.state.selectedExercise.id, e.target.duration.value, e.target.calories.value )
+        this.setState({caloriesBurned: 0})
         this.toggle()
     }
 
@@ -57,7 +58,7 @@ export default class ExerciseModal extends React.Component {
 
     render() { 
         return (
-            <div>
+            <div className="exercise-modal">
                 <Button color="danger" onClick={this.toggle}>Add Exercise</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="foodModal">
                     <ModalHeader toggle={this.toggle}>Add Workout to Journal</ModalHeader>

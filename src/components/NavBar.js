@@ -25,6 +25,7 @@ const NavBar = (props) => {
                 ) : (
                     <Nav.Link as={Link} to="/signout">Sign Out</Nav.Link>
                 )}
+                <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
             </Navbar.Collapse>
         </Navbar>
     );

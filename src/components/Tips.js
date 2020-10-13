@@ -15,7 +15,7 @@ const Tips = (props) => {
             <li>Besides water, coffee and tea are good beverage choices. Caffeine helps boost metabolism and can aid in fat burning.</li>
             <li>Get good, quality sleep. Poor sleep duration is known to be one of the biggest risk factors for weight gain. Poor sleep affects hormones that regulate appetite. If you don't get adequate sleep, you will likely be hungier and eat more calories.</li>
             <li>Eat spicy foods! Foods like chili peppers that contain capsaicin can also boost metabolism and reduce your appetite slightly.</li>
-            <li>Make sure you are eating high amounts of protein. Protein is the most import nutrient for losing weight. It is the most satiating macronutrient and studies show that eating a high protein diet has been shown to boost metabolism by 80-100 calories per day.</li>
+            <li>Make sure you are eating high amounts of protein. Protein is the most import nutrient for losing weight. It is the most satiating macronutrient and studies show that eating a high protein diet can boost metabolism by 80-100 calories per day.</li>
         </ul>
       ) : props.user.goal === "Maintenance" ? (
         <ul>

@@ -1,0 +1,253 @@
+.profile-page {
+    display: grid;
+    grid-template-areas: 
+    "."
+    "a";
+    grid-template-rows: 75px 1100px;
+    grid-template-columns: 1fr;             
+    position: absolute;
+    width: 90vw;
+    height: 100vh-65px;
+    left: 5%;
+}
+
+.whole-profile {    
+    grid-area: a;
+    display: grid;
+    grid-template-areas: 
+    "a"
+    "b"
+    "c";
+    grid-template-rows: 500px 300px 300px;
+    grid-template-columns: 1fr;             
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-style: solid
+}
+
+.general-information {
+    grid-area: a;
+    display: grid;
+    grid-template-areas: 
+    /* "a a a a" */
+    "b b b b"
+    "c c c c"
+    "d e f g"
+    "h i j k";
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 45px 355px 50px 50px;
+    grid-template-columns: 0.15fr 0.35fr 0.15fr 0.35fr;
+}
+
+label {
+    font-size: 22px;
+    font-weight: bold;
+}
+
+.profile-title {
+    grid-area: '.';
+}
+
+.general-information .general-information-title {
+    grid-area: b;
+    font-size: 30px;
+    font-weight: bolder;
+    width: 97%;
+    margin: auto;
+    border-bottom: 5px dotted black;
+}
+
+.general-information .general-image {
+    grid-area: c;
+    overflow:hidden;
+    object-fit:contain;
+}
+
+.label-1 {
+    grid-area: d;
+    margin-left: 25%;
+}
+
+.input-1 {
+    grid-area: e;
+    width: 500px;
+    height: 50px;
+}
+
+.label-2 {
+    grid-area: f;
+    margin-left: 25%;
+}
+
+.input-2 {
+    grid-area: g;
+    width: 500px;
+    height: 50px;
+}
+
+.label-3 {
+    grid-area: h;
+    margin-left: 25%;
+}
+
+.input-3 {
+    grid-area: i;
+    width: 500px;
+    height: 50px;
+}
+
+.label-4 {
+    grid-area: j;
+    margin-left: 25%;
+}
+
+.input-4 {
+    grid-area: k;
+    width: 500px;
+    height: 50px;
+}
+
+/* css for body type information */
+
+.body-type {
+    grid-area: b;
+}
+
+.body-type h3 {
+    font-size: 30px;
+    font-weight: bolder;
+    width: 97%;
+    margin: auto;
+    border-bottom: 5px dotted black;
+}
+
+.body-type form {
+    display: grid;
+    grid-template-areas: 
+    "a b c d"
+    "e e e e"
+    "f f f f"
+    "g g g g"
+    "h h h h";
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 65px 40px 40px 65px 30px;
+    grid-template-columns: 0.15fr 0.35fr 0.15fr 0.35fr;
+}
+
+
+
+.form-1 {
+    grid-area: a;
+    margin-left: 25%;
+    margin-top: 5%;
+}
+
+.form-2 {
+    grid-area: b;
+    width: 500px;
+    height: 50px;
+    margin-top: 1%;
+}
+
+.form-3 {
+    grid-area: c;
+    margin-left: 25%;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: auto;
+}
+
+.form-4 {
+    grid-area: d;
+    width: 500px;
+    height: 50px;
+    margin-top: 1%;
+}
+
+.form-5 {
+    grid-area: e;
+    margin: auto;
+    font-size: 25px;
+}
+
+.form-6 {
+    grid-area: f;
+    margin: auto;
+    font-size: 20px;
+}
+
+.form-7 {
+    grid-area: g;
+    width: 100px;
+    margin: auto;
+}
+
+.form-8 {
+    grid-area: h;
+    margin: auto;
+}
+
+.nutrition-summary {
+    grid-area: c;
+    display: grid;
+    grid-template-areas: 
+    "a a"
+    "b c"
+    "d e"
+    "f f"
+    "g g";
+    width: 100%;
+    height: 100%;
+    grid-template-rows: 65px 60px 60px 30px 30px;
+    grid-template-columns: 0.5fr 0.5fr;
+}
+
+.nutrition-summary h3 {
+    grid-area: a;
+    font-size: 30px;
+    font-weight: bolder;
+    width: 97%;
+    margin: auto;
+    border-bottom: 5px dotted black;
+}
+
+.macros-calories {
+    grid-area: b;
+    margin: auto;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.macros-carbs {
+    grid-area: c;
+    margin: auto;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.macros-protein {
+    grid-area: d;
+    margin: auto;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.macros-fat {
+    grid-area: e;
+    margin: auto;
+    font-size: 28px;
+    font-weight: normal;
+}
+
+.note-1 {
+    grid-area: f;
+    margin: auto;
+}
+
+.note-2 {
+    grid-area: g;
+    margin: auto;
+}

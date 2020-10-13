@@ -8,7 +8,7 @@ const SignUp = (props) => {
         <input placeholder="Username" name="username" required/><br />
         <input type="password" placeholder="Enter Password" name="password" required/><br />
         <input type="password" placeholder="Confirm Password" name="password_confirmation" required/><br />
-        <div className='body-type'>
+        <div className='user-body-type'>
           <h2>Your Body</h2>
           <label>Weight: </label>
           <input name="weight" required/> lbs <br/>

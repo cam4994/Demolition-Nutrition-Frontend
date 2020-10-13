@@ -3,25 +3,42 @@
     display: grid;
     grid-template-areas: 
     "a a"
+    "e e"
     "b c"
     "b d";
-    grid-template-rows: 125px 0.5fr 0.5fr;
-    grid-template-columns: 0.3fr 0.7fr;             
-    /* background-color: black; */
-    /* top: 65px;
-    left:0;
-    right: 0;
-    bottom: 0; */
+    grid-template-rows: 100px 100px 0.5fr 0.5fr;
+    grid-template-columns: 0.35fr 0.65fr;             
     position: absolute;
     width: 100vw;
     height: 100vh-65px;
-    color:white;
+    color:black;
   }
 
 .calendar {
     grid-area: a;
     text-align: center;
 }
+
+.modal-buttons {
+    grid-area: e;
+    display:table;  
+    margin: auto;
+}
+
+.modal-buttons .buttons {
+    display:table-row; 
+
+}
+.exercise-modal {
+    display:table-cell; 
+    padding:5px;
+}
+
+.food-modal {
+    display:table-cell; 
+    padding:5px;
+}
+
 .meals-table-container {
     grid-area: c;
     text-align: center;
@@ -30,18 +47,18 @@
 .meals-table {
     width: 850px;
     margin:auto;
-    background: black;
+    background: white;
     /* border-style: solid; */
 }
-
+/* 
 th, tr, td {
     color:white;
-}
+} */
 
 .exercises-table {
     width: 850px;
     margin:auto;
-    background:black;
+    background:white;
     /* border-style: solid; */
 }
 
@@ -53,6 +70,24 @@ th, tr, td {
 .journal-nutrition-summary {
     grid-area: b;
     text-align: center;
+}
+
+.journal-message{
+    grid-area: b;
+    text-align: center;
+    font-size: 40px;
+}
+
+.calories-summary {
+    border-style: solid;
+    width: 85%;
+    margin: auto;
+}
+
+.macros-summary {
+    border-style:solid;
+    width: 85%;
+    margin: auto;
 }
 
 .gradient-border {

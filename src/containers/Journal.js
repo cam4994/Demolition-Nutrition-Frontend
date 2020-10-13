@@ -195,15 +195,21 @@ export default class Journal extends React.Component {
                     <h3>Journal Date</h3>
                     <DatePicker isClearable placeholderText="Select a Journal Date" selected={this.state.startDate} onChange={date => this.handleChange(date)} />
                 </div>
+                {this.state.journal ? (
+                    <div className="modal-buttons">
+                       <div className="buttons">
+                           <FoodModal addEntry={this.addEntry}/>
+                           <ExerciseModal addWorkout={this.addWorkout} user={this.props.user} exercises={this.state.exercises} exerciseNames={this.state.exercises.map(exercise => exercise.name)}/>
+                       </div>
+                   </div>
+                ) : null}
                 <div className="meals-table-container">
-                    <FoodModal addEntry={this.addEntry}/>
                     <div className="meals-table gradient-border">
                         <h2>Today's Meal Entries</h2>
                         <MealsTable meals={this.state.meals}/>
                     </div>
                 </div>
                 <div className="exercise-table-container ">
-                    <ExerciseModal addWorkout={this.addWorkout} user={this.props.user} exercises={this.state.exercises} exerciseNames={this.state.exercises.map(exercise => exercise.name)}/>
                     <div className="exercises-table gradient-border">
                         <h2>Today's Workouts</h2>
                         <ExercisesTable workouts={this.state.workouts}/>
@@ -211,24 +217,26 @@ export default class Journal extends React.Component {
                 </div>
                 {this.state.journal ? (
                     <div className="journal-nutrition-summary">
-                        <h2>Calories Summary</h2>
-                        <span>Target Calories: {caloriesGoal} kcal</span><br />
-                        <span>Calories Burned: {this.state.burned} kcal</span><br />
-                        <span>{caloriesGoal >= this.state.consumed.calories ? (
-                            `Deficit of ${caloriesGoal - this.state.consumed.calories} kcal`
-                        ) : (
-                            `Surplus of ${this.state.consumed.calories - caloriesGoal} kcal`
-                        )}</span><br />
-                        
-                        <CaloriesProgress caloriesGoal={caloriesGoal} consumedCalories={this.state.consumed.calories} />
-
-                        <h2>Macronutrient Summary</h2>
-                        <span>Target Carbs: {carbsGoal} g</span><br />
-                        <span>Target Protein: {proteinGoal} g</span><br />
-                        <span>Target Fat: {fatGoal} g</span>
-                        <MacrosProgress carbsGoal={carbsGoal} proteinGoal={proteinGoal} fatGoal={fatGoal} consumed={this.state.consumed}/>
+                        <div className="calories-summary">
+                            <h2>Calories Summary</h2>
+                            <span>Target Calories: {caloriesGoal} kcal</span><br />
+                            <span>Calories Burned: {this.state.burned} kcal</span><br />
+                            <span>{caloriesGoal >= this.state.consumed.calories ? (
+                                `Deficit of ${caloriesGoal - this.state.consumed.calories} kcal`
+                            ) : (
+                                `Surplus of ${this.state.consumed.calories - caloriesGoal} kcal`
+                            )}</span><br />
+                            <CaloriesProgress caloriesGoal={caloriesGoal} consumedCalories={this.state.consumed.calories} />
+                        </div>
+                        <div className="macros-summary">
+                            <h2>Macronutrient Summary</h2>
+                            <span>Target Carbs: {carbsGoal} g</span><br />
+                            <span>Target Protein: {proteinGoal} g</span><br />
+                            <span>Target Fat: {fatGoal} g</span>
+                            <MacrosProgress carbsGoal={carbsGoal} proteinGoal={proteinGoal} fatGoal={fatGoal} consumed={this.state.consumed}/>
+                        </div>
                     </div>
-                ) : null} 
+                ) : <h3 className="journal-message">Select a Journal date!</h3>} 
             </div>
         )
     }

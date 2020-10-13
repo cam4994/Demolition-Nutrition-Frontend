@@ -107,7 +107,7 @@ class App extends React.Component {
     fetch('http://localhost:3001/login', configObj)
       .then(resp => resp.json())
       .then(user => {
-        console.log(user)
+        this.fetchUser()
         this.setState({ user })
       })
   }
