@@ -5,6 +5,7 @@ import Profile from './containers/Profile'
 import Journal from './containers/Journal'
 import NavBar from './components/NavBar'
 import Tips from './components/Tips'
+import FoodFinder from './components/FoodFinder'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -61,34 +62,52 @@ class App extends React.Component {
   signUp = (e) => {
     e.preventDefault()
     let height = parseInt(e.target.height_ft.value) * 12 + parseInt(e.target.height_in.value)
-    console.log(e.target.image.files)
-    let image = URL.createObjectURL(e.target.image.files[0])
+    // localStorage.setItem(imageName, e.target.image.files[0]);
+    const formData = new FormData();
+    formData.append('username', e.target.username.value);
+    formData.append('password', e.target.password.value);
+    formData.append('password_confirmation', e.target.password_confirmation.value);
+    formData.append('weight', e.target.weight.value);
+    formData.append('height', height);
+    formData.append('bodyfat', parseFloat(e.target.bodyfat.value));
+    formData.append('age', parseInt(e.target.age.value));
+    formData.append('sex', e.target.sex.value);
+    formData.append('goal', e.target.goal.value);
+    formData.append('image', e.target.image.files[0]);
 
-    let configObj = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "Accept": "application/json"
-      },
-      body: JSON.stringify({
-        username: e.target.username.value,
-        password: e.target.password.value,
-        password_confirmation: e.target.password_confirmation.value,
-        weight: e.target.weight.value,
-        height: height,
-        bodyfat: parseFloat(e.target.bodyfat.value),
-        age: parseInt(e.target.age.value),
-        sex: e.target.sex.value,
-        goal: e.target.goal.value,
-        image: image
-      })
-    }
-    fetch('http://localhost:3001/users', configObj)
-      .then(resp => resp.json())
-      .then(user => {
-        console.log(user)
-        this.setState({ user })
-      })
+    fetch('http://localhost:3001/users', {
+      method: 'POST',
+      body: formData
+    })
+      .then(resp=> resp.json())
+      .then(user=> console.log(user))
+
+
+  //   let configObj = {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       "Accept": "application/json"
+  //     },
+  //     body: JSON.stringify({
+  //       username: e.target.username.value,
+  //       password: e.target.password.value,
+  //       password_confirmation: e.target.password_confirmation.value,
+  //       weight: e.target.weight.value,
+  //       height: height,
+  //       bodyfat: parseFloat(e.target.bodyfat.value),
+  //       age: parseInt(e.target.age.value),
+  //       sex: e.target.sex.value,
+  //       goal: e.target.goal.value,
+  //       image: image
+  //     })
+  //   }
+  //   fetch('http://localhost:3001/users', configObj)
+  //     .then(resp => resp.json())
+  //     .then(user => {
+  //       console.log(user)
+  //       this.setState({ user })
+  //     })
   }
 
   logIn = (e) => {
@@ -138,7 +157,7 @@ class App extends React.Component {
     return (
       <>
         <Router>
-          <NavBar user={this.state.user}/>
+          <NavBar user={this.state.user} />
           <Switch>
             <Route exact path="/" component={null} />
             <Route exact path="/login" render={(props) => (this.state.user === '' ? (
@@ -154,6 +173,9 @@ class App extends React.Component {
             )} />
             <Route exact path="/profile" render={(props) => (
               <Profile user={this.state.user} updateUser={this.updateUser} userNutrition={this.state.userNutrition} />
+            )} />
+            <Route exact path="/search" render={(props) => (
+              <FoodFinder user={this.state.user} />
             )} />
             <Route exact path="/tips" render={(props) => (
               <Tips user={this.state.user} />
