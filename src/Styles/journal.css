@@ -121,3 +121,11 @@ th, tr, td {
           background-position: 0% 50%;
       }
   }
+
+.food-modal .add-meal-button {
+    font-size: 25px;
+}
+
+.exercise-modal .exercise-modal-button {
+    font-size: 25px;
+}
