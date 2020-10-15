@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const NavBar = (props) => {
 
     return (
-        <Navbar bg="light" expand="lg">
+        <Navbar expand="lg">
             <Navbar.Brand href="#home">Demolition Nutrition</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
@@ -21,11 +21,10 @@ const NavBar = (props) => {
                     
                 </Nav>
                 {props.user === '' ? (
-                    <Nav.Link as={Link} to="/login">Log In</Nav.Link>
+                    <Nav.Link className="login-link" as={Link} to="/login">Log In</Nav.Link>
                 ) : (
                     <Nav.Link as={Link} to="/signout">Sign Out</Nav.Link>
                 )}
-                <Nav.Link as={Link} to="/signup">Sign Up</Nav.Link>
             </Navbar.Collapse>
         </Navbar>
     );

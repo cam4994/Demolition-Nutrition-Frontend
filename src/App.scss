@@ -1,0 +1,79 @@
+@use "@material/elevation/mdc-elevation";
+
+.app .navbar {
+  height: 65px;
+  background: rgba(40, 40, 40, 0.8);
+}
+
+.app nav .navbar-brand {
+  color: rgb(127,255,212);
+  font-weight: bold;
+  font-size: 28px;
+}
+
+.app nav .navbar-brand:hover {
+  color: rgb(56, 224, 168);
+}
+
+.app .login-link {
+  text-decoration: none; 
+  background-color:rgb(40,40,40);
+  border-style:solid;
+  border-radius: 20px;
+  border: 2px solid rgb(27, 27, 27);
+  padding: 12px;
+  font-size: 20px;
+  border-color: rgb(127,255,212);
+  color: rgb(127,255,212);
+}
+
+.app .login-link:hover {
+  background-color: rgb(65, 65, 65)
+}
+.app {
+  background: black;
+  color: white;
+}
+
+.login {
+  border-style: hidden;
+  background: rgba(40, 40, 40, 0.8);
+  text-align:center;
+  width: 400px;
+  height: 300px;
+  margin: auto;
+  border-radius: 25px;
+  border: 2px solid rgb(27, 27, 27);
+  padding: 20px;
+}
+
+.login-title {
+  color: rgb(127,255,212);
+}
+
+.home {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.home button {
+  background:rgb(127,255,212);
+  border-radius: 25px;
+  border: 2px solid rgb(27, 27, 27);
+  padding: 12px;
+  margin-top: 2%;
+}
+
+.home button:hover {
+  background: rgb(56, 224, 168)
+}
+
+.home .nav-link {
+  text-decoration: none;
+  color: white;
+  font-size: 25px;
+}
+
+.demolish {
+  color: rgb(127,255,212);
+}

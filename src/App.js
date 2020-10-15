@@ -6,8 +6,9 @@ import Journal from './containers/Journal'
 import NavBar from './components/NavBar'
 import Tips from './components/Tips'
 import FoodFinder from './components/FoodFinder'
+import Home from './components/Home'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import './App.css';
+import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 class App extends React.Component {
@@ -155,11 +156,11 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="app">
         <Router>
           <NavBar user={this.state.user} />
           <Switch>
-            <Route exact path="/" component={null} />
+            <Route exact path="/" component={Home} />
             <Route exact path="/login" render={(props) => (this.state.user === '' ? (
               <LogIn logIn={this.logIn} />
             ) : <Journal user={this.state.user} userNutrition={this.state.userNutrition} />
@@ -182,7 +183,7 @@ class App extends React.Component {
             )} />
           </Switch>
         </Router>
-      </>
+      </div>
     );
   }
 
