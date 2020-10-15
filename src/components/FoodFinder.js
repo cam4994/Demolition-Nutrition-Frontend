@@ -5,7 +5,8 @@ import DisplayBrandFoods from './DisplayBrandFoods';
 export default class FoodFinder extends React.Component {
 
     state = {
-        foods: []
+        foods: [], 
+        sortMethod: ''
     }
 
     handleSubmit = (e) => {
@@ -68,20 +69,20 @@ export default class FoodFinder extends React.Component {
                 "brand_ids": brands,
                 "detailed": true,
                 "full_nutrients": {
-                  "208": {
-                    "gte": lower,
-                    "lte": upper
-                  },
+                    "208": {
+                        "gte": lower,
+                        "lte": upper
+                    },
                 }
-              })
+            })
         }
 
         fetch('https://trackapi.nutritionix.com/v2/search/instant', configObj)
-        .then(resp => resp.json())
-        .then(response => {
-            //Take the locations and the foods from search and take only the needed information
-            this.formatFood(response.branded, locations)
-        })
+            .then(resp => resp.json())
+            .then(response => {
+                //Take the locations and the foods from search and take only the needed information
+                this.formatFood(response.branded, locations)
+            })
     }
 
     formatFood = (foods, locations) => {
@@ -91,18 +92,22 @@ export default class FoodFinder extends React.Component {
             return {
                 name: food.food_name,
                 calories: food.nf_calories,
-                serving_qty: food.serving_qty, 
-                serving_unit: food.serving_unit, 
-                restaurant: food.brand_name, 
-                address: location.address, 
+                serving_qty: food.serving_qty,
+                serving_unit: food.serving_unit,
+                restaurant: food.brand_name,
+                address: location.address,
                 city: location.city,
-                state: location.state, 
-                distance: location.distance_km, 
-                phone: location.phone, 
+                state: location.state,
+                distance: location.distance_km,
+                phone: location.phone,
                 zip: location.zip
             }
         })
         this.setState({ foods: alteredFoods })
+    }
+
+    handleChange = (e) => {
+        this.setState({ sortMethod: e.target.value })
     }
 
     render() {
@@ -114,11 +119,20 @@ export default class FoodFinder extends React.Component {
                     <input type="text" name="address" placeholder="Insert Address" />
                     <input type="text" name="food" placeholder="Insert Food" />
                     <input type="text" name="calories" placeholder="Calories" />
+                    <select name="sort" onChange={this.handleChange}>
+                        <option value="" defaultValue hidden>Sort Method</option>
+                        <option value="distance">Distance</option>
+                        <option value="calories">Calories</option>
+                    </select>
                     <button type="submit">Search</button>
                 </form>
-                <div>
-                    <DisplayBrandFoods foods={this.state.foods.sort((a, b) => (a.calories > b.calories) ? 1 : -1)} />
-                </div>
+                    <div>
+                        <DisplayBrandFoods foods={this.state.sortMethod === "distance" ? (
+                            this.state.foods.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
+                        ) : (
+                            this.state.foods.sort((a, b) => (a.calories > b.calories) ? 1 : -1)
+                        )} />
+                    </div>
             </div>
         )
     }
