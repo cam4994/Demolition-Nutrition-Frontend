@@ -7,7 +7,7 @@
     "b c"
     "b d";
     grid-template-rows: 100px 100px 0.5fr 0.5fr;
-    grid-template-columns: 0.35fr 0.65fr;             
+    grid-template-columns: 0.35fr 0.65fr;                
     position: absolute;
     width: 100vw;
     height: 100vh-65px;

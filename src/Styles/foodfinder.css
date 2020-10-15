@@ -1,0 +1,44 @@
+.find-food {
+    display: grid;
+    grid-template-areas: 
+    ". a c"
+    ". b c"
+    ". d c";
+    grid-template-rows: 50px 100px 1fr;
+    grid-template-columns: 300px 1fr 450px;        
+    position: absolute;
+    width: 100vw;
+    height: 100vh-65px;
+  }
+
+.find-food-title {
+    grid-area: a;
+    text-align: center;
+}
+
+.find-food-form {
+    grid-area: b;
+    text-align: center;
+}
+
+.display-brand-foods {
+    grid-area: d;
+    text-align: center
+}
+
+.display-brand-foods li {
+    list-style-type: none;
+}
+
+
+.find-food-description {
+    grid-area: c;
+    width: 400px;
+    margin-top: 100px;
+}
+
+.find-food-description li {
+    list-style-type: none;
+}
+
+

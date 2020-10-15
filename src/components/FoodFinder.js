@@ -2,6 +2,7 @@ import React from 'react';
 import Geocode from "react-geocode";
 import DisplayBrandFoods from './DisplayBrandFoods';
 import Search from './Search';
+import '../Styles/foodfinder.css'
 
 export default class FoodFinder extends React.Component {
 
@@ -64,15 +65,15 @@ export default class FoodFinder extends React.Component {
         } else if (macro === "carbs") {
             full_nutrients = {
                 "205": {
-                    "gte": parseInt(macrosAmount) - 20,
-                    "lte": parseInt(macrosAmount) + 20
+                    "gte": parseInt(macrosAmount) - 15,
+                    "lte": parseInt(macrosAmount) + 15
                 }
             }
         } else if (macro === "protein") {
             full_nutrients = {
                 "203": {
-                    "gte": parseInt(macrosAmount) - 10,
-                    "lte": parseInt(macrosAmount) + 10
+                    "gte": parseInt(macrosAmount) - 15,
+                    "lte": parseInt(macrosAmount) + 15
                 }
             } 
         } else if (macro === "fat") {
@@ -154,11 +155,11 @@ export default class FoodFinder extends React.Component {
     render() {
         console.log(this.state.foods)
         return (
-            <div className="search">
-                <h1>Find Food Nearby</h1>
-                <form onSubmit={this.handleSubmit}>
-                    <input type="text" name="address" placeholder="Insert Address" />
-                    <input type="text" name="food" placeholder="Insert Food" autocomplete="off" />
+            <div className="find-food">
+                <h1 className="find-food-title">Find Food Nearby</h1>
+                <form className="find-food-form" onSubmit={this.handleSubmit}>
+                    <input type="text" name="address" placeholder="Insert Address" required />
+                    <input type="text" name="food" placeholder="Insert Food" autocomplete="off" required />
                     <input type="text" name="macros_value" placeholder={this.state.sortMacro ? this.state.sortMacro : "Select a Macro"} autocomplete="off" />
                     <select name="macro" onChange={this.handleMacroChange}>
                         <option value="" defaultValue hidden>Search by</option>
@@ -177,7 +178,16 @@ export default class FoodFinder extends React.Component {
                     </select>
                     <button type="submit">Search</button>
                 </form>
-                <div>
+                <div className="find-food-description">
+                    <ul>
+                        <li>Search nearby foods by entering an address, food type and an option to put constraints on your search.</li>
+                        <li>You may select between calories, carbs, protein and fat and specify the amount you are seeking to eat.</li>
+                        <li>If a calorie amount is entered, the results will display all foods +- 100 kcal.</li>
+                        <li>If a carb, protein or fat amount is entered, the results will display all foods +- 15 g of the selected macronutrient.</li>
+                        <li>There is an also an option to sort the results based on ascending calories, carbs and fat or descending protein.</li>
+                    </ul>
+                </div>
+                <div className="display-brand-foods">
                     <DisplayBrandFoods foods={this.state.sortMethod === "distance" ? (
                         this.state.foods.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
                     ) : this.state.sortMethod === "calories" ? (
@@ -185,6 +195,7 @@ export default class FoodFinder extends React.Component {
                         ) : this.state.sortMethod === "carbs" ? (
                             this.state.foods.sort((a, b) => (a.carbs > b.carbs) ? 1 : -1)
                         ) : this.state.sortMethod === "protein" ? (
+                            // protein is sorted from highest to lowest
                             this.state.foods.sort((a, b) => (a.protein > b.protein) ? -1 : 1)
                         ) : this.state.sortMethod === "fat" ? (
                             this.state.foods.sort((a, b) => (a.fat > b.fat) ? 1 : -1)
