@@ -15,6 +15,25 @@
   color: rgb(56, 224, 168);
 }
 
+.app .navbar-nav a.nav-link {
+  color: rgb(127,255,212);
+  font-size: 20px;
+}
+
+.app .navbar-nav a.nav-link:hover {
+  color: rgb(56, 224, 168);
+}
+
+.app .signout-link {
+  text-decoration: none; 
+  font-size: 20px;
+  color: rgb(127,255,212);
+}
+
+.app .signout-link:hover {
+  color: rgb(56, 224, 168);
+}
+
 .app .login-link {
   text-decoration: none; 
   background-color:rgb(40,40,40);
@@ -31,20 +50,20 @@
   background-color: rgb(65, 65, 65)
 }
 .app {
-  background: black;
+  background: #121212;
   color: white;
 }
 
 .login {
   border-style: hidden;
-  background: rgba(40, 40, 40, 0.8);
+  background: rgba(40,40,40, .84);
   text-align:center;
   width: 400px;
   height: 300px;
   margin: auto;
   border-radius: 25px;
-  border: 2px solid rgb(27, 27, 27);
   padding: 20px;
+  margin-top: 5%;
 }
 
 .login-title {

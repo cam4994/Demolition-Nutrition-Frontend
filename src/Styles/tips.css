@@ -1,0 +1,19 @@
+.tips {
+    width: 65%;
+    margin: auto;
+    border-style: hidden;
+    background: rgba(40,40,40, .84);
+    border-radius: 25px;
+    padding: 20px;
+    margin-top: 5%;
+    color:white;
+    font-size: 22px;
+}
+
+.tips-title {
+    text-align: center
+}
+
+.teal-green {
+    color: rgb(127,255,212);
+}

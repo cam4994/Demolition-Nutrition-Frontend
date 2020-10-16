@@ -3,11 +3,10 @@ import { Progress } from 'reactstrap';
 
 const CaloriesProgress = (props) => {
     return (
-        <div>
-            <h4 className="text-center">Calories</h4>
-            <div className="text-center">{`${props.consumedCalories} g / ${props.caloriesGoal} g`}</div>
+        <div className="calories-progress">
+            <div className="text-center">{`${props.consumedCalories} kcal / ${props.caloriesGoal} kcal`}</div>
             <Progress multi>
-                <Progress bar animated color="warning" value={props.consumedCalories / props.caloriesGoal * 100}>{`${parseFloat(props.consumedCalories / props.caloriesGoal * 100).toPrecision(3)}%`}</Progress>
+                <Progress className="calories-progress-bar" bar animated color="warning" value={props.consumedCalories / props.caloriesGoal * 100}>{`${parseFloat(props.consumedCalories / props.caloriesGoal * 100).toPrecision(3)}%`}</Progress>
             </Progress>
         </div>
     );

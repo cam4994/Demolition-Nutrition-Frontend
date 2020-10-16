@@ -192,7 +192,7 @@ export default class Journal extends React.Component {
         return (
             <div className="journal">
                 <div className="calendar">
-                    <h3>Journal Date</h3>
+                    <h1 className="journal-date">Journal Date</h1>
                     <DatePicker isClearable placeholderText="Select a Journal Date" selected={this.state.startDate} onChange={date => this.handleChange(date)} />
                 </div>
                 {this.state.journal ? (
@@ -205,13 +205,13 @@ export default class Journal extends React.Component {
                 ) : null}
                 <div className="meals-table-container">
                     <div className="meals-table gradient-border">
-                        <h2>Today's Meal Entries</h2>
+                        <h2 className="meals-table-title">Today's Meal Entries</h2>
                         <MealsTable meals={this.state.meals}/>
                     </div>
                 </div>
                 <div className="exercise-table-container ">
                     <div className="exercises-table gradient-border">
-                        <h2>Today's Workouts</h2>
+                        <h2 className="exercises-table-title">Today's Workouts</h2>
                         <ExercisesTable workouts={this.state.workouts}/>
                     </div>
                 </div>
@@ -219,8 +219,8 @@ export default class Journal extends React.Component {
                     <div className="journal-nutrition-summary">
                         <div className="calories-summary">
                             <h2>Calories Summary</h2>
-                            <span>Target Calories: {caloriesGoal} kcal</span><br />
-                            <span>Calories Burned: {this.state.burned} kcal</span><br />
+                            <span>Target Calories: <span className="teal-green">{caloriesGoal} kcal</span></span><br />
+                            <span>Calories Burned: <span className="teal-green">{this.state.burned} kcal</span></span><br />
                             <span>{caloriesGoal >= this.state.consumed.calories ? (
                                 `Deficit of ${caloriesGoal - this.state.consumed.calories} kcal`
                             ) : (
@@ -230,9 +230,9 @@ export default class Journal extends React.Component {
                         </div>
                         <div className="macros-summary">
                             <h2>Macronutrient Summary</h2>
-                            <span>Target Carbs: {carbsGoal} g</span><br />
-                            <span>Target Protein: {proteinGoal} g</span><br />
-                            <span>Target Fat: {fatGoal} g</span>
+                            <span>Target Carbs: <span className="teal-green">{carbsGoal} g</span></span><br />
+                            <span>Target Protein: <span className="teal-green">{proteinGoal} g</span></span><br />
+                            <span>Target Fat: <span className="teal-green">{fatGoal} g</span></span>
                             <MacrosProgress carbsGoal={carbsGoal} proteinGoal={proteinGoal} fatGoal={fatGoal} consumed={this.state.consumed}/>
                         </div>
                     </div>

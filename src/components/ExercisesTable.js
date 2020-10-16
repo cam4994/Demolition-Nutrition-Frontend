@@ -17,7 +17,7 @@ export default function ExercisesTable(props) {
                 {props.workouts.map(workout =>
                     (
                         <tr>
-                            <th scope="row">{workout.name}</th>
+                            <td scope="row">{workout.name}</td>
                             <td>{workout.met}</td>
                             <td>{workout.duration}</td>
                             <td>{workout.calories}</td>

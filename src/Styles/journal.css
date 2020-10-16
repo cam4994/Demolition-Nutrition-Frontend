@@ -14,6 +14,9 @@
     color:black;
   }
 
+.teal-green {
+    color: rgb(127,255,212);
+}
 .calendar {
     grid-area: a;
     text-align: center;
@@ -47,18 +50,24 @@
 .meals-table {
     width: 850px;
     margin:auto;
-    background: white;
+    background: rgb(40,40,40);
     /* border-style: solid; */
 }
-/* 
-th, tr, td {
-    color:white;
-} */
 
+.meals-table th, .exercises-table th {
+    color: rgb(127,255,212);
+}
+.meals-table td, tr, .exercises-table td, tr {
+    color:white;
+}
+
+.search-exercises .table th, tr, td {
+    color: black;
+}
 .exercises-table {
     width: 850px;
     margin:auto;
-    background:white;
+    background: rgb(40,40,40);
     /* border-style: solid; */
 }
 
@@ -76,18 +85,32 @@ th, tr, td {
     grid-area: b;
     text-align: center;
     font-size: 40px;
+    color:white;
+    animation: shake 0.5s;
+    animation-iteration-count: infinite;
 }
 
 .calories-summary {
-    border-style: solid;
     width: 85%;
     margin: auto;
+    border-style: hidden;
+    background: rgba(40,40,40, .84);
+    text-align:center;
+    border-radius: 25px;
+    padding: 20px;
+    color:white;
 }
 
 .macros-summary {
-    border-style:solid;
     width: 85%;
     margin: auto;
+    border-style: hidden;
+    background: rgba(40,40,40, .84);
+    text-align:center;
+    border-radius: 25px;
+    padding: 20px;
+    margin-top: 5%;
+    color:white;
 }
 
 .gradient-border {
@@ -124,8 +147,63 @@ th, tr, td {
 
 .food-modal .add-meal-button {
     font-size: 25px;
+    background-color: rgb(127,255,212);
+    color: black
 }
 
 .exercise-modal .exercise-modal-button {
     font-size: 25px;
+    background-color: rgb(127,255,212);
+    color: black;
 }
+
+.meals-table-title {
+    color: white;
+}
+
+.exercises-table-title {
+    color:white;
+}
+
+.calories-progress {
+    width: 280px;
+    margin: auto;
+    margin-top: 2%;
+    font-weight: bold;
+}
+
+.progress .calories-progress-bar.progress-bar {
+    color:black;
+}
+.macros-progress {
+    width: 280px; 
+    margin: auto; 
+    font-weight:bold;
+    margin-top: 4%;
+}
+
+.macros-progress-carbs, .macros-progress-protein, .macros-progress-fat {
+    margin-top: 8%;
+}
+
+.macros-progress .progress .progress-bar {
+    color:black;
+}
+
+.journal-date {
+    color:white;
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+  }

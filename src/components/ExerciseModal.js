@@ -59,7 +59,7 @@ export default class ExerciseModal extends React.Component {
     render() { 
         return (
             <div className="exercise-modal">
-                <Button color="danger" className="exercise-modal-button" onClick={this.toggle}>
+                <Button className="exercise-modal-button" onClick={this.toggle}>
                 <i class="fas fa-running"></i>{' '}
                  Add Exercise</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="foodModal">

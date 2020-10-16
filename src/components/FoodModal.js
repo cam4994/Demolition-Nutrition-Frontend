@@ -89,7 +89,7 @@ export default class FoodModal extends React.Component {
     render() {
         return (
             <div className="food-modal">
-                <Button color="danger" className="add-meal-button" onClick={this.toggle}>
+                <Button className="add-meal-button" onClick={this.toggle}>
                 <i class="fas fa-utensils"></i>{' '}
                 Add Meal</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="foodModal">

@@ -23,7 +23,7 @@ const NavBar = (props) => {
                 {props.user === '' ? (
                     <Nav.Link className="login-link" as={Link} to="/login">Log In</Nav.Link>
                 ) : (
-                    <Nav.Link as={Link} to="/signout">Sign Out</Nav.Link>
+                    <Nav.Link className="signout-link" as={Link} to="/signout">Sign Out</Nav.Link>
                 )}
             </Navbar.Collapse>
         </Navbar>

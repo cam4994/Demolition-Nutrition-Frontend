@@ -17,7 +17,7 @@ export default function MealsTable(props) {
                 {props.meals.map(meal =>
                     (
                         <tr>
-                            <th scope="row">{meal.category}</th>
+                            <td scope="row">{meal.category}</td>
                             <td>{meal.name}</td>
                             <td>{meal.servings}</td>
                             <td>{Math.round(meal.calories * meal.servings)}</td>
