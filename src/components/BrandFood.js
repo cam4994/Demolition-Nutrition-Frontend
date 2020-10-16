@@ -1,6 +1,7 @@
 import React from 'react';
+import BrandFoodModal from './BrandFoodModal'
 
-export default class BrandFoods extends React.Component {
+export default class BrandFood extends React.Component {
 
     render() {
         const {name, calories, carbs, protein, fat, serving_qty, serving_unit, restaurant, 
@@ -28,6 +29,7 @@ export default class BrandFoods extends React.Component {
                             {phone.replace('+1', '')}
                         </li>
                     </ul>
+                    <BrandFoodModal food={this.props.food} user={this.props.user}/>
                 </div>
             </div>
         )

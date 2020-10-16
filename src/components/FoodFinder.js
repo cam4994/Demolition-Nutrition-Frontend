@@ -1,7 +1,6 @@
 import React from 'react';
 import Geocode from "react-geocode";
 import DisplayBrandFoods from './DisplayBrandFoods';
-import Search from './Search';
 import '../Styles/foodfinder.css'
 
 export default class FoodFinder extends React.Component {
@@ -194,7 +193,7 @@ export default class FoodFinder extends React.Component {
                             <option value="protein">Protein</option>
                             <option value="fat">Fat</option>
                         </select>
-                        <DisplayBrandFoods foods={this.state.sortMethod === "distance" ? (
+                        <DisplayBrandFoods user={this.props.user}foods={this.state.sortMethod === "distance" ? (
                             this.state.foods.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
                         ) : this.state.sortMethod === "calories" ? (
                                 this.state.foods.sort((a, b) => (a.calories > b.calories) ? 1 : -1)

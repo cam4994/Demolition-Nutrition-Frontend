@@ -65,7 +65,6 @@ export default class Journal extends React.Component {
           fetch('http://localhost:3001/journals', configObj)
             .then(resp => resp.json())
             .then(journal => {
-              console.log(journal) 
               this.setState({journal})
             })
     }

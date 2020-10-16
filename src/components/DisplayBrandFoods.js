@@ -1,5 +1,5 @@
 import React from 'react';
-import BrandFoods from './BrandFoods'
+import BrandFood from './BrandFood'
 
 export default function DisplayBrandFoods(props) {
     let i = 0;
@@ -7,7 +7,7 @@ export default function DisplayBrandFoods(props) {
         <div className="food-display">
             {props.foods.map(food => {
                 i++
-                return <BrandFoods key={i} food={food} />
+                return <BrandFood key={i} food={food} user={props.user}/>
             })}
         </div>
     )
