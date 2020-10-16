@@ -9,7 +9,8 @@ export default class FoodFinder extends React.Component {
     state = {
         foods: [],
         sortMethod: '',
-        sortMacro: ''
+        sortMacro: '', 
+        showSort: false
     }
 
     handleSubmit = (e) => {
@@ -28,7 +29,6 @@ export default class FoodFinder extends React.Component {
                 console.error(error);
             }
         );
-
         e.target.food.value = ''
     }
 
@@ -98,8 +98,8 @@ export default class FoodFinder extends React.Component {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID2}`,
-                "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY2}`,
+                "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID3}`,
+                "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY3}`,
             },
             body: JSON.stringify({
                 "query": food,
@@ -142,7 +142,10 @@ export default class FoodFinder extends React.Component {
                 zip: location.zip
             }
         })
-        this.setState({ foods: alteredFoods })
+        this.setState({ 
+            foods: alteredFoods, 
+            showSort: true
+        })
     }
 
     handleChange = (e) => {
@@ -158,24 +161,16 @@ export default class FoodFinder extends React.Component {
             <div className="find-food">
                 <h1 className="find-food-title">Find Food Nearby</h1>
                 <form className="find-food-form" onSubmit={this.handleSubmit}>
-                    <input type="text" name="address" placeholder="Insert Address" required />
-                    <input type="text" name="food" placeholder="Insert Food" autocomplete="off" required />
-                    <input type="text" name="macros_value" placeholder={this.state.sortMacro ? this.state.sortMacro : "Select a Macro"} autocomplete="off" />
+                    <input type="text" name="address" placeholder="Insert Address" required /><br/>
+                    <input type="text" name="food" placeholder="Insert Food" autocomplete="off" required /><br/>
                     <select name="macro" onChange={this.handleMacroChange}>
                         <option value="" defaultValue hidden>Search by</option>
                         <option value="calories">Calories</option>
                         <option value="carbs">Carbs</option>
                         <option value="protein">Protein</option>
                         <option value="fat">Fat</option>
-                    </select>
-                    <select name="sort" onChange={this.handleChange}>
-                        <option value="" defaultValue hidden>Sort Method</option>
-                        <option value="distance">Distance</option>
-                        <option value="calories">Calories</option>
-                        <option value="carbs">Carbs</option>
-                        <option value="protein">Protein</option>
-                        <option value="fat">Fat</option>
-                    </select>
+                    </select><br/>
+                    <input type="text" name="macros_value" placeholder={this.state.sortMacro ? this.state.sortMacro : "Macro Target"} autocomplete="off" /><br/>
                     <button type="submit">Search</button>
                 </form>
                 <div className="find-food-description">
@@ -187,20 +182,32 @@ export default class FoodFinder extends React.Component {
                         <li>There is an also an option to sort the results based on ascending calories, carbs and fat or descending protein.</li>
                     </ul>
                 </div>
-                <div className="display-brand-foods">
-                    <DisplayBrandFoods foods={this.state.sortMethod === "distance" ? (
-                        this.state.foods.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
-                    ) : this.state.sortMethod === "calories" ? (
-                            this.state.foods.sort((a, b) => (a.calories > b.calories) ? 1 : -1)
-                        ) : this.state.sortMethod === "carbs" ? (
-                            this.state.foods.sort((a, b) => (a.carbs > b.carbs) ? 1 : -1)
-                        ) : this.state.sortMethod === "protein" ? (
-                            // protein is sorted from highest to lowest
-                            this.state.foods.sort((a, b) => (a.protein > b.protein) ? -1 : 1)
-                        ) : this.state.sortMethod === "fat" ? (
-                            this.state.foods.sort((a, b) => (a.fat > b.fat) ? 1 : -1)
-                        ) : this.state.foods} />
-                </div>
+                {this.state.foods.length === 0 && this.state.showSort ? (
+                    <h2 className="display-brand-error" style={{color:'red'}}>Sorry, we found no matches.</h2>
+                    ) : this.state.showSort && this.state.foods.length > 0 ? (
+                    <div className="display-brand-foods">
+                        <select className="food-sort" name="sort" onChange={this.handleChange}>
+                            <option value="" defaultValue hidden>Sort Method</option>
+                            <option value="distance">Distance</option>
+                            <option value="calories">Calories</option>
+                            <option value="carbs">Carbs</option>
+                            <option value="protein">Protein</option>
+                            <option value="fat">Fat</option>
+                        </select>
+                        <DisplayBrandFoods foods={this.state.sortMethod === "distance" ? (
+                            this.state.foods.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
+                        ) : this.state.sortMethod === "calories" ? (
+                                this.state.foods.sort((a, b) => (a.calories > b.calories) ? 1 : -1)
+                            ) : this.state.sortMethod === "carbs" ? (
+                                this.state.foods.sort((a, b) => (a.carbs > b.carbs) ? 1 : -1)
+                            ) : this.state.sortMethod === "protein" ? (
+                                // protein is sorted from highest to lowest
+                                this.state.foods.sort((a, b) => (a.protein > b.protein) ? -1 : 1)
+                            ) : this.state.sortMethod === "fat" ? (
+                                this.state.foods.sort((a, b) => (a.fat > b.fat) ? 1 : -1)
+                            ) : this.state.foods} />
+                    </div>
+                ) : null}
             </div>
         )
     }

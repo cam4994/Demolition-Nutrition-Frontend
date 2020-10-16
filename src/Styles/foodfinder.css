@@ -4,7 +4,7 @@
     ". a c"
     ". b c"
     ". d c";
-    grid-template-rows: 50px 100px 1fr;
+    grid-template-rows: 50px 150px 1fr;
     grid-template-columns: 300px 1fr 450px;        
     position: absolute;
     width: 100vw;
@@ -23,7 +23,42 @@
 
 .display-brand-foods {
     grid-area: d;
+    width: 90%;
+    margin: auto;
+    border-style: hidden;
+    background: rgba(40,40,40, .84);
+    border-radius: 25px;
+    padding: 20px;
     text-align: center
+}
+
+.display-brand-error {
+    grid-area: d; 
+    text-align: center;
+}
+
+.each-brandFood {
+    width: 80%;
+    margin: auto;
+    border-style: hidden;
+    background: rgba(50,50,50, 1);
+    border-radius: 25px;
+    padding: 10px;
+    z-index: 40;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.food-sort {
+    background-color:rgb(40,40,40);
+    border-style:solid;
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 16px;
+    font-size: 20px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
+    text-align: center;
 }
 
 .display-brand-foods li {
@@ -40,5 +75,3 @@
 .find-food-description li {
     list-style-type: none;
 }
-
-

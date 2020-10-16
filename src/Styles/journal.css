@@ -14,9 +14,6 @@
     color:black;
   }
 
-.teal-green {
-    color: rgb(127,255,212);
-}
 .calendar {
     grid-area: a;
     text-align: center;

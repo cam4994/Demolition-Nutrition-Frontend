@@ -8,13 +8,13 @@ export default class BrandFoods extends React.Component {
         return (
             <div className="brandFood">
                 <div className="each-brandFood">
-                    <h3>{name}</h3>
-                    <h4>In {serving_qty} {serving_unit}</h4>
+                    <h3 className="teal-green">{name}</h3>
+                    <span>Serving size: {serving_qty} {serving_unit}</span>
                     <div className="brandNutrition">
-                            <span className="brandCalories">{calories} kcal</span><br/>
-                            <span className="brandCarbs"> {carbs}g of carbs</span><br/>
-                            <span className="brandProtein"> {protein}g of protein</span><br/>
-                            <span className="brandFfat"> {fat}g of fat</span>
+                            <span><span className="teal-green">{calories}</span> kcal</span><br/>
+                            <span><span className="teal-green">{carbs}</span> g of carbs</span><br/>
+                            <span><span className="teal-green">{protein}</span> g of protein</span><br/>
+                            <span><span className="teal-green">{fat}</span> g of fat</span>
                     </div>
                     <h4>{restaurant}</h4>
                     <ul>
@@ -25,7 +25,7 @@ export default class BrandFoods extends React.Component {
                             {parseFloat(distance / 1.6).toPrecision(3)} miles away
                         </li>
                         <li>
-                            {phone.replace('+', '')}
+                            {phone.replace('+1', '')}
                         </li>
                     </ul>
                 </div>

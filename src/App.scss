@@ -1,4 +1,6 @@
-@use "@material/elevation/mdc-elevation";
+.teal-green {
+  color: rgb(127,255,212);
+}
 
 .app .navbar {
   height: 65px;
@@ -39,7 +41,7 @@
   background-color:rgb(40,40,40);
   border-style:solid;
   border-radius: 20px;
-  border: 2px solid rgb(27, 27, 27);
+  border: 2px solid;
   padding: 12px;
   font-size: 20px;
   border-color: rgb(127,255,212);
