@@ -42,7 +42,7 @@
   border-style:solid;
   border-radius: 20px;
   border: 2px solid;
-  padding: 12px;
+  padding: 8px;
   font-size: 20px;
   border-color: rgb(127,255,212);
   color: rgb(127,255,212);
@@ -97,4 +97,34 @@
 
 .demolish {
   color: rgb(127,255,212);
+}
+
+.no-outline:focus {
+  outline: none;
+}
+
+.capitalize {
+  text-transform: capitalize;
+}
+
+.button {
+  background-color:rgb(40,40,40);
+  border-radius: 20px;
+  border: 2px solid;
+  padding: 12px;
+  border-color: rgb(127,255,212);
+  color: rgb(127,255,212);
+}
+
+.button:hover {
+  background-color: rgb(65, 65, 65)
+}
+
+.input-style {
+  background-color:rgb(40,40,40);
+  border-radius: 16px;
+  border: 2px solid;
+  padding: 8px;
+  border-color: rgb(127,255,212);
+  color: white;
 }

@@ -23,7 +23,8 @@
     position: absolute;
     width: 100%;
     height: 100%;
-    border-style: solid
+    border-style: solid;
+    border-color: rgb(127,255,212);
 }
 
 .general-information {
@@ -48,6 +49,8 @@ label {
 
 .profile-title {
     grid-area: '.';
+    margin-top: 1.5%;
+    font-weight:bold;
 }
 
 .general-information .general-information-title {
@@ -56,7 +59,7 @@ label {
     font-weight: bolder;
     width: 97%;
     margin: auto;
-    border-bottom: 5px dotted black;
+    border-bottom: 4px dotted white;
 }
 
 .general-information .general-image {
@@ -74,6 +77,13 @@ label {
     grid-area: e;
     width: 500px;
     height: 50px;
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    font-size: 20px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
 }
 
 .label-2 {
@@ -85,6 +95,13 @@ label {
     grid-area: g;
     width: 500px;
     height: 50px;
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    font-size: 20px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
 }
 
 .label-3 {
@@ -96,6 +113,13 @@ label {
     grid-area: i;
     width: 500px;
     height: 50px;
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    font-size: 20px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
 }
 
 .label-4 {
@@ -107,6 +131,13 @@ label {
     grid-area: k;
     width: 500px;
     height: 50px;
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    font-size: 20px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
 }
 
 /* css for body type information */
@@ -120,7 +151,7 @@ label {
     font-weight: bolder;
     width: 97%;
     margin: auto;
-    border-bottom: 5px dotted black;
+    border-bottom: 4px dotted white;
 }
 
 .body-type form {
@@ -138,7 +169,6 @@ label {
 }
 
 
-
 .form-1 {
     grid-area: a;
     margin-left: 25%;
@@ -150,7 +180,18 @@ label {
     width: 500px;
     height: 50px;
     margin-top: 1%;
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    font-size: 20px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
 }
+
+.form-2::placeholder {
+    color: rgb(127,255,212);
+  }
 
 .form-3 {
     grid-area: c;
@@ -165,7 +206,18 @@ label {
     width: 500px;
     height: 50px;
     margin-top: 1%;
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    font-size: 20px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
 }
+
+.form-4::placeholder {
+    color: rgb(127,255,212);
+  }
 
 .form-5 {
     grid-area: e;
@@ -177,13 +229,30 @@ label {
     grid-area: f;
     margin: auto;
     font-size: 20px;
+    background-color:rgb(40,40,40);
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 6px;
+    color: rgb(127,255,212);
 }
 
 .form-7 {
     grid-area: g;
     width: 100px;
     margin: auto;
+    margin-top: 1%;
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
+    font-weight:bolder;
 }
+
+.form-7:hover {
+    background-color: rgb(65, 65, 65)
+  }
 
 .form-8 {
     grid-area: h;
@@ -211,7 +280,7 @@ label {
     font-weight: bolder;
     width: 97%;
     margin: auto;
-    border-bottom: 5px dotted black;
+    border-bottom: 4px dotted white;
 }
 
 .macros-calories {
@@ -251,3 +320,4 @@ label {
     grid-area: g;
     margin: auto;
 }
+

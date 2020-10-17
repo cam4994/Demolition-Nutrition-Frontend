@@ -1,3 +1,154 @@
-body {
-    color:black;
+.foodModal .modal-content {
+    background-color:rgb(40,40,40);
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 12px;
+    font-size: 20px;
+    /* border-color: rgb(127,255,212); */
+    color: rgb(127,255,212);
 }
+
+.foodModal .modal-content .modal-body {
+    margin: auto;
+    text-align: center;
+}
+
+.modal-content .modal-header span {
+    color: rgb(127,255,212);
+}
+
+.search input, .search-exercises .exercise-input {
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    font-size: 20px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
+    text-align: center;
+}
+
+.search button {
+    margin-top: 5%;
+}
+
+.food {
+    width: 100%;
+    margin: auto;
+    margin-top: 25%;
+    border-style: hidden;
+    background: rgba(50,50,50, 1);
+    border-radius: 25px;
+    padding: 8px;
+    z-index: 40;
+    margin-top: 2%;
+    text-align: center;
+}
+
+.food .nutrition span {
+    color:white;
+}
+
+.food-display .food h4 {
+    color: white;
+    font-size: 20px;
+}
+
+.modal-body .search h3, .search-exercises h2 {
+   color: white;
+}
+
+.food button {
+    font-size: 14px;
+    padding: 9px;
+}
+
+.food span {
+    font-size: 16px;
+}
+
+.modal-footer {
+    margin: auto;
+    text-align: center;
+}
+
+.modal-footer .food-modal-footer button {
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 10px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
+    font-size: 24px;
+    text-align: center;
+    margin-top: 6%;
+}
+.modal-footer .food-modal-footer button:hover {
+    background-color: rgb(65, 65, 65);
+}
+
+.modal-footer .food-modal-footer select {
+    margin-top: 3%;
+}
+
+.modal-footer .food-modal-footer label {
+    font-size: 20px;
+    font-weight: normal;
+
+}
+
+.modal-footer .food-modal-footer .food-name {
+    color:white;
+}
+.modal-footer .food-modal-footer input {
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 4px;
+    font-size: 20px;
+    border-color: rgb(127,255,212);
+    color: white;
+ }
+
+ .food-modal-category {
+    background-color:rgb(60,60,60);
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 6px;
+    color: rgb(127,255,212);
+ }
+
+.modal-content .exercises-table th {
+    color:white;
+}
+
+.modal-content .exercises-table td {
+    color: rgb(127,255,212);
+}
+
+.modal-content .exercises-table td:hover {
+    cursor:pointer;
+    background-color: rgb(70,70,70)
+}
+
+.exercise-modal-footer .form {
+    margin:auto;
+}
+
+#exercise-modal-exercise {
+    color:white;
+}
+
+#exercise-modal-add-button {
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
+    margin-top: 7%;
+}
+
+#exercise-modal-add-button:hover {
+    background-color: rgb(65, 65, 65)
+  }

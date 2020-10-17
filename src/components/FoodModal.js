@@ -13,7 +13,11 @@ export default class FoodModal extends React.Component {
     }
 
     toggle = () => {
-        this.setState({ modal: !this.state.modal })
+        this.setState({ 
+            modal: !this.state.modal, 
+            foods: [], 
+            selectedFood: '' 
+        })
     }
 
     foodSearch = (name) => {
@@ -31,7 +35,7 @@ export default class FoodModal extends React.Component {
 
         fetch(`https://trackapi.nutritionix.com/v2/search/instant?query=${name}`, configObj)
             .then(resp => resp.json())
-            .then(foods => this.storeFoods(foods.common.slice(0, 3)))
+            .then(foods => this.storeFoods(foods.common.slice(0, 10)))
     }
 
     storeFoods = (foods) => {
@@ -67,7 +71,7 @@ export default class FoodModal extends React.Component {
                     foods_array.push(newFood)
                 })
         })
-        setTimeout(() => this.setState({ foods: foods_array }), 400)
+        setTimeout(() => this.setState({ foods: foods_array }), 600)
     }
 
     selectItem = (food) => {
@@ -79,10 +83,6 @@ export default class FoodModal extends React.Component {
         //Once add is clicked on the food modal, this function will trigger
         e.preventDefault()
         this.props.addEntry(this.state.selectedFood, e.target.category.value, e.target.servings.value)
-        this.setState( {
-            foods: [],
-            selectedFood: '', 
-        })
         this.toggle()
     }
 
@@ -98,27 +98,26 @@ export default class FoodModal extends React.Component {
                         <Search foodSearch={this.foodSearch} />
                         <FoodDisplay selectItem={this.selectItem} foods={this.state.foods} />
                     </ModalBody>
-                    <ModalFooter>
-                        {this.state.selectedFood !== '' ? (
-                            <div>
-                                <h3>{this.state.selectedFood.name}</h3>
+                    {this.state.selectedFood !== '' ? (
+                        <ModalFooter>
+                            <div className="food-modal-footer">
+                                <h3 className="food-name capitalize">{this.state.selectedFood.name}</h3>
                                 <span>Serving Size: {this.state.selectedFood.serving_qty} {this.state.selectedFood.serving_unit}</span>
                                 <form onSubmit={this.handleSubmit}>
-                                    <select name="category">
+                                    <label>Servings: </label>{'  '}
+                                    <input className="no-outline" name="servings"></input><br/>
+                                    <select className="food-modal-category no-outline" name="category">
                                         <option value="" defaultValue hidden>Select Meal</option>
                                         <option value="Breakfast">Breakfast</option>
                                         <option value="Lunch">Lunch</option>
                                         <option value="Dinner">Dinner</option>
                                         <option value="Snack">Snack</option>
-                                    </select>{'              '}
-                                    <label>Servings: </label>
-                                    <input name="servings"></input>{' '}
-                                    <Button type="submit" color="primary" >Add</Button>
+                                    </select><br/>
+                                    <Button className="add-button button no-outline" type="submit" color="primary" >Add</Button>
                                 </form>
                             </div>
-                        ) : null}
-
-                    </ModalFooter>
+                            </ModalFooter>
+                    ) : null}
                 </Modal>
             </div>
         );

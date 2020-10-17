@@ -1,13 +1,14 @@
 .tips {
     width: 65%;
     margin: auto;
-    border-style: hidden;
+    border-style: solid;
     background: rgba(40,40,40, .84);
     border-radius: 25px;
     padding: 20px;
     margin-top: 5%;
     color:white;
     font-size: 22px;
+    border-color:rgb(127,255,212);
 }
 
 .tips-title {

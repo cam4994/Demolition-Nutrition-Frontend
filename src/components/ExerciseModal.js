@@ -66,11 +66,11 @@ export default class ExerciseModal extends React.Component {
                     <ModalHeader toggle={this.toggle}>Add Workout to Journal</ModalHeader>
                     <ModalBody>
                         <div className="search-exercises">
-                            <h1>Search Exercises</h1>
-                            <input className="exercise-input" onChange={this.handleChange} autocomplete="off" type="text" name="search" placeholder="Search..." /><br />
+                            <h2>Search Exercises</h2>
+                            <input className="exercise-input no-outline" onChange={this.handleChange} autocomplete="off" type="text" name="search" placeholder="Enter Exercise Type" /><br />
                         </div>
                         {this.state.filteredExercises.length > 0 ? (
-                                    <Table hover>
+                                    <Table className="exercises-table" hover>
                                     <thead>
                                         <tr>
                                             <th>Select Exercise Type From Below</th>
@@ -87,19 +87,16 @@ export default class ExerciseModal extends React.Component {
                                 </Table>
                         ) : null}
                     </ModalBody>
-                    <ModalFooter>
-                        <div>
-                            {this.state.selectedExercise !== '' ? (
-                                <form onSubmit={this.handleSubmit}>
-                                    <h3>{this.state.selectedExercise.name}</h3>
-                                    Exercise Duration: <input onChange={this.durationChange} name="duration"/> minutes<br/>
-                                    Calories Burned: <input name="calories" value={this.state.caloriesBurned}/> kcal <br/>
-                                    <Button type="submit" color="primary" >Add</Button>
-                                </form>
-                            ) : null}
-                        </div>
-
-                    </ModalFooter>
+                    {this.state.selectedExercise !== '' ? (
+                        <ModalFooter className="exercise-modal-footer">
+                            <form onSubmit={this.handleSubmit}>
+                                <h3 id="exercise-modal-exercise">{this.state.selectedExercise.name}</h3>
+                                Exercise Duration: <input className="no-outline input-style" onChange={this.durationChange} name="duration"/> min<br/>
+                                Calories Burned: <input className="no-outline input-style" name="calories" value={this.state.caloriesBurned}/> kcal <br/>
+                                <Button id="exercise-modal-add-button" className="no-outline" type="submit" color="primary" >Add Exercise</Button>
+                            </form>
+                        </ModalFooter>
+                     ) : null}
                 </Modal>
             </div>
         );

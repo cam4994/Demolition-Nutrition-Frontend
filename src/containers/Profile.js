@@ -30,24 +30,24 @@ export default class Profile extends React.Component {
                         <div className="general-image">
                             <img src={image} alt="profile picture" width="355px" height="335px" />
                         </div>
-                        <label className="label-1">Username </label>{' '}
-                        <input className="input-1" value={username} />
-                        <label className="label-2">Age </label>{' '}
-                        <input className="input-2" value={age} />
-                        <label className="label-3">Height </label>{' '}
-                        <input className="input-3" value={`${height} inches`} />
-                        <label className="label-4">Sex </label>{' '}
-                        <input className="input-4" value={sex} />
+                        <label className="label-1 teal-green">Username </label>{' '}
+                        <input className="input-1 no-outline" value={username} />
+                        <label className="label-2 teal-green">Age </label>{' '}
+                        <input className="input-2 no-outline" value={age} />
+                        <label className="label-3 teal-green">Height </label>{' '}
+                        <input className="input-3 no-outline" value={`${Math.floor(height/12)}' ${height % 12}"`} />
+                        <label className="label-4 teal-green">Sex </label>{' '}
+                        <input className="input-4 no-outline" value={sex} />
                     </div>
                     <div className="body-type">
                         <h3>Your Body</h3>
                         <form onSubmit={this.handleSubmit}>
-                            <label className="form-1">Weight</label>
-                            <input className="form-2" name="weight" placeholder={`${weight} lbs`} />
-                            <label className="form-3">Body Fat Percentage</label>
-                            <input className="form-4" name="bodyfat" placeholder={`${bodyfat} %`} />
+                            <label className="form-1 teal-green">Weight</label>
+                            <input className="form-2 no-outline" name="weight" placeholder={`${weight} lbs`} autocomplete="off" />
+                            <label className="form-3 teal-green">Body Fat Percentage</label>
+                            <input className="form-4 no-outline" name="bodyfat" placeholder={`${bodyfat} %`} autocomplete="off" />
                             <label className="form-5">Current Goal</label>
-                            <select className="form-6" name="goal" >
+                            <select className="form-6 no-outline" name="goal" >
                                 {goal === "Weight Loss" ? (
                                     <option value="Weight Loss" selected>Weight Loss</option>) : (
                                         <option value="Weight Loss" >Weight Loss</option>
@@ -61,7 +61,7 @@ export default class Profile extends React.Component {
                                         <option value="Weight Gain" >Weight Gain</option>
                                     )}
                             </select><br />
-                            <button className="form-7" type="submit">Update</button>
+                            <button className="form-7 no-outline" type="submit">Update</button>
                             {this.state.updated ? <p className="form-8" style={{ color: 'green' }}>Update Successful</p> : null}
                         </form>
                     </div>
