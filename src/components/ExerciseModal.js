@@ -91,7 +91,7 @@ export default class ExerciseModal extends React.Component {
                         <ModalFooter className="exercise-modal-footer">
                             <form onSubmit={this.handleSubmit}>
                                 <h3 id="exercise-modal-exercise">{this.state.selectedExercise.name}</h3>
-                                Exercise Duration: <input className="no-outline input-style" onChange={this.durationChange} name="duration"/> min<br/>
+                                Exercise Duration: <input className="no-outline input-style" onChange={this.durationChange} autocomplete="off" name="duration"/> min<br/>
                                 Calories Burned: <input className="no-outline input-style" name="calories" value={this.state.caloriesBurned}/> kcal <br/>
                                 <Button id="exercise-modal-add-button" className="no-outline" type="submit" color="primary" >Add Exercise</Button>
                             </form>

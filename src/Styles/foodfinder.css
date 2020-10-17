@@ -75,3 +75,19 @@
 .find-food-description li {
     list-style-type: none;
 }
+
+.success-message {
+    margin-top: 4%;
+}
+
+.brand-food-modal .add-brand-meal-button {
+    background-color: rgb(65, 65, 65);
+    color: rgb(127,255,212);
+    border-style: hidden;
+    font-size: 20px;
+}
+
+.brand-food-modal .add-brand-meal-button:hover {
+    background-color: rgb(80, 80, 80);
+    color: white;
+}

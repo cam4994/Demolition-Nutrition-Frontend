@@ -3,6 +3,14 @@ import BrandFoodModal from './BrandFoodModal'
 
 export default class BrandFood extends React.Component {
 
+    state = {
+        success: false
+    }
+
+    successMessage = () => {
+        this.setState({ success: true })
+    }
+
     render() {
         const {name, calories, carbs, protein, fat, serving_qty, serving_unit, restaurant, 
             address, city, state, distance, phone, zip} = this.props.food
@@ -20,7 +28,7 @@ export default class BrandFood extends React.Component {
                     <h4>{restaurant}</h4>
                     <ul>
                         <li>
-                        {address}, {city}, {state}, {zip}
+                            {address}, {city}, {state}, {zip}
                         </li>
                         <li>
                             {parseFloat(distance / 1.6).toPrecision(3)} miles away
@@ -29,7 +37,8 @@ export default class BrandFood extends React.Component {
                             {phone.replace('+1', '')}
                         </li>
                     </ul>
-                    <BrandFoodModal food={this.props.food} user={this.props.user}/>
+                    <BrandFoodModal successMessage={this.successMessage} food={this.props.food} user={this.props.user}/>
+                    {this.state.success ? <h4 className="success-message teal-green">Entry successfully added to journal!</h4> : null}
                 </div>
             </div>
         )

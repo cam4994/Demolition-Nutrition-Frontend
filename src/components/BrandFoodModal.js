@@ -45,6 +45,7 @@ export default class BrandFoodModal extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.addEntry(e.target.category.value, e.target.servings.value)
+        this.props.successMessage()
         this.toggle()
     }
 
@@ -115,16 +116,16 @@ export default class BrandFoodModal extends React.Component {
                     </ModalBody>
                     <ModalFooter>
                         <form onSubmit={this.handleSubmit}>
-                            <select name="category">
+                            <select className="no-outline" name="category">
                                 <option value="" defaultValue hidden>Select Meal</option>
                                 <option value="Breakfast">Breakfast</option>
                                 <option value="Lunch">Lunch</option>
                                 <option value="Dinner">Dinner</option>
                                 <option value="Snack">Snack</option>
-                            </select>{'              '}
-                            <label>Servings: </label>
-                            <input name="servings"></input>{' '}
-                            <Button type="submit" color="primary" >Add</Button>
+                            </select><br/>
+                            <label>Servings: </label>{' '}
+                            <input name="servings"></input><br/>
+                            <button className="no-outline button" type="submit" >Add</button>
                         </form>
                     </ModalFooter>
                 </Modal>

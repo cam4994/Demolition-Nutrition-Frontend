@@ -83,8 +83,12 @@
     text-align: center;
     font-size: 40px;
     color:white;
-    animation: shake 0.5s;
+    animation-duration: 450ms;
+    animation-name: blink;
     animation-iteration-count: infinite;
+    animation-direction: alternate;
+    /* animation: shake 0.5s; */
+    /* animation-iteration-count: infinite; */
 }
 
 .calories-summary {
@@ -191,6 +195,14 @@
     color:white;
 }
 
+ @keyframes blink {
+    from {
+       opacity: 1;
+    }
+    to {
+       opacity: 0;
+    }
+  }
 
 
 @keyframes shake {

@@ -4,7 +4,6 @@
     border-radius: 20px;
     padding: 12px;
     font-size: 20px;
-    /* border-color: rgb(127,255,212); */
     color: rgb(127,255,212);
 }
 
@@ -152,3 +151,68 @@
 #exercise-modal-add-button:hover {
     background-color: rgb(65, 65, 65)
   }
+
+  /* BRAND FOOD MODAL */
+
+  .brandFoodModal .modal-content {
+    background-color:rgb(40,40,40);
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 10px;
+    color: rgb(127,255,212);
+}
+
+.brandFoodModal .modal-content .modal-body {
+    margin: auto;
+    text-align: center;
+}
+
+.brandFoodModal .modal-content .modal-body .react-datepicker-wrapper input {
+    background-color:rgb(65,65,65);
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 6px;
+    color: white;
+    text-align: center;
+}
+
+.brandFoodModal .modal-content .modal-body .react-datepicker-wrapper input::placeholder {
+    color:white;
+}
+
+.brandFoodModal .modal-content .modal-body h3 {
+    color:white;
+    margin-top: 4%;
+}
+
+.brandFoodModal .modal-content .modal-footer {
+    margin: auto;
+}
+
+.brandFoodModal .modal-content .modal-footer select {
+    background-color:rgb(65,65,65);
+    border-radius: 16px;
+    border-style: hidden;
+    padding: 8px;
+    color: white;
+}
+
+.brandFoodModal .modal-content .modal-footer label {
+    font-size: 18px;
+}
+
+.brandFoodModal .modal-content .modal-footer input {
+    background-color:rgb(65,65,65);
+    border-radius: 14px;
+    border-style: hidden;
+    padding: 6px;
+    color: white;
+    margin-top: 4%;
+    font-size: 18px;
+}
+
+.brandFoodModal .modal-content .modal-footer button {
+    font-size: 22px; 
+    margin-top: 6%;
+    padding: 8px;
+}
