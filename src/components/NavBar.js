@@ -6,7 +6,7 @@ const NavBar = (props) => {
 
     return (
         <Navbar expand="lg">
-            <Navbar.Brand href="#home">Demolition Nutrition</Navbar.Brand>
+            <Navbar.Brand href="/">Demolition Nutrition</Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="mr-auto">
@@ -23,7 +23,7 @@ const NavBar = (props) => {
                 {props.user === '' ? (
                     <Nav.Link className="login-link" as={Link} to="/login">Log In</Nav.Link>
                 ) : (
-                    <Nav.Link className="signout-link" as={Link} to="/signout">Sign Out</Nav.Link>
+                    <a href="/" onClick={props.signOut}>Sign Out</a>
                 )}
             </Navbar.Collapse>
         </Navbar>

@@ -19,7 +19,19 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.fetchUser()
+    const token = localStorage.getItem("token")
+    console.log(token)
+    if (token) {
+      fetch('http://localhost:3001/auto_login', {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      })
+      .then(resp => resp.json())
+      .then(user => {
+        this.setState({ user })
+      })
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -54,61 +66,36 @@ class App extends React.Component {
     }
   }
 
-  fetchUser = () => {
-    fetch('http://localhost:3001/current')
-      .then(resp => resp.json())
-      .then(user => console.log(user))
-  }
-
   signUp = (e) => {
     e.preventDefault()
     let height = parseInt(e.target.height_ft.value) * 12 + parseInt(e.target.height_in.value)
-    // localStorage.setItem(imageName, e.target.image.files[0]);
-    const formData = new FormData();
-    formData.append('username', e.target.username.value);
-    formData.append('password', e.target.password.value);
-    formData.append('password_confirmation', e.target.password_confirmation.value);
-    formData.append('weight', e.target.weight.value);
-    formData.append('height', height);
-    formData.append('bodyfat', parseFloat(e.target.bodyfat.value));
-    formData.append('age', parseInt(e.target.age.value));
-    formData.append('sex', e.target.sex.value);
-    formData.append('goal', e.target.goal.value);
-    formData.append('image', e.target.image.files[0]);
+    let image = URL.createObjectURL(e.target.image.files[0])
 
-    fetch('http://localhost:3001/users', {
-      method: 'POST',
-      body: formData
-    })
-      .then(resp=> resp.json())
-      .then(user=> console.log(user))
-
-
-  //   let configObj = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Accept": "application/json"
-  //     },
-  //     body: JSON.stringify({
-  //       username: e.target.username.value,
-  //       password: e.target.password.value,
-  //       password_confirmation: e.target.password_confirmation.value,
-  //       weight: e.target.weight.value,
-  //       height: height,
-  //       bodyfat: parseFloat(e.target.bodyfat.value),
-  //       age: parseInt(e.target.age.value),
-  //       sex: e.target.sex.value,
-  //       goal: e.target.goal.value,
-  //       image: image
-  //     })
-  //   }
-  //   fetch('http://localhost:3001/users', configObj)
-  //     .then(resp => resp.json())
-  //     .then(user => {
-  //       console.log(user)
-  //       this.setState({ user })
-  //     })
+    let configObj = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+      },
+      body: JSON.stringify({
+        username: e.target.username.value,
+        password: e.target.password.value,
+        password_confirmation: e.target.password_confirmation.value,
+        weight: e.target.weight.value,
+        height: height,
+        bodyfat: parseFloat(e.target.bodyfat.value),
+        age: parseInt(e.target.age.value),
+        sex: e.target.sex.value,
+        goal: e.target.goal.value,
+        image: image
+      })
+    }
+    fetch('http://localhost:3001/users', configObj)
+      .then(resp => resp.json())
+      .then(data => {
+        localStorage.setItem("token", data.jwt)
+        this.setState({ user: data.user })
+      })
   }
 
   logIn = (e) => {
@@ -126,18 +113,21 @@ class App extends React.Component {
     }
     fetch('http://localhost:3001/login', configObj)
       .then(resp => resp.json())
-      .then(user => {
-        this.fetchUser()
-        this.setState({ user })
+      .then(data => {
+        localStorage.setItem("token", data.jwt)
+        console.log(data.jwt)
+        this.setState({ user: data.user })
       })
   }
 
   updateUser = (weight, bodyfat, goal) => {
+    const token = localStorage.getItem("token")
     let configObj = {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        "Accept": "application/json"
+        "Accept": "application/json", 
+        "Authorization": `Bearer ${token}`
       },
       body: JSON.stringify({
         weight,
@@ -154,11 +144,15 @@ class App extends React.Component {
       })
   }
 
+  signOut = () => {
+    localStorage.clear()
+  }
+
   render() {
     return (
       <div className="app">
         <Router>
-          <NavBar user={this.state.user} />
+          <NavBar signOut={this.signOut} user={this.state.user} />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/login" render={(props) => (this.state.user === '' ? (

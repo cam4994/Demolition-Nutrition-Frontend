@@ -23,11 +23,13 @@ export default class BrandFoodModal extends React.Component {
     }
 
     fetchOrCreateJournal = (date) => {
+        const token = localStorage.getItem("token")
         let configObj = {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Accept": "application/json"
+              "Accept": "application/json", 
+              "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
               date: date,
@@ -58,11 +60,13 @@ export default class BrandFoodModal extends React.Component {
     }
 
     createMeal = (food) => {
+        const token = localStorage.getItem("token")
         let configObj = {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Accept": "application/json"
+              "Accept": "application/json", 
+              "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
               user_id: this.props.user.id, 
@@ -78,11 +82,13 @@ export default class BrandFoodModal extends React.Component {
     }
 
     createEntry = (meal_id, category, servings) => {
+        const token = localStorage.getItem("token")
         let configObj = {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Accept": "application/json"
+              "Accept": "application/json", 
+              "Authorization": `Bearer ${token}`
             },
             body: JSON.stringify({
               meal_id,
@@ -124,7 +130,7 @@ export default class BrandFoodModal extends React.Component {
                                 <option value="Snack">Snack</option>
                             </select><br/>
                             <label>Servings: </label>{' '}
-                            <input name="servings"></input><br/>
+                            <input className="no-outline" name="servings"></input><br/>
                             <button className="no-outline button" type="submit" >Add</button>
                         </form>
                     </ModalFooter>
