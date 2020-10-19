@@ -6,11 +6,9 @@ const SignUp = (props) => {
     <div className="signUp">
       <form onSubmit={props.signUp}>
         <h1 className="formTitle">Create Account</h1>
-        <div id="username-password">
-          <input className="no-outline" type="text" placeholder="Username" name="username" required/><br />
-          <input className="no-outline" type="password" placeholder="Enter Password" name="password" required/><br />
-          <input className="no-outline" type="password" placeholder="Confirm Password" name="password_confirmation" required/><br />
-        </div>
+         <input className="no-outline" type="text" placeholder="Username" name="username" required/><br />
+        <input className="no-outline" type="password" placeholder="Enter Password" name="password" required/><br />
+        <input className="no-outline" type="password" placeholder="Confirm Password" name="password_confirmation" required/><br />
         <div className='user-body-type'>
           <h2>Your Body</h2>
           <label>Weight:</label>{'  '}
@@ -57,11 +55,9 @@ const SignUp = (props) => {
           <label>Male</label>{'  '}
           <input className="no-outline" type="radio" id="female" name="sex" value="Female" />{'  '}
           <label>Female</label>
-          <br />
-          <label>Select Image (Optional):</label>{'  '}
-          <input className="no-outline" type="file" name="image" accept="image/*" /><br />
         </div><br/>
         <button className="no-outline" type="submit">Sign Up</button>
+        {props.errors.map(error => <p style={{color:'red'}}>{error}</p>)}
       </form>
     </div>
   );

@@ -66,22 +66,6 @@
   color: white;
 }
 
-.login {
-  border-style: hidden;
-  background: rgba(40,40,40, .84);
-  text-align:center;
-  width: 400px;
-  height: 300px;
-  margin: auto;
-  border-radius: 25px;
-  padding: 20px;
-  margin-top: 5%;
-}
-
-.login-title {
-  color: rgb(127,255,212);
-}
-
 .home {
   text-align: center;
   margin-top: 5%;
@@ -103,6 +87,7 @@
   text-decoration: none;
   color: white;
   font-size: 25px;
+  font-weight: bolder;
 }
 
 .demolish {
@@ -137,4 +122,73 @@
   padding: 8px;
   border-color: rgb(127,255,212);
   color: white;
+}
+
+.login {
+  border-style: hidden;
+  background: rgba(40,40,40, .84);
+  text-align:center;
+  width: 450px;
+  margin: auto;
+  border-radius: 25px;
+  padding: 20px;
+  margin-top: 5%;
+}
+
+.login-title {
+  color: white;
+  font-size: 40px;
+}
+
+
+.login input {
+  background-color:rgb(40, 40, 40);
+  border-radius: 20px;
+  border: 2px solid;
+  padding: 8px;
+  font-size: 16px;
+  border-color: rgb(127,255,212);
+  color: rgb(127,255,212);
+  text-align: center;
+  margin-top: 3%;
+  width: 300px;
+}
+
+#login-button {
+  margin-top: 4%;
+  background-color:rgb(40,40,40);
+  border-radius: 20px;
+  border: 2px solid;
+  padding: 12px;
+  border-color: rgb(127,255,212);
+  color: rgb(127,255,212);
+  font-weight:bolder;
+  font-size: 22px;
+}
+
+#login-button:hover {
+  background-color: rgb(65, 65, 65);
+}
+
+.login p {
+  margin-top: 3%;
+  font-size: 20px;
+}
+
+#login-signup-button {
+  background:rgb(127,255,212);
+  border-radius: 18px;
+  border: 2px solid rgb(27, 27, 27);
+  padding: 8px;
+}
+
+#login-signup-button:hover {
+  background: rgb(56, 224, 168)
+}
+
+#login-signup-button .nav-link {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  font-weight: bolder;
 }

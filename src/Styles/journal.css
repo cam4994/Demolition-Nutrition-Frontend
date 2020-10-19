@@ -6,7 +6,7 @@
     "e e"
     "b c"
     "b d";
-    grid-template-rows: 100px 100px 0.5fr 0.5fr;
+    grid-template-rows: 90px 90px 0.5fr 0.5fr;
     grid-template-columns: 0.35fr 0.65fr;                
     position: absolute;
     width: 100vw;
@@ -117,6 +117,10 @@
     color:white;
 }
 
+#macros-summary-title, #calories-summary-title {
+    font-size: 28px;
+}
+
 .macros-summary {
     width: 85%;
     margin: auto;
@@ -170,7 +174,7 @@
     width: 280px; 
     margin: auto; 
     font-weight:bold;
-    margin-top: 4%;
+    margin-top: 3%;
 }
 
 .macros-progress-carbs, .macros-progress-protein, .macros-progress-fat {

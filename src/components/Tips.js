@@ -1,6 +1,5 @@
 import React from 'react';
 import '../Styles/tips.css'
-import FoodFinder from './FoodFinder';
 
 const Tips = (props) => {
   return (

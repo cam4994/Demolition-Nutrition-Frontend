@@ -20,16 +20,13 @@ export default class Profile extends React.Component {
 
     render() {
         const { calories, carbs, protein, fat } = this.props.userNutrition
-        const { username, sex, weight, height, bodyfat, age, goal, image } = this.props.user
+        const { username, sex, weight, height, bodyfat, age, goal} = this.props.user
         return (
             <div className="profile-page">
                 <h1 className="profile-title">Profile</h1>
                 <div className="whole-profile">
                     <div className="general-information">
                         <h3 className="general-information-title">General Information</h3>
-                        <div className="general-image">
-                            <img src={image} alt="profile picture" width="355px" height="335px" />
-                        </div>
                         <label className="label-1 teal-green">Username </label>{' '}
                         <input className="input-1 no-outline" value={username} />
                         <label className="label-2 teal-green">Age </label>{' '}

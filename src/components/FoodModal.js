@@ -77,9 +77,11 @@ export default class FoodModal extends React.Component {
     selectItem = (food) => {
         //Food that was selected from the search feature
         this.setState({ selectedFood: food })
-        let foodModal = document.getElementById('food-modal-footer')
-        setTimeout(() => { }, 200)
-        foodModal.scrollIntoView();
+        setTimeout(()=>{
+            let foodModal = document.getElementById('food-modal-footer')
+            foodModal.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
+        }, 100)
+        
     }
 
     handleSubmit = (e) => {

@@ -228,20 +228,20 @@ export default class Journal extends React.Component {
                 ) : null}
                 <div className="meals-table-container">
                     <div className="meals-table gradient-border">
-                        <h2 className="meals-table-title">Today's Meal Entries</h2>
+                        <h2 className="meals-table-title">Meal Entries</h2>
                         <MealsTable meals={this.state.meals} />
                     </div>
                 </div>
                 <div className="exercise-table-container ">
                     <div className="exercises-table gradient-border">
-                        <h2 className="exercises-table-title">Today's Workouts</h2>
+                        <h2 className="exercises-table-title">Workouts</h2>
                         <ExercisesTable workouts={this.state.workouts} />
                     </div>
                 </div>
                 {this.state.journal ? (
                     <div className="journal-nutrition-summary">
                         <div className="calories-summary">
-                            <h2>Calories Summary</h2>
+                            <h2 id="calories-summary-title">Calories Summary</h2>
                             <span>Target Calories: <span className="teal-green">{caloriesGoal} kcal</span></span><br />
                             <span>Calories Burned: <span className="teal-green">{this.state.burned} kcal</span></span><br />
                             <span>{caloriesGoal >= this.state.consumed.calories ? (
@@ -252,7 +252,7 @@ export default class Journal extends React.Component {
                             <CaloriesProgress caloriesGoal={caloriesGoal} consumedCalories={this.state.consumed.calories} />
                         </div>
                         <div className="macros-summary">
-                            <h2>Macronutrient Summary</h2>
+                            <h2 id="macros-summary-title" >Macronutrient Summary</h2>
                             <span>Target Carbs: <span className="teal-green">{carbsGoal} g</span></span><br />
                             <span>Target Protein: <span className="teal-green">{proteinGoal} g</span></span><br />
                             <span>Target Fat: <span className="teal-green">{fatGoal} g</span></span>

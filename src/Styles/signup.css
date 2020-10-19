@@ -1,21 +1,12 @@
 .signUp {
     width: 50%;
     margin: auto;
-    border-style: solid;
+    border-style: hidden;
     border-radius: 25px;
-    border-color: rgb(127,255,212);
     background: rgba(40,40,40, .84);
     padding: 20px;
     text-align: center;
     margin-top: 3%;
-}
-
-#username-password {
-    margin: auto;
-    border-style: hidden;
-    border-radius: 25px;
-    padding: 10px;
-    text-align: center;
 }
 
 .user-body-type {
@@ -53,7 +44,7 @@
     font-size: 16px;
 }
 
-.signUp input[type="text"], input[type="password"] {
+.signUp input[type="text"], .signUp input[type="password"] {
     background-color:rgb(40, 40, 40);
     border-radius: 20px;
     border: 2px solid;
@@ -91,13 +82,3 @@
     color: rgb(127,255,212);
     margin-top: 2%;
 }
-
-/* .signUp input[type="file"] {
-    font-size: 16px;
-    background-color:rgb(65,65,65);
-    border-style:hidden;
-    border-radius: 20px;
-    padding: 6px;
-    color: rgb(127,255,212);
-    margin-top: 2%;
-} */

@@ -15,7 +15,9 @@ class App extends React.Component {
 
   state = {
     user: '',
-    userNutrition: ''
+    userNutrition: '', 
+    signUpErrors: [], 
+    loginError: ''
   }
 
   componentDidMount() {
@@ -69,7 +71,6 @@ class App extends React.Component {
   signUp = (e) => {
     e.preventDefault()
     let height = parseInt(e.target.height_ft.value) * 12 + parseInt(e.target.height_in.value)
-    let image = URL.createObjectURL(e.target.image.files[0])
 
     let configObj = {
       method: "POST",
@@ -86,15 +87,18 @@ class App extends React.Component {
         bodyfat: parseFloat(e.target.bodyfat.value),
         age: parseInt(e.target.age.value),
         sex: e.target.sex.value,
-        goal: e.target.goal.value,
-        image: image
+        goal: e.target.goal.value
       })
     }
     fetch('http://localhost:3001/users', configObj)
       .then(resp => resp.json())
       .then(data => {
-        localStorage.setItem("token", data.jwt)
-        this.setState({ user: data.user })
+        if (data.errors) {
+          this.setState({ signUpErrors: data.errors })
+        } else {
+          localStorage.setItem("token", data.jwt)
+          this.setState({ user: data.user })
+        }
       })
   }
 
@@ -114,9 +118,12 @@ class App extends React.Component {
     fetch('http://localhost:3001/login', configObj)
       .then(resp => resp.json())
       .then(data => {
-        localStorage.setItem("token", data.jwt)
-        console.log(data.jwt)
-        this.setState({ user: data.user })
+        if (data.errors) {
+          this.setState({ loginError: data.errors[0]})
+        } else {
+          localStorage.setItem("token", data.jwt)
+          this.setState({ user: data.user })
+        }
       })
   }
 
@@ -156,11 +163,11 @@ class App extends React.Component {
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/login" render={(props) => (this.state.user === '' ? (
-              <LogIn logIn={this.logIn} />
+              <LogIn error={this.state.loginError} logIn={this.logIn} />
             ) : <Journal user={this.state.user} userNutrition={this.state.userNutrition} />
             )} />
             <Route exact path="/signup" render={(props) => (this.state.user === '' ? (
-              <SignUp signUp={this.signUp} />
+              <SignUp errors={this.state.signUpErrors} signUp={this.signUp} />
             ) : <Journal user={this.state.user} userNutrition={this.state.userNutrition} />
             )} />
             <Route exact path="/journal" render={(props) => (
