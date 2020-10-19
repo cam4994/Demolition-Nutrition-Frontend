@@ -13,10 +13,10 @@ export default class FoodModal extends React.Component {
     }
 
     toggle = () => {
-        this.setState({ 
-            modal: !this.state.modal, 
-            foods: [], 
-            selectedFood: '' 
+        this.setState({
+            modal: !this.state.modal,
+            foods: [],
+            selectedFood: ''
         })
     }
 
@@ -77,6 +77,9 @@ export default class FoodModal extends React.Component {
     selectItem = (food) => {
         //Food that was selected from the search feature
         this.setState({ selectedFood: food })
+        let foodModal = document.getElementById('food-modal-footer')
+        setTimeout(() => { }, 200)
+        foodModal.scrollIntoView();
     }
 
     handleSubmit = (e) => {
@@ -89,8 +92,8 @@ export default class FoodModal extends React.Component {
     render() {
         return (
             <div className="food-modal">
-                <Button className="add-meal-button" onClick={this.toggle}>
-                <i class="fas fa-utensils"></i>{' '}
+                <Button id="add-meal-modal-button" onClick={this.toggle}>
+                    <i class="fas fa-utensils"></i>{' '}
                 Add Meal</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="foodModal">
                     <ModalHeader toggle={this.toggle}>Add Food Entry to Journal</ModalHeader>
@@ -98,26 +101,29 @@ export default class FoodModal extends React.Component {
                         <Search foodSearch={this.foodSearch} />
                         <FoodDisplay selectItem={this.selectItem} foods={this.state.foods} />
                     </ModalBody>
-                    {this.state.selectedFood !== '' ? (
-                        <ModalFooter>
-                            <div className="food-modal-footer">
-                                <h3 className="food-name capitalize">{this.state.selectedFood.name}</h3>
-                                <span>Serving Size: {this.state.selectedFood.serving_qty} {this.state.selectedFood.serving_unit}</span>
-                                <form onSubmit={this.handleSubmit}>
-                                    <label>Servings: </label>{'  '}
-                                    <input className="no-outline" name="servings"></input><br/>
-                                    <select className="food-modal-category no-outline" name="category">
-                                        <option value="" defaultValue hidden>Select Meal</option>
-                                        <option value="Breakfast">Breakfast</option>
-                                        <option value="Lunch">Lunch</option>
-                                        <option value="Dinner">Dinner</option>
-                                        <option value="Snack">Snack</option>
-                                    </select><br/>
-                                    <Button className="add-button button no-outline" type="submit" color="primary" >Add</Button>
-                                </form>
-                            </div>
-                            </ModalFooter>
-                    ) : null}
+                    <ModalFooter>
+                        <div id="food-modal-footer" className="food-modal-footer">
+                            {this.state.selectedFood !== '' ? (
+                                <div>
+                                    <h3 className="food-name capitalize">{this.state.selectedFood.name}</h3>
+                                    <span>Serving Size: {this.state.selectedFood.serving_qty} {this.state.selectedFood.serving_unit}</span>
+                                    <form onSubmit={this.handleSubmit}>
+                                        <label>Servings: </label>{'  '}
+                                        <input className="no-outline" name="servings"></input><br />
+                                        <select className="food-modal-category no-outline" name="category">
+                                            <option value="" defaultValue hidden>Select Meal</option>
+                                            <option value="Breakfast">Breakfast</option>
+                                            <option value="Lunch">Lunch</option>
+                                            <option value="Dinner">Dinner</option>
+                                            <option value="Snack">Snack</option>
+                                        </select><br />
+                                        <Button className="add-button button no-outline" type="submit" color="primary" >Add</Button>
+                                    </form>
+                                </div>
+                            ) : null}
+                        </div>
+                    </ModalFooter>
+
                 </Modal>
             </div>
         );

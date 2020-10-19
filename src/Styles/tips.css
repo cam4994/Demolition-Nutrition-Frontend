@@ -7,12 +7,17 @@
     padding: 20px;
     margin-top: 5%;
     color:white;
-    font-size: 22px;
+    font-size: 17px;
     border-color:rgb(127,255,212);
 }
 
 .tips-title {
-    text-align: center
+    text-align: center;
+    font-size: 30px;
+}
+
+.tips h2 {
+    font-size: 25px;
 }
 
 .teal-green {

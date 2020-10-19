@@ -19,6 +19,21 @@
     text-align: center;
 }
 
+.calendar .react-datepicker-wrapper input {
+        background-color:rgb(65,65,65);
+        border-style:hidden;
+        border-radius: 20px;
+        padding: 6px;
+        color: white;
+        text-align: center;
+        width: 220px;
+    }
+    
+.calendar .react-datepicker-wrapper input::placeholder {
+    color:white;
+}
+
+
 .modal-buttons {
     grid-area: e;
     display:table;  
@@ -132,31 +147,6 @@
     animation: animatedgradient 3s ease alternate infinite;
     background-size: 300% 300%;
   }
-  
-  
-  @keyframes animatedgradient {
-      0% {
-          background-position: 0% 50%;
-      }
-      50% {
-          background-position: 100% 50%;
-      }
-      100% {
-          background-position: 0% 50%;
-      }
-  }
-
-.food-modal .add-meal-button {
-    font-size: 25px;
-    background-color: rgb(127,255,212);
-    color: black
-}
-
-.exercise-modal .exercise-modal-button {
-    font-size: 25px;
-    background-color: rgb(127,255,212);
-    color: black;
-}
 
 .meals-table-title {
     color: white;
@@ -193,6 +183,18 @@
 
 .journal-date {
     color:white;
+}
+
+@keyframes animatedgradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
  @keyframes blink {

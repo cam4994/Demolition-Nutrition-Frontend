@@ -4,7 +4,7 @@
     ". a c"
     ". b c"
     ". d c";
-    grid-template-rows: 50px 150px 1fr;
+    grid-template-rows: 50px 345px 1fr;
     grid-template-columns: 300px 1fr 450px;        
     position: absolute;
     width: 100vw;
@@ -18,7 +18,52 @@
 
 .find-food-form {
     grid-area: b;
+    width: 90%;
+    margin: auto;
+    border-style: hidden;
+    background: rgba(40,40,40, .84);
+    border-radius: 25px;
+    padding: 20px;
+    text-align: center
+}
+
+.find-food-form input {
+    background-color:rgb(40, 40, 40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    font-size: 16px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
     text-align: center;
+    margin-top: 1%;
+    width: 300px;
+}
+
+.find-food-form button {
+    margin-top: 3%;
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
+    font-weight:bolder;
+    font-size: 16px;
+}
+
+.find-food-form button:hover {
+    background-color: rgb(65, 65, 65);
+}
+
+.find-food-form select {
+    font-size: 16px;
+    background-color:rgb(65,65,65);
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 6px;
+    color: rgb(127,255,212);
+    margin-top: 2%;
 }
 
 .display-brand-foods {
@@ -72,8 +117,13 @@
     margin-top: 100px;
 }
 
+.find-food-description h2 {
+    text-align: center;
+}
+
 .find-food-description li {
     list-style-type: none;
+    margin-top: 3%;
 }
 
 .success-message {

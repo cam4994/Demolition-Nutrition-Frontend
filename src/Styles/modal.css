@@ -1,3 +1,20 @@
+#add-meal-modal-button {
+    font-size: 25px;
+    background-color: rgb(127,255,212);
+    color: black
+}
+
+#exercise-modal-button {
+    font-size: 25px;
+    background-color: rgb(127,255,212);
+    color: black;
+    border-style:hidden;
+}
+
+#add-meal-modal-button:hover, #exercise-modal-button:hover {
+    background-color: white;
+}
+
 .foodModal .modal-content {
     background-color:rgb(40,40,40);
     border-style:hidden;
@@ -174,6 +191,7 @@
     padding: 6px;
     color: white;
     text-align: center;
+    width: 220px;
 }
 
 .brandFoodModal .modal-content .modal-body .react-datepicker-wrapper input::placeholder {
@@ -195,6 +213,7 @@
     border-style: hidden;
     padding: 8px;
     color: white;
+    text-align: center;
 }
 
 .brandFoodModal .modal-content .modal-footer label {
@@ -209,6 +228,8 @@
     color: white;
     margin-top: 4%;
     font-size: 18px;
+    width: 75px;
+    text-align: center;
 }
 
 .brandFoodModal .modal-content .modal-footer button {

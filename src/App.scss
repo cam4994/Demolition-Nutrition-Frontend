@@ -23,7 +23,17 @@
 }
 
 .app .navbar-nav a.nav-link:hover {
-  color: rgb(56, 224, 168);
+  color: white;
+}
+
+#signout {
+  color: rgb(127,255,212);
+  font-size: 20px;
+}
+
+#signout:hover {
+  color: white;
+  text-decoration: none;
 }
 
 .app .signout-link {

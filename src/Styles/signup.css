@@ -1,0 +1,103 @@
+.signUp {
+    width: 50%;
+    margin: auto;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: rgb(127,255,212);
+    background: rgba(40,40,40, .84);
+    padding: 20px;
+    text-align: center;
+    margin-top: 3%;
+}
+
+#username-password {
+    margin: auto;
+    border-style: hidden;
+    border-radius: 25px;
+    padding: 10px;
+    text-align: center;
+}
+
+.user-body-type {
+    margin: auto;
+    border-top: solid;
+    border-bottom: solid;
+    border-color: white;
+    padding: 10px;
+    text-align: center;
+    margin-top: 2%;
+}
+
+.signUp .user-body-type input[type="text"] {
+    background-color:rgb(40, 40, 40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 8px;
+    font-size: 16px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
+    text-align: center;
+    margin-top: 1%;
+    width: 100px;
+}
+
+.signUp h1 {
+    font-size: 35px;
+}
+
+.signUp h2 {
+    font-size: 28px;
+}
+
+.signUp label {
+    font-size: 16px;
+}
+
+.signUp input[type="text"], input[type="password"] {
+    background-color:rgb(40, 40, 40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 8px;
+    font-size: 16px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
+    text-align: center;
+    margin-top: 1%;
+    width: 300px;
+}
+
+.signUp button {
+    margin-top: 2%;
+    background-color:rgb(40,40,40);
+    border-radius: 20px;
+    border: 2px solid;
+    padding: 12px;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
+    font-weight:bolder;
+    font-size: 22px;
+}
+
+.signUp button:hover {
+    background-color: rgb(65, 65, 65);
+}
+
+.signUp select {
+    font-size: 16px;
+    background-color:rgb(65,65,65);
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 6px;
+    color: rgb(127,255,212);
+    margin-top: 2%;
+}
+
+/* .signUp input[type="file"] {
+    font-size: 16px;
+    background-color:rgb(65,65,65);
+    border-style:hidden;
+    border-radius: 20px;
+    padding: 6px;
+    color: rgb(127,255,212);
+    margin-top: 2%;
+} */

@@ -160,32 +160,33 @@ export default class FoodFinder extends React.Component {
             <div className="find-food">
                 <h1 className="find-food-title">Find Food Nearby</h1>
                 <form className="find-food-form" onSubmit={this.handleSubmit}>
-                    <input type="text" name="address" placeholder="Insert Address" required /><br/>
-                    <input type="text" name="food" placeholder="Insert Food" autocomplete="off" required /><br/>
-                    <select name="macro" onChange={this.handleMacroChange}>
+                    <input className="no-outline" type="text" name="address" placeholder="Insert Address" autocomplete="off" required /><br/>
+                    <input className="no-outline" type="text" name="food" placeholder="Insert Food" autocomplete="off" required /><br/>
+                    <select className="no-outline" name="macro" onChange={this.handleMacroChange}>
                         <option value="" defaultValue hidden>Search by</option>
                         <option value="calories">Calories</option>
                         <option value="carbs">Carbs</option>
                         <option value="protein">Protein</option>
                         <option value="fat">Fat</option>
                     </select><br/>
-                    <input type="text" name="macros_value" placeholder={this.state.sortMacro ? this.state.sortMacro : "Macro Target"} autocomplete="off" /><br/>
-                    <button type="submit">Search</button>
+                    <input className="no-outline" type="text" name="macros_value" placeholder={this.state.sortMacro ? `Amount of ${this.state.sortMacro}` : "Macro Target"} autocomplete="off" /><br/>
+                    <button className="no-outline" type="submit">Search</button>
                 </form>
                 <div className="find-food-description">
+                    <h2>Instructions</h2>
                     <ul>
-                        <li>Search nearby foods by entering an address, food type and an option to put constraints on your search.</li>
+                        <li>Search nearby foods by entering an address and a food type, with an option to put constraints on your search.</li>
                         <li>You may select between calories, carbs, protein and fat and specify the amount you are seeking to eat.</li>
-                        <li>If a calorie amount is entered, the results will display all foods +- 100 kcal.</li>
-                        <li>If a carb, protein or fat amount is entered, the results will display all foods +- 15 g of the selected macronutrient.</li>
-                        <li>There is an also an option to sort the results based on ascending calories, carbs and fat or descending protein.</li>
+                        <li>If a calorie amount is entered, the results will display all foods +/- 100 kcal.</li>
+                        <li>If a carb, protein or fat amount is entered, the results will display all foods +/- 15 g of the selected macronutrient.</li>
+                        <li>You can sort the results based on ascending calories, carbs and fat or descending protein.</li>
                     </ul>
                 </div>
                 {this.state.foods.length === 0 && this.state.showSort ? (
                     <h2 className="display-brand-error" style={{color:'red'}}>Sorry, we found no matches.</h2>
                     ) : this.state.showSort && this.state.foods.length > 0 ? (
                     <div className="display-brand-foods">
-                        <select className="food-sort" name="sort" onChange={this.handleChange}>
+                        <select className="food-sort no-outline" name="sort" onChange={this.handleChange}>
                             <option value="" defaultValue hidden>Sort Method</option>
                             <option value="distance">Distance</option>
                             <option value="calories">Calories</option>

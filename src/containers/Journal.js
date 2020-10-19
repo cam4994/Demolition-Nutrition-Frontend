@@ -216,7 +216,7 @@ export default class Journal extends React.Component {
             <div className="journal">
                 <div className="calendar">
                     <h1 className="journal-date">Journal Date</h1>
-                    <DatePicker isClearable placeholderText="Select a Journal Date" selected={this.state.startDate} onChange={date => this.handleChange(date)} />
+                    <DatePicker isClearable placeholderText="Select a Journal Date" className="no-outline" selected={this.state.startDate} onChange={date => this.handleChange(date)} />
                 </div>
                 {this.state.journal ? (
                     <div className="modal-buttons">
