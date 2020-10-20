@@ -23,7 +23,7 @@ export default function ExercisesTable(props) {
                             <td>{workout.duration}</td>
                             <td>{workout.calories}</td>
                             <td>
-                                <button className="delete-entry-button" onClick={() => props.deleteWorkout(workout)}>
+                                <button className="delete-entry-button no-outline" onClick={() => props.deleteWorkout(workout)}>
                                     <i className="fas fa-times-circle"></i>
                                 </button>
                             </td>

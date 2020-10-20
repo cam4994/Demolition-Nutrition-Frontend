@@ -19,7 +19,11 @@
     text-align: center;
 }
 
-.calendar .react-datepicker-wrapper input {
+.react-datepicker__input-container {
+    margin-top: 20%;
+}
+
+#calendar-datepicker {
         background-color:rgb(65,65,65);
         border-style:hidden;
         border-radius: 20px;
@@ -27,12 +31,11 @@
         color: white;
         text-align: center;
         width: 220px;
-    }
-    
-.calendar .react-datepicker-wrapper input::placeholder {
-    color:white;
 }
 
+#calendar-datepicker::placeholder {
+    color:white;
+}
 
 .modal-buttons {
     grid-area: e;
@@ -183,10 +186,6 @@
 
 .macros-progress .progress .progress-bar {
     color:black;
-}
-
-.journal-date {
-    color:white;
 }
 
 .th-delete-button {

@@ -9,7 +9,8 @@ export default class FoodFinder extends React.Component {
         foods: [],
         sortMethod: '',
         sortMacro: '', 
-        showSort: false
+        showSort: false, 
+        message: ''
     }
 
     handleSubmit = (e) => {
@@ -29,6 +30,8 @@ export default class FoodFinder extends React.Component {
             }
         );
         e.target.food.value = ''
+        e.target.macro.value = ''
+        e.target.macros_value.value = ''
     }
 
     fetchLocation = (lat, lng, food, macrosAmount, macro) => {
@@ -143,7 +146,8 @@ export default class FoodFinder extends React.Component {
         })
         this.setState({ 
             foods: alteredFoods, 
-            showSort: true
+            showSort: true, 
+            message: ''
         })
     }
 
@@ -154,8 +158,17 @@ export default class FoodFinder extends React.Component {
         this.setState({ sortMacro: e.target.value })
     }
 
+    successMessage = (food, date) => {
+        console.log(food)
+        let altered_date = JSON.stringify(date).split('T')[0].slice(1)
+        let message = `${food.name} added to ${altered_date} journal as a meal entry.`
+        this.setState({ 
+            foods: [],
+            message
+         })
+    }
+
     render() {
-        console.log(this.state.foods)
         return (
             <div className="find-food">
                 <h1 className="find-food-title">Find Food Nearby</h1>
@@ -182,8 +195,9 @@ export default class FoodFinder extends React.Component {
                         <li>You can sort the results based on ascending calories, carbs and fat or descending protein.</li>
                     </ul>
                 </div>
-                {this.state.foods.length === 0 && this.state.showSort ? (
-                    <h2 className="display-brand-error" style={{color:'red'}}>Sorry, we found no matches.</h2>
+                {this.state.message ? <h3 className="teal-green food-success-message">{this.state.message}</h3> : null }
+                {this.state.foods.length === 0 && this.state.showSort && !this.state.message ? (
+                    <h2 className="display-brand-error" style={{color:'red'}}>Sorry, no matches found.</h2>
                     ) : this.state.showSort && this.state.foods.length > 0 ? (
                     <div className="display-brand-foods">
                         <select className="food-sort no-outline" name="sort" onChange={this.handleChange}>
@@ -194,7 +208,7 @@ export default class FoodFinder extends React.Component {
                             <option value="protein">Protein</option>
                             <option value="fat">Fat</option>
                         </select>
-                        <DisplayBrandFoods user={this.props.user} foods={this.state.sortMethod === "distance" ? (
+                        <DisplayBrandFoods successMessage={this.successMessage} user={this.props.user} foods={this.state.sortMethod === "distance" ? (
                             this.state.foods.sort((a, b) => (a.distance > b.distance) ? 1 : -1)
                         ) : this.state.sortMethod === "calories" ? (
                                 this.state.foods.sort((a, b) => (a.calories > b.calories) ? 1 : -1)

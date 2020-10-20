@@ -78,7 +78,14 @@
 }
 
 .display-brand-error {
+    margin-top: 4%;
     grid-area: d; 
+    text-align: center;
+}
+
+.food-success-message {
+    margin-top: 4%;
+    grid-area: d;
     text-align: center;
 }
 

@@ -23,7 +23,7 @@ export default function MealsTable(props) {
                             <td>{meal.servings}</td>
                             <td>{Math.round(meal.calories * meal.servings)}</td>
                             <td>
-                                <button className="delete-entry-button" onClick={() => props.deleteEntry(meal)}>
+                                <button className="delete-entry-button no-outline" onClick={() => props.deleteEntry(meal)}>
                                     <i className="fas fa-times-circle"></i>
                                 </button>
                             </td>

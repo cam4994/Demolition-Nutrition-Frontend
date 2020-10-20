@@ -7,7 +7,7 @@ export default function DisplayBrandFoods(props) {
         <div className="food-display">
             {props.foods.map(food => {
                 i++
-                return <BrandFood key={i} food={food} user={props.user}/>
+                return <BrandFood successMessage={props.successMessage} key={i} food={food} user={props.user}/>
             })}
         </div>
     )

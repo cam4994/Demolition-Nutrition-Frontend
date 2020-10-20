@@ -20,7 +20,8 @@ export default class Journal extends React.Component {
         exercises: [],
         workouts: [],
         consumed: '',
-        burned: 0
+        burned: 0, 
+        deleted: false
     }
 
     componentDidMount() {
@@ -38,7 +39,7 @@ export default class Journal extends React.Component {
 
     componentDidUpdate(prevProps, prevState) {
         // fetch all entries if a journal date is selected or if a new entry is made
-        if (prevState.journal !== this.state.journal || prevState.newEntry !== this.state.newEntry || prevState.newWorkout !== this.state.newWorkout) {
+        if (prevState.journal !== this.state.journal || prevState.newEntry !== this.state.newEntry || prevState.newWorkout !== this.state.newWorkout || prevState.deleted !== this.state.deleted) {
             // fetch all entries then calculate the total nutrition 
             this.fetchEntries()
                 .then(() => this.calculateNutrition())
@@ -155,9 +156,8 @@ export default class Journal extends React.Component {
         }
         fetch(`http://localhost:3001/entries/${entry.entry_id}`, configObj)
         setTimeout(() => {
-            //set newEntry to '' so that it will trigger the component did Update and fetch all entries after deleting an entry
-            this.setState({ newEntry: 'deleted' })
-        }, 200);   
+            this.setState({ deleted: !this.state.deleted })
+        }, 100);   
     }
 
     calculateNutrition = () => {
@@ -228,9 +228,8 @@ export default class Journal extends React.Component {
         }
         fetch(`http://localhost:3001/workouts/${workout.workout_id}`, configObj)
         setTimeout(() => {
-            //set newEntry to '' so that it will trigger the component did Update and fetch all entries after deleting an entry
-            this.setState({ newWorkout: 'deleted' })
-        }, 200);   
+            this.setState({ deleted: !this.state.deleted })
+        }, 100);   
     }
 
     calculateBurnedCalories = () => {
@@ -248,8 +247,7 @@ export default class Journal extends React.Component {
         return (
             <div className="journal">
                 <div className="calendar">
-                    <h1 className="journal-date">Journal Date</h1>
-                    <DatePicker isClearable placeholderText="Select a Journal Date" className="no-outline" selected={this.state.startDate} onChange={date => this.handleChange(date)} />
+                    <DatePicker isClearable placeholderText="Select a Journal Date" id="calendar-datepicker" className="no-outline" selected={this.state.startDate} onChange={date => this.handleChange(date)} />
                 </div>
                 {this.state.journal ? (
                     <div className="modal-buttons">

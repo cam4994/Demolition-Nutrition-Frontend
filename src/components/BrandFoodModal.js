@@ -44,10 +44,10 @@ export default class BrandFoodModal extends React.Component {
             })
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = (e, food, date) => {
         e.preventDefault()
         this.addEntry(e.target.category.value, e.target.servings.value)
-        this.props.successMessage()
+        this.props.successMessage(food, date)
         this.toggle()
     }
 
@@ -114,14 +114,14 @@ export default class BrandFoodModal extends React.Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="brandFoodModal">
                     <ModalHeader toggle={this.toggle}>Add Food Entry to Journal</ModalHeader>
                     <ModalBody>
-                        <DatePicker isClearable placeholderText="Select a Journal Date" selected={this.state.startDate} onChange={date => this.handleChange(date)} />
+                        <DatePicker isClearable className="no-outline" placeholderText="Select a Journal Date" selected={this.state.startDate} onChange={date => this.handleChange(date)} />
                         <div>
                             <h3>{this.props.food.name}</h3>
                             <span>Serving Size: {this.props.food.serving_qty} {this.props.food.serving_unit}</span>
                         </div>
                     </ModalBody>
                     <ModalFooter>
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={(e)=> this.handleSubmit(e, this.props.food, this.state.startDate)}>
                             <select className="no-outline" name="category">
                                 <option value="" defaultValue hidden>Select Meal</option>
                                 <option value="Breakfast">Breakfast</option>
