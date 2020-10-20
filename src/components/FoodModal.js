@@ -95,7 +95,7 @@ export default class FoodModal extends React.Component {
         return (
             <div className="food-modal">
                 <Button id="add-meal-modal-button" onClick={this.toggle}>
-                    <i class="fas fa-utensils"></i>{' '}
+                    <i className="fas fa-utensils"></i>{' '}
                 Add Meal</Button>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className="foodModal">
                     <ModalHeader toggle={this.toggle}>Add Food Entry to Journal</ModalHeader>

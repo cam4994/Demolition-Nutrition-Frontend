@@ -7,15 +7,40 @@ export default class Profile extends React.Component {
         updated: false
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.updated !== this.state.updated) {
+            let form = document.querySelector('.profile-form')
+            let p = document.createElement('p')
+            p.textContent = "Update Successful"
+            p.setAttribute('class', 'teal-green profile-success-message')
+            form.append(p)
+            this.fade(p)
+      }
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
-        this.setState({ updated: true })
+        this.setState({ updated: !this.state.updated })
         // Check to see if the weight, bodyfat or goal were altered 
         let weight = !!e.target.weight.value ? parseFloat(e.target.weight.value) : this.props.user.value
         let bodyfat = !!e.target.bodyfat.value ? parseFloat(e.target.bodyfat.value) : this.props.user.bodyfat
         let goal = e.target.goal.value !== this.props.user.goal ? e.target.goal.value : this.props.user.goal
         this.props.updateUser(weight, bodyfat, goal)
 
+    }
+
+    fade = (element) => {
+        // initial opacity
+        let opac = 1
+        let fadeTimer = setInterval(function () {
+            if (opac <= 0.1) {
+                clearInterval(fadeTimer);
+                element.style.display = 'none';
+            }
+            element.style.opacity = opac;
+            element.style.filter = 'alpha(opacity=' + opac * 100 + ")";
+            opac -= opac * 0.1;
+        }, 90);
     }
 
     render() {
@@ -28,17 +53,17 @@ export default class Profile extends React.Component {
                     <div className="general-information">
                         <h3 className="general-information-title">General Information</h3>
                         <label className="label-1 teal-green">Username </label>{' '}
-                        <input className="input-1 no-outline" value={username} />
+                        <input className="input-1 no-outline" value={username} readOnly />
                         <label className="label-2 teal-green">Age </label>{' '}
-                        <input className="input-2 no-outline" value={age} />
+                        <input className="input-2 no-outline" value={age} readOnly />
                         <label className="label-3 teal-green">Height </label>{' '}
-                        <input className="input-3 no-outline" value={`${Math.floor(height/12)}' ${height % 12}"`} />
+                        <input className="input-3 no-outline" value={`${Math.floor(height/12)}' ${height % 12}"`} readOnly />
                         <label className="label-4 teal-green">Sex </label>{' '}
-                        <input className="input-4 no-outline" value={sex} />
+                        <input className="input-4 no-outline" value={sex} readOnly />
                     </div>
                     <div className="body-type">
                         <h3>Your Body</h3>
-                        <form onSubmit={this.handleSubmit}>
+                        <form className="profile-form" onSubmit={this.handleSubmit}>
                             <label className="form-1 teal-green">Weight</label>
                             <input className="form-2 no-outline" name="weight" placeholder={`${weight} lbs`} autocomplete="off" />
                             <label className="form-3 teal-green">Body Fat Percentage</label>
@@ -59,7 +84,6 @@ export default class Profile extends React.Component {
                                     )}
                             </select><br />
                             <button className="form-7 no-outline" type="submit">Update</button>
-                            {this.state.updated ? <p className="form-8" style={{ color: 'green' }}>Update Successful</p> : null}
                         </form>
                     </div>
                     <div className="nutrition-summary">

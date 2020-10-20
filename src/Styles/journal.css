@@ -178,7 +178,7 @@
 }
 
 .macros-progress-carbs, .macros-progress-protein, .macros-progress-fat {
-    margin-top: 8%;
+    margin-top: 5%;
 }
 
 .macros-progress .progress .progress-bar {
@@ -187,6 +187,17 @@
 
 .journal-date {
     color:white;
+}
+
+.th-delete-button {
+    width: 75px;
+}
+
+.delete-entry-button {
+    color:red;
+    background: rgb(40,40,40);
+    border-style:hidden;
+    font-size: 20px;
 }
 
 @keyframes animatedgradient {

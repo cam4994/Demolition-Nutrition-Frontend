@@ -32,7 +32,6 @@ export default class Journal extends React.Component {
         })
             .then(resp => resp.json())
             .then(exercises => {
-                console.log(exercises)
                 this.setState({ exercises })
             })
     }
@@ -144,6 +143,23 @@ export default class Journal extends React.Component {
             })
     }
 
+    deleteEntry = (entry) => {
+        const token = localStorage.getItem("token")
+        let configObj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        }
+        fetch(`http://localhost:3001/entries/${entry.entry_id}`, configObj)
+        setTimeout(() => {
+            //set newEntry to '' so that it will trigger the component did Update and fetch all entries after deleting an entry
+            this.setState({ newEntry: 'deleted' })
+        }, 200);   
+    }
+
     calculateNutrition = () => {
         let calories, carbs, fat, protein
         calories = carbs = fat = protein = 0
@@ -200,6 +216,23 @@ export default class Journal extends React.Component {
             })
     }
 
+    deleteWorkout = (workout) => {
+        const token = localStorage.getItem("token")
+        let configObj = {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": `Bearer ${token}`
+            }
+        }
+        fetch(`http://localhost:3001/workouts/${workout.workout_id}`, configObj)
+        setTimeout(() => {
+            //set newEntry to '' so that it will trigger the component did Update and fetch all entries after deleting an entry
+            this.setState({ newWorkout: 'deleted' })
+        }, 200);   
+    }
+
     calculateBurnedCalories = () => {
         let burned = 0
         this.state.workouts.forEach(workout => burned = burned + workout.calories)
@@ -229,13 +262,13 @@ export default class Journal extends React.Component {
                 <div className="meals-table-container">
                     <div className="meals-table gradient-border">
                         <h2 className="meals-table-title">Meal Entries</h2>
-                        <MealsTable meals={this.state.meals} />
+                        <MealsTable deleteEntry={this.deleteEntry} meals={this.state.meals} />
                     </div>
                 </div>
                 <div className="exercise-table-container ">
                     <div className="exercises-table gradient-border">
                         <h2 className="exercises-table-title">Workouts</h2>
-                        <ExercisesTable workouts={this.state.workouts} />
+                        <ExercisesTable deleteWorkout={this.deleteWorkout} workouts={this.state.workouts} />
                     </div>
                 </div>
                 {this.state.journal ? (

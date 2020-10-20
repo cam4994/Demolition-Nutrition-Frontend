@@ -22,7 +22,6 @@ class App extends React.Component {
 
   componentDidMount() {
     const token = localStorage.getItem("token")
-    console.log(token)
     if (token) {
       fetch('http://localhost:3001/auto_login', {
         headers: {
