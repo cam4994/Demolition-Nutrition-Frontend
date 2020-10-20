@@ -37,7 +37,7 @@ export default class BrandFood extends React.Component {
                             {phone.replace('+1', '')}
                         </li>
                     </ul>
-                    <BrandFoodModal successMessage={this.successMessage} food={this.props.food} user={this.props.user}/>
+                    <BrandFoodModal  successMessage={this.successMessage} food={this.props.food} user={this.props.user}/>
                     {this.state.success ? <h4 className="success-message teal-green">Entry successfully added to journal!</h4> : null}
                 </div>
             </div>
