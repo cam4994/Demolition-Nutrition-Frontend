@@ -37,6 +37,12 @@ export default class Journal extends React.Component {
             })
     }
 
+    componentDidUpdate(prevProps) {
+        if (this.props.user !== prevProps.user) {
+            this.fetchUserData(this.props.user)
+        }
+    }
+
     componentDidUpdate(prevProps, prevState) {
         // fetch all entries if a journal date is selected or if a new entry is made
         if (prevState.journal !== this.state.journal || prevState.newEntry !== this.state.newEntry || prevState.newWorkout !== this.state.newWorkout || prevState.deleted !== this.state.deleted) {
@@ -295,3 +301,5 @@ export default class Journal extends React.Component {
         )
     }
 }
+
+
