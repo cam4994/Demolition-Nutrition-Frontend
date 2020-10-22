@@ -4,7 +4,7 @@
     ". a c"
     ". b c"
     ". d c";
-    grid-template-rows: 50px 345px 1fr;
+    grid-template-rows: 50px 345px 9000px;
     grid-template-columns: 300px 1fr 450px;        
     position: absolute;
     width: 100vw;
@@ -74,17 +74,18 @@
     background: rgba(40,40,40, .84);
     border-radius: 25px;
     padding: 20px;
-    text-align: center
+    text-align: center;
+    margin-top: 1%;
 }
 
 .display-brand-error {
-    margin-top: 4%;
+    margin-top: 3%;
     grid-area: d; 
     text-align: center;
 }
 
 .food-success-message {
-    margin-top: 4%;
+    margin-top: 3%;
     grid-area: d;
     text-align: center;
 }

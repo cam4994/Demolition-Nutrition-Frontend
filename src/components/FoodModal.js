@@ -71,7 +71,7 @@ export default class FoodModal extends React.Component {
                     foods_array.push(newFood)
                 })
         })
-        setTimeout(() => this.setState({ foods: foods_array }), 700)
+        setTimeout(() => this.setState({ foods: foods_array }), 800)
     }
 
     selectItem = (food) => {

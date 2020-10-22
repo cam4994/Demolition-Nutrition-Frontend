@@ -124,7 +124,6 @@ export default class FoodFinder extends React.Component {
     }
 
     formatFood = (foods, locations) => {
-        console.log(foods)
         let alteredFoods = foods.map(food => {
             let location = locations.find(location => location.brand_id === food.nix_brand_id)
             return {
