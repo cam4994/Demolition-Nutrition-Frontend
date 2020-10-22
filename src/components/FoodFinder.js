@@ -13,6 +13,13 @@ export default class FoodFinder extends React.Component {
         message: ''
     }
 
+    componentDidUpdate(prevState) {
+        if (prevState.message !== this.state.message) {
+            let title = document.querySelector('.find-food-title')
+            title.scrollIntoView({behavior: "auto", block: "start", inline: "nearest"});
+        }
+    }
+
     handleSubmit = (e) => {
         e.preventDefault()
         let food = e.target.food.value
@@ -158,7 +165,6 @@ export default class FoodFinder extends React.Component {
     }
 
     successMessage = (food, date) => {
-        console.log(food)
         let altered_date = JSON.stringify(date).split('T')[0].slice(1)
         let message = `${food.name} added to ${altered_date} journal as a meal entry.`
         this.setState({ 
