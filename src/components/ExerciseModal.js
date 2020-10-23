@@ -65,7 +65,7 @@ export default class ExerciseModal extends React.Component {
                             <input className="exercise-input no-outline" onChange={this.handleChange} autocomplete="off" type="text" name="search" placeholder="Enter Exercise Type" /><br />
                         </div>
                         {this.state.filteredExercises.length > 0 ? (
-                                    <Table className="exercises-table" hover>
+                                    <Table className="exercises-table-modal" hover>
                                     <thead>
                                         <tr>
                                             <th>Select Exercise Type From Below</th>

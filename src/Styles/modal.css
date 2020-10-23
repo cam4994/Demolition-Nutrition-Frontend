@@ -134,15 +134,19 @@
     color: rgb(127,255,212);
  }
 
-.modal-content .exercises-table th {
+ .exercises-table-modal {
+     width: 450px;
+ }
+
+.modal-content .exercises-table-modal th {
     color:white;
 }
 
-.modal-content .exercises-table td {
+.modal-content .exercises-table-modal td {
     color: rgb(127,255,212);
 }
 
-.modal-content .exercises-table td:hover {
+.modal-content .exercises-table-modal td:hover {
     cursor:pointer;
     background-color: rgb(70,70,70)
 }
