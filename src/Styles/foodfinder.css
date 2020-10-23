@@ -4,7 +4,7 @@
     ". a c"
     ". b c"
     ". d c";
-    grid-template-rows: 50px 345px 9000px;
+    grid-template-rows: 50px 345px 7500px;
     grid-template-columns: 300px 1fr 450px;        
     position: absolute;
     width: 100vw;
