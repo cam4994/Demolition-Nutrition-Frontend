@@ -11,6 +11,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css'
 
+const baseURL = 'https://demolition-nutrition.herokuapp.com'
 class App extends React.Component {
 
   state = {
@@ -23,7 +24,7 @@ class App extends React.Component {
   componentDidMount() {
     const token = localStorage.getItem("token")
     if (token) {
-      fetch('http://localhost:3001/auto_login', {
+      fetch(`${baseURL}/auto_login`, {
         headers: {
           "Authorization": `Bearer ${token}`
         }
@@ -89,7 +90,7 @@ class App extends React.Component {
         goal: e.target.goal.value
       })
     }
-    fetch('http://localhost:3001/users', configObj)
+    fetch(`${baseURL}/users`, configObj)
       .then(resp => resp.json())
       .then(data => {
         if (data.errors) {
@@ -114,7 +115,7 @@ class App extends React.Component {
         password: e.target.password.value,
       })
     }
-    fetch('http://localhost:3001/login', configObj)
+    fetch(`${baseURL}/login`, configObj)
       .then(resp => resp.json())
       .then(data => {
         if (data.errors) {
@@ -142,10 +143,9 @@ class App extends React.Component {
       })
     }
 
-    fetch(`http://localhost:3001/users/${this.state.user.id}`, configObj)
+    fetch(`${baseURL}/users/${this.state.user.id}`, configObj)
       .then(resp => resp.json())
       .then(user => {
-        console.log(user)
         this.setState({ user })
       })
   }

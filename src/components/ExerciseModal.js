@@ -20,12 +20,10 @@ export default class ExerciseModal extends React.Component {
     }
 
     handleChange = (e) => {
-        //Sort the exercises alphabetically then filter then based on the search. 
+        //Sort the exercises alphabetically then filter based on the search. 
         // Make case insensitive by putting the exercises and search as lower case
-        
         let filteredExercises = this.props.exerciseNames.sort().filter(name => name.toLowerCase().includes(e.target.value.toLowerCase()))
         this.setState({ filteredExercises })
-        // this.toggle()
     }
 
     handleClick = (e) => {
@@ -52,9 +50,6 @@ export default class ExerciseModal extends React.Component {
         this.setState({caloriesBurned: 0})
         this.toggle()
     }
-
-
-
 
     render() { 
         return (

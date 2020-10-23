@@ -8,6 +8,7 @@ import MacrosProgress from '../components/MacrosProgress'
 import CaloriesProgress from '../components/CaloriesProgress'
 import 'react-datepicker/dist/react-datepicker.css';
 import '../Styles/journal.css'
+const baseURL = 'https://demolition-nutrition.herokuapp.com'
 
 export default class Journal extends React.Component {
 
@@ -26,7 +27,7 @@ export default class Journal extends React.Component {
 
     componentDidMount() {
         const token = localStorage.getItem("token")
-        fetch('http://localhost:3001/exercises', {
+        fetch(`${baseURL}/exercises`, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
@@ -35,12 +36,6 @@ export default class Journal extends React.Component {
             .then(exercises => {
                 this.setState({ exercises })
             })
-    }
-
-    componentDidUpdate(prevProps) {
-        if (this.props.user !== prevProps.user) {
-            this.fetchUserData(this.props.user)
-        }
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -76,7 +71,7 @@ export default class Journal extends React.Component {
                 user_id: this.props.user.id
             })
         }
-        fetch('http://localhost:3001/journals', configObj)
+        fetch(`${baseURL}/journals`, configObj)
             .then(resp => resp.json())
             .then(journal => {
                 this.setState({ journal })
@@ -109,7 +104,7 @@ export default class Journal extends React.Component {
                 fat: food.fat
             })
         }
-        return fetch('http://localhost:3001/meals', configObj)
+        return fetch(`${baseURL}/meals`, configObj)
             .then(resp => resp.json())
     }
 
@@ -130,7 +125,7 @@ export default class Journal extends React.Component {
             })
         }
 
-        fetch('http://localhost:3001/entries', configObj)
+        fetch(`${baseURL}/entries`, configObj)
             .then(resp => resp.json())
             .then(entry => {
                 this.setState({ newEntry: entry })
@@ -139,7 +134,7 @@ export default class Journal extends React.Component {
 
     fetchEntries = () => {
         const token = localStorage.getItem("token")
-        return fetch(`http://localhost:3001/journals/${this.state.journal.id}`, {
+        return fetch(`${baseURL}/journals/${this.state.journal.id}`, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
@@ -160,7 +155,7 @@ export default class Journal extends React.Component {
                 "Authorization": `Bearer ${token}`
             }
         }
-        fetch(`http://localhost:3001/entries/${entry.entry_id}`, configObj)
+        fetch(`${baseURL}/entries/${entry.entry_id}`, configObj)
         setTimeout(() => {
             this.setState({ deleted: !this.state.deleted })
         }, 100);   
@@ -202,7 +197,7 @@ export default class Journal extends React.Component {
             })
         }
 
-        fetch('http://localhost:3001/workouts', configObj)
+        fetch(`${baseURL}/workouts`, configObj)
             .then(resp => resp.json())
             .then(workout => {
                 this.setState({ newWorkout: workout })
@@ -211,7 +206,7 @@ export default class Journal extends React.Component {
 
     fetchWorkouts = () => {
         const token = localStorage.getItem("token")
-        return fetch(`http://localhost:3001/journals/${this.state.journal.id}/workouts`, {
+        return fetch(`${baseURL}/journals/${this.state.journal.id}/workouts`, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
@@ -232,7 +227,7 @@ export default class Journal extends React.Component {
                 "Authorization": `Bearer ${token}`
             }
         }
-        fetch(`http://localhost:3001/workouts/${workout.workout_id}`, configObj)
+        fetch(`${baseURL}/workouts/${workout.workout_id}`, configObj)
         setTimeout(() => {
             this.setState({ deleted: !this.state.deleted })
         }, 100);   

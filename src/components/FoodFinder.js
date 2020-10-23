@@ -13,7 +13,7 @@ export default class FoodFinder extends React.Component {
         message: ''
     }
 
-    componentDidUpdate(prevState) {
+    componentDidUpdate(prevProps, prevState) {
         if (prevState.message !== this.state.message) {
             let title = document.querySelector('.find-food-title')
             title.scrollIntoView({behavior: "auto", block: "start", inline: "nearest"});
@@ -124,7 +124,6 @@ export default class FoodFinder extends React.Component {
         fetch('https://trackapi.nutritionix.com/v2/search/instant', configObj)
             .then(resp => resp.json())
             .then(response => {
-                console.log(response)
                 //Take the locations and the foods from search and take only the needed information
                 this.formatFood(response.branded, locations)
             })

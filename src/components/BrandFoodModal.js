@@ -3,6 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import DatePicker from "react-datepicker";
 import '../Styles/modal.css'
 import 'react-datepicker/dist/react-datepicker.css';
+const baseURL = 'https://demolition-nutrition.herokuapp.com'
 export default class BrandFoodModal extends React.Component {
 
     state = {
@@ -36,10 +37,9 @@ export default class BrandFoodModal extends React.Component {
               user_id: this.props.user.id
             })
           }
-          fetch('http://localhost:3001/journals', configObj)
+          fetch(`${baseURL}/journals`, configObj)
             .then(resp => resp.json())
             .then(journal => {
-              console.log(journal) 
               this.setState({ journal })
             })
     }
@@ -77,7 +77,7 @@ export default class BrandFoodModal extends React.Component {
               fat: food.fat
             })
           }
-          return fetch('http://localhost:3001/meals', configObj)
+          return fetch(`${baseURL}/meals`, configObj)
             .then(resp => resp.json())
     }
 
@@ -98,7 +98,7 @@ export default class BrandFoodModal extends React.Component {
             })
           }
 
-          fetch('http://localhost:3001/entries', configObj)
+          fetch(`${baseURL}/entries`, configObj)
             .then(resp => resp.json())
             .then(entry => {
               this.setState({newEntry: entry})

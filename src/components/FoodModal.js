@@ -21,7 +21,6 @@ export default class FoodModal extends React.Component {
     }
 
     foodSearch = (name) => {
-        // let food = this.state.foods.filter(food => food.name.startsWith(name))
         let configObj = {
             method: "GET",
             headers: {
@@ -35,7 +34,7 @@ export default class FoodModal extends React.Component {
 
         fetch(`https://trackapi.nutritionix.com/v2/search/instant?query=${name}`, configObj)
             .then(resp => resp.json())
-            .then(foods => this.storeFoods(foods.common.slice(0, 13)))
+            .then(foods => this.storeFoods(foods.common.slice(0, 10)))
     }
 
     storeFoods = (foods) => {
