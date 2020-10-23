@@ -26,8 +26,8 @@ export default class FoodModal extends React.Component {
             headers: {
                 "Content-Type": "application/json",
                 "Accept": "application/json",
-                "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID2}`,
-                "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY2}`,
+                "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
+                "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`,
                 "x-remote-user-id": "0",
             }
         }
@@ -46,8 +46,8 @@ export default class FoodModal extends React.Component {
                 headers: {
                     "Content-Type": "application/json",
                     "Accept": "application/json",
-                    "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID3}`,
-                    "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY3}`,
+                    "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
+                    "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`,
                     "x-remote-user-id": "0"
                 },
                 body: JSON.stringify({
