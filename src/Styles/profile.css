@@ -15,9 +15,9 @@
     grid-area: a;
     display: grid;
     grid-template-areas: 
-    "a"
-    "b"
-    "c";
+    "top"
+    "middle"
+    "bottom";
     grid-template-rows: 200px 300px 300px;
     grid-template-columns: 1fr;             
     position: absolute;
@@ -30,7 +30,7 @@
 }
 
 .general-information {
-    grid-area: a;
+    grid-area: top;
     display: grid;
     grid-template-areas: 
     "b b b b"
@@ -137,7 +137,7 @@ label {
 /* css for body type information */
 
 .body-type {
-    grid-area: b;
+    grid-area: middle;
 }
 
 .body-type h3 {
@@ -257,7 +257,7 @@ label {
 }
 
 .nutrition-summary {
-    grid-area: c;
+    grid-area: bottom;
     display: grid;
     grid-template-areas: 
     "a a"
