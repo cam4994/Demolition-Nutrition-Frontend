@@ -40,8 +40,7 @@ My passion for nutrition and fitness is what led me to build Demolition Nutritio
 * Reactstrap - 8.6.0 
 
 
-## Setup
-To try out this project: 
+## Setup 
 For the Backend: 
 1. Clone the [GitHub repository](https://github.com/colin-mosley/Demolition-Nutrition-Backend)
 1. In the command line, navigate to the root directory of the repository, and enter the following: 
@@ -54,10 +53,15 @@ For the Backend:
   $ rails s
 
 For the Frontend: 
+1. Open an account and get your API key and ID at [Nutritionix](https://www.nutritionix.com/business/api)
+1. Open an account and get your API key at [Geocoding API](https://developers.google.com/maps/documentation/geocoding/get-api-key)
 1. Clone the GitHub repository locally to your computer
 1. In the command line, navigate to the root directory of the repository, and enter the following: 
   $ npm install 
-1. Next, enter the following: 
+1. Enter the following:
+  $ touch .env
+1. Navigate to the .env folder, and paste your Nutritionix API key and ID as well as your Geocoding API key. 
+1. Next, save and then enter the following: 
   $ npm start
 
 
@@ -78,5 +82,5 @@ Project is completed with the option to expand functionality and DRY out code.
 
 
 ## Contact
-Created by [Colin mosley](https://www.linkedin.com/in/colin-mosley/):
+Created by [Colin mosley](https://www.linkedin.com/in/colin-mosley/).
 Please contact me if you have any questions. 
