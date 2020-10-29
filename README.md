@@ -78,5 +78,5 @@ Project is completed with the option to expand functionality and DRY out code.
 
 
 ## Contact
-Created by [Colin mosley](https://www.linkedin.com/in/colin-mosley/) 
+Created by [Colin mosley](https://www.linkedin.com/in/colin-mosley/):
 Please contact me if you have any questions. 
