@@ -3,11 +3,11 @@
     grid-template-areas: 
     "."
     "a";
-    grid-template-rows: 75px 800px;
+    grid-template-rows: .05fr 0.95fr;
     grid-template-columns: 1fr;             
     position: absolute;
     width: 90vw;
-    height: 100vh-65px;
+    height: 92vh;
     left: 5%;
 }
 
@@ -18,13 +18,13 @@
     "top"
     "middle"
     "bottom";
-    grid-template-rows: 200px 300px 300px;
+    grid-template-rows: 0.24fr 0.38fr 0.38fr;
     grid-template-columns: 1fr;             
     position: absolute;
     width: 100%;
     height: 100%;
     border-style: hidden;
-    border-radius: 20px;
+    border-radius: 2.5vw;
     border-color: rgb(127,255,212);
     background-color:rgb(40,40,40);
 }
@@ -38,28 +38,43 @@
     "h i j k";
     width: 100%;
     height: 100%;
-    grid-template-rows: 60px 70px 70px;
-    grid-template-columns: 160px 0.5fr 160px 0.5fr;
+    grid-template-rows: 0.3fr 0.35fr 0.35fr;
+    grid-template-columns: 10vw 35vw 10vw 35vw;
 }
 
 label {
-    font-size: 22px;
+    font-size: 1.6vw;
     font-weight: bold;
+    margin-top: 2vh;
 }
 
 .profile-title {
     grid-area: '.';
-    margin-top: 1.5%;
+    margin-top: 1.5vh;
     font-weight:bold;
 }
 
 .general-information .general-information-title {
     grid-area: b;
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: bolder;
     width: 97%;
     margin: auto;
-    border-bottom: 4px dotted white;
+    border-bottom: .15em dotted white;
+    margin-top: 1.5vh;
+}
+
+.general-information input {
+    margin: auto;
+    width: 30vw;
+    height: 80%;
+    background-color:rgb(40,40,40);
+    border-radius: 1.3vw;
+    border: 2px solid;
+    padding: .5em;
+    font-size: 1.7vw;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
 }
 
 .label-1 {
@@ -69,15 +84,6 @@ label {
 
 .input-1 {
     grid-area: e;
-    width: 475px;
-    height: 50px;
-    background-color:rgb(40,40,40);
-    border-radius: 20px;
-    border: 2px solid;
-    padding: 12px;
-    font-size: 20px;
-    border-color: rgb(127,255,212);
-    color: rgb(127,255,212);
 }
 
 .label-2 {
@@ -87,15 +93,6 @@ label {
 
 .input-2 {
     grid-area: g;
-    width: 475px;
-    height: 50px;
-    background-color:rgb(40,40,40);
-    border-radius: 20px;
-    border: 2px solid;
-    padding: 12px;
-    font-size: 20px;
-    border-color: rgb(127,255,212);
-    color: rgb(127,255,212);
 }
 
 .label-3 {
@@ -105,15 +102,6 @@ label {
 
 .input-3 {
     grid-area: i;
-    width: 475px;
-    height: 50px;
-    background-color:rgb(40,40,40);
-    border-radius: 20px;
-    border: 2px solid;
-    padding: 12px;
-    font-size: 20px;
-    border-color: rgb(127,255,212);
-    color: rgb(127,255,212);
 }
 
 .label-4 {
@@ -123,15 +111,6 @@ label {
 
 .input-4 {
     grid-area: k;
-    width: 475px;
-    height: 50px;
-    background-color:rgb(40,40,40);
-    border-radius: 20px;
-    border: 2px solid;
-    padding: 12px;
-    font-size: 20px;
-    border-color: rgb(127,255,212);
-    color: rgb(127,255,212);
 }
 
 /* css for body type information */
@@ -141,14 +120,14 @@ label {
 }
 
 .body-type h3 {
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: bolder;
     width: 97%;
     margin: auto;
     border-bottom: 4px dotted white;
 }
 
-.body-type form {
+.body-type .profile-form {
     display: grid;
     grid-template-areas: 
     "a b c d"
@@ -158,29 +137,31 @@ label {
     "h h h h";
     width: 100%;
     height: 100%;
-    grid-template-rows: 70px 50px 50px 65px 30px;
-    grid-template-columns: 160px 0.5fr 160px 0.5fr;
+    grid-template-rows: 0.25fr 0.2fr 0.2fr 0.25fr 0.1fr;
+    grid-template-columns: 10vw 35vw 10vw 35vw;
+}
+
+.profile-form input {
+    margin: auto;
+    width: 30vw;
+    height: 80%;
+    background-color:rgb(40,40,40);
+    border-radius: 1.3vw;
+    border: 2px solid;
+    padding: .5em;
+    font-size: 1.7vw;
+    border-color: rgb(127,255,212);
+    color: rgb(127,255,212);
 }
 
 
 .form-1 {
     grid-area: a;
     margin-left: 25%;
-    margin-top: 5%;
 }
 
 .form-2 {
     grid-area: b;
-    width: 475px;
-    height: 50px;
-    margin-top: 1%;
-    background-color:rgb(40,40,40);
-    border-radius: 20px;
-    border: 2px solid;
-    padding: 12px;
-    font-size: 20px;
-    border-color: rgb(127,255,212);
-    color: rgb(127,255,212);
 }
 
 .form-2::placeholder {
@@ -190,23 +171,13 @@ label {
 .form-3 {
     grid-area: c;
     margin-left: 25%;
-    font-size: 18px;
+    font-size: 1.3vw;
     font-weight: bold;
     margin-top: auto;
 }
 
 .form-4 {
     grid-area: d;
-    width: 475px;
-    height: 50px;
-    margin-top: 1%;
-    background-color:rgb(40,40,40);
-    border-radius: 20px;
-    border: 2px solid;
-    padding: 12px;
-    font-size: 20px;
-    border-color: rgb(127,255,212);
-    color: rgb(127,255,212);
 }
 
 .form-4::placeholder {
@@ -216,43 +187,44 @@ label {
 .form-5 {
     grid-area: e;
     margin: auto;
-    font-size: 25px;
+    font-size: 1.9vw;
 }
 
 .form-6 {
     grid-area: f;
     margin: auto;
-    font-size: 20px;
+    font-size: 1.6vw;
     background-color:rgb(65,65,65);
     border-style:hidden;
-    border-radius: 20px;
-    padding: 6px;
+    border-radius: 2vw;
+    padding: 0.2em;
     color: rgb(127,255,212);
 }
 
 .form-7 {
     grid-area: g;
-    width: 100px;
+    width: 8vw;
     margin: auto;
-    margin-top: 1%;
+    margin-top: 2vh;
     background-color:rgb(40,40,40);
-    border-radius: 20px;
+    border-radius: 1.2vw;
     border: 2px solid;
-    padding: 12px;
+    padding: 0.4em;
     border-color: rgb(127,255,212);
     color: rgb(127,255,212);
     font-weight:bolder;
+    font-size: 1.3vw;
 }
 
 .form-7:hover {
     background-color: rgb(65, 65, 65)
-  }
+}
 
-  .profile-success-message {
-    margin-top: 10%;
+.profile-success-message {
+    margin-top: 10vh;
     grid-area: h;
     margin: auto;
-    font-size: 20px; 
+    font-size: 1.4vw; 
     font-weight: bolder;
 }
 
@@ -267,13 +239,13 @@ label {
     "g g";
     width: 100%;
     height: 100%;
-    grid-template-rows: 65px 60px 60px 30px 30px;
+    grid-template-rows: 0.25fr 0.25fr 0.25fr 0.125fr 0.125fr;
     grid-template-columns: 0.5fr 0.5fr;
 }
 
 .nutrition-summary h3 {
     grid-area: a;
-    font-size: 30px;
+    font-size: 2vw;
     font-weight: bolder;
     width: 97%;
     margin: auto;
@@ -283,38 +255,41 @@ label {
 .macros-calories {
     grid-area: b;
     margin: auto;
-    font-size: 28px;
+    font-size: 1.9vw;
     font-weight: normal;
 }
 
 .macros-carbs {
     grid-area: c;
     margin: auto;
-    font-size: 28px;
+    font-size: 1.9vw;
     font-weight: normal;
 }
 
 .macros-protein {
     grid-area: d;
     margin: auto;
-    font-size: 28px;
+    font-size: 1.9vw;
     font-weight: normal;
 }
 
 .macros-fat {
     grid-area: e;
     margin: auto;
-    font-size: 28px;
+    font-size: 1.9vw;
     font-weight: normal;
 }
 
 .note-1 {
     grid-area: f;
     margin: auto;
+    margin-top: 2vh;
+    font-size: 1.3vw;
 }
 
 .note-2 {
     grid-area: g;
     margin: auto;
+    font-size: 1.3vw;
 }
 

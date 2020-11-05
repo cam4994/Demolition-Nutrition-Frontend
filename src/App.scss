@@ -3,14 +3,14 @@
 }
 
 .app .navbar {
-  height: 65px;
+  height: 10vh;
   background: rgba(40, 40, 40, 0.8);
 }
 
 .app nav .navbar-brand {
   color: rgb(127,255,212);
   font-weight: bold;
-  font-size: 28px;
+  font-size: 1.8vw;
 }
 
 .app nav .navbar-brand:hover {
@@ -19,7 +19,7 @@
 
 .app .navbar-nav a.nav-link {
   color: rgb(127,255,212);
-  font-size: 20px;
+  font-size: 1.7vw;
 }
 
 .app .navbar-nav a.nav-link:hover {
@@ -32,7 +32,7 @@
 
 #signout {
   color: rgb(127,255,212);
-  font-size: 20px;
+  font-size: 1.7vw;
 }
 
 #signout:hover {
@@ -42,7 +42,7 @@
 
 .app .signout-link {
   text-decoration: none; 
-  font-size: 20px;
+  font-size: 1.7vw;
   color: rgb(127,255,212);
 }
 
@@ -56,8 +56,8 @@
   border-style:solid;
   border-radius: 20px;
   border: 2px solid;
-  padding: 8px;
-  font-size: 20px;
+  padding: 0.3em;
+  font-size: 1.7vw;
   border-color: rgb(127,255,212);
   color: rgb(127,255,212);
 }
@@ -75,11 +75,19 @@
   margin-top: 5%;
 }
 
+.home h1 {
+  font-size: 3.7vw;
+}
+
+.home h2 {
+  font-size: 3vw;
+}
+
 .home button {
   background:rgb(127,255,212);
-  border-radius: 25px;
+  border-radius: 2vw;
   border: 2px solid rgb(27, 27, 27);
-  padding: 12px;
+  padding: 1vw;
   margin-top: 2%;
 }
 
@@ -90,7 +98,7 @@
 .home .nav-link {
   text-decoration: none;
   color: white;
-  font-size: 25px;
+  font-size: 2vw;
   font-weight: bolder;
 }
 
@@ -108,9 +116,9 @@
 
 .button {
   background-color:rgb(40,40,40);
-  border-radius: 20px;
+  border-radius: 2vw;
   border: 2px solid;
-  padding: 12px;
+  padding: 1vw;
   border-color: rgb(127,255,212);
   color: rgb(127,255,212);
 }
@@ -121,9 +129,9 @@
 
 .input-style {
   background-color:rgb(40,40,40);
-  border-radius: 16px;
+  border-radius: 1.8vw;
   border: 2px solid;
-  padding: 8px;
+  padding: 1vw;
   border-color: rgb(127,255,212);
   color: white;
 }
@@ -132,42 +140,42 @@
   border-style: hidden;
   background: rgba(40,40,40, .84);
   text-align:center;
-  width: 450px;
+  width: 40vw;
   margin: auto;
-  border-radius: 25px;
-  padding: 20px;
-  margin-top: 5%;
+  border-radius: 2.5vw;
+  padding: 1vw;
+  margin-top: 10vh;
 }
 
 .login-title {
   color: white;
-  font-size: 40px;
+  font-size: 3vw;
 }
-
 
 .login input {
   background-color:rgb(40, 40, 40);
-  border-radius: 20px;
+  border-radius: 2vw;
   border: 2px solid;
-  padding: 8px;
-  font-size: 16px;
+  padding: 0.7vw;
+  font-size: 1.2vw;
   border-color: rgb(127,255,212);
   color: rgb(127,255,212);
   text-align: center;
-  margin-top: 3%;
-  width: 300px;
+  margin-top: 2vh;
+  width: 25vw;
+  height: 6vh;
 }
 
 #login-button {
-  margin-top: 4%;
+  margin-top: 3vh;
   background-color:rgb(40,40,40);
-  border-radius: 20px;
+  border-radius: 1.5vw;
   border: 2px solid;
-  padding: 12px;
+  padding: 0.9vw;
   border-color: rgb(127,255,212);
   color: rgb(127,255,212);
   font-weight:bolder;
-  font-size: 22px;
+  font-size: 1.6vw;
 }
 
 #login-button:hover {
@@ -175,15 +183,15 @@
 }
 
 .login p {
-  margin-top: 3%;
-  font-size: 20px;
+  margin-top: 2vh;
+  font-size: 1.8vw;
 }
 
 #login-signup-button {
   background:rgb(127,255,212);
-  border-radius: 18px;
+  border-radius: 1.5vw;
   border: 2px solid rgb(27, 27, 27);
-  padding: 8px;
+  padding: 0.7vw;
 }
 
 #login-signup-button:hover {
@@ -193,7 +201,7 @@
 #login-signup-button .nav-link {
   text-decoration: none;
   color: black;
-  font-size: 18px;
+  font-size: 1.3vw;
   font-weight: bolder;
 }
 
