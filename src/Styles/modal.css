@@ -207,8 +207,8 @@
   .brandFoodModal .modal-content {
     background-color:rgb(40,40,40);
     border-style:hidden;
-    border-radius: 20px;
-    padding: 10px;
+    border-radius: 1.4vw;
+    padding: 0.4em;
     color: rgb(127,255,212);
 }
 
@@ -220,11 +220,11 @@
 .brandFoodModal .modal-content .modal-body .react-datepicker-wrapper input {
     background-color:rgb(65,65,65);
     border-style:hidden;
-    border-radius: 20px;
-    padding: 6px;
+    border-radius: 1.4vw;
+    padding: 0.4em;
     color: white;
     text-align: center;
-    width: 220px;
+    width: 40%;
 }
 
 .brandFoodModal .modal-content .modal-body .react-datepicker-wrapper input::placeholder {
@@ -242,31 +242,31 @@
 
 .brandFoodModal .modal-content .modal-footer select {
     background-color:rgb(65,65,65);
-    border-radius: 16px;
+    border-radius: 1.4vw;
     border-style: hidden;
-    padding: 8px;
+    padding: 0.3em;
     color: white;
     text-align: center;
 }
 
 .brandFoodModal .modal-content .modal-footer label {
-    font-size: 18px;
+    font-size: 1.2vw;
 }
 
 .brandFoodModal .modal-content .modal-footer input {
     background-color:rgb(65,65,65);
-    border-radius: 14px;
+    border-radius: 1.4vw;
     border-style: hidden;
-    padding: 6px;
+    padding: 0.3em;
     color: white;
     margin-top: 4%;
-    font-size: 18px;
-    width: 75px;
+    font-size: 1.2vw;
+    width: 20%;
     text-align: center;
 }
 
 .brandFoodModal .modal-content .modal-footer button {
-    font-size: 22px; 
+    font-size: 1.4vw; 
     margin-top: 6%;
-    padding: 8px;
+    padding: 0.4em;
 }

@@ -131,7 +131,7 @@ export default class BrandFoodModal extends React.Component {
                             </select><br/>
                             <label>Servings: </label>{' '}
                             <input className="no-outline" name="servings"></input><br/>
-                            <button className="no-outline button" type="submit" >Add</button>
+                            <button className="no-outline button" type="submit" >Add Meal</button>
                         </form>
                     </ModalFooter>
                 </Modal>
