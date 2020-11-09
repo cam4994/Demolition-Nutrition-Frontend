@@ -1,11 +1,11 @@
 #add-meal-modal-button {
-    font-size: 2vw;
+    font-size: 1.7vw;
     background-color: rgb(127,255,212);
     color: black
 }
 
 #exercise-modal-button {
-    font-size: 2vw;
+    font-size: 1.7vw;
     background-color: rgb(127,255,212);
     color: black;
     border-style:hidden;
@@ -35,10 +35,10 @@
 
 .search input, .search-exercises .exercise-input {
     background-color:rgb(40,40,40);
-    border-radius: 1.3vw;
+    border-radius: 1.5vw;
     border: 2px solid;
     padding: 0.5em;
-    font-size: 1.8vw;
+    font-size: 1.6vw;
     border-color: rgb(127,255,212);
     color: rgb(127,255,212);
     text-align: center;
@@ -72,6 +72,7 @@
 
 .modal-body .search h3, .search-exercises h2 {
    color: white;
+   font-size: 1.8vw;
 }
 
 .food button {
@@ -139,10 +140,12 @@
 
 .modal-content .exercises-table-modal th {
     color:white;
+    font-size: 1.6vw;
 }
 
 .modal-content .exercises-table-modal td {
     color: rgb(127,255,212);
+    font-size: 1.3vw;
 }
 
 .modal-content .exercises-table-modal td:hover {
@@ -154,18 +157,24 @@
     margin:auto;
 }
 
+.exercise-modal-footer {
+    font-size: 1.3vw
+}
+
 #exercise-modal-exercise {
     color:white;
+    font-size: 1.7vw
 }
 
 #exercise-modal-add-button {
     background-color:rgb(40,40,40);
-    border-radius: 20px;
+    border-radius: 1.4vw;
     border: 2px solid;
-    padding: 12px;
+    padding: 0.3em;
     border-color: rgb(127,255,212);
     color: rgb(127,255,212);
     margin-top: 7%;
+    font-size: 1.3vw;
 }
 
 #exercise-modal-add-button:hover {
