@@ -118,7 +118,7 @@ export default class FoodModal extends React.Component {
                                             <option value="Dinner">Dinner</option>
                                             <option value="Snack">Snack</option>
                                         </select><br />
-                                        <Button className="add-button button no-outline" type="submit" color="primary" >Add</Button>
+                                        <Button className="add-button button no-outline" type="submit" color="primary" >Add Meal</Button>
                                     </form>
                                 </div>
                             ) : null}
