@@ -1,11 +1,11 @@
 #add-meal-modal-button {
-    font-size: 22px;
+    font-size: 2vw;
     background-color: rgb(127,255,212);
     color: black
 }
 
 #exercise-modal-button {
-    font-size: 22px;
+    font-size: 2vw;
     background-color: rgb(127,255,212);
     color: black;
     border-style:hidden;
@@ -18,9 +18,9 @@
 .foodModal .modal-content {
     background-color:rgb(40,40,40);
     border-style:hidden;
-    border-radius: 20px;
-    padding: 12px;
-    font-size: 20px;
+    border-radius: 1.3vw;
+    padding: 0.5em;
+    font-size: 1.8vw;
     color: rgb(127,255,212);
 }
 
@@ -35,10 +35,10 @@
 
 .search input, .search-exercises .exercise-input {
     background-color:rgb(40,40,40);
-    border-radius: 20px;
+    border-radius: 1.3vw;
     border: 2px solid;
-    padding: 12px;
-    font-size: 20px;
+    padding: 0.5em;
+    font-size: 1.8vw;
     border-color: rgb(127,255,212);
     color: rgb(127,255,212);
     text-align: center;
@@ -54,8 +54,8 @@
     margin-top: 25%;
     border-style: hidden;
     background: rgba(50,50,50, 1);
-    border-radius: 25px;
-    padding: 8px;
+    border-radius: 1.4vw;
+    padding: 0.3em;
     z-index: 40;
     margin-top: 2%;
     text-align: center;
@@ -67,7 +67,7 @@
 
 .food-display .food h4 {
     color: white;
-    font-size: 20px;
+    font-size: 1.7vw;
 }
 
 .modal-body .search h3, .search-exercises h2 {
@@ -75,12 +75,12 @@
 }
 
 .food button {
-    font-size: 14px;
-    padding: 9px;
+    font-size: 1.3vw;
+    padding: 0.3em;
 }
 
 .food span {
-    font-size: 16px;
+    font-size: 1.4vw;
 }
 
 .modal-footer {
@@ -90,12 +90,12 @@
 
 .modal-footer .food-modal-footer button {
     background-color:rgb(40,40,40);
-    border-radius: 20px;
+    border-radius: 1.3vw;
     border: 2px solid;
-    padding: 10px;
+    padding: 0.3em;
     border-color: rgb(127,255,212);
     color: rgb(127,255,212);
-    font-size: 24px;
+    font-size: 2.1vw;
     text-align: center;
     margin-top: 6%;
 }
@@ -108,9 +108,8 @@
 }
 
 .modal-footer .food-modal-footer label {
-    font-size: 20px;
+    font-size: 1.8vw;
     font-weight: normal;
-
 }
 
 .modal-footer .food-modal-footer .food-name {
@@ -118,10 +117,10 @@
 }
 .modal-footer .food-modal-footer input {
     background-color:rgb(40,40,40);
-    border-radius: 20px;
+    border-radius: 1.3vw;
     border: 2px solid;
-    padding: 4px;
-    font-size: 20px;
+    padding: 0.3em;
+    font-size: 1.8vw;
     border-color: rgb(127,255,212);
     color: white;
  }
@@ -129,13 +128,13 @@
  .food-modal-category {
     background-color:rgb(60,60,60);
     border-style:hidden;
-    border-radius: 20px;
-    padding: 6px;
+    border-radius: 1.3vw;
+    padding: 0.3em;
     color: rgb(127,255,212);
  }
 
  .exercises-table-modal {
-     width: 450px;
+     width: 100%;
  }
 
 .modal-content .exercises-table-modal th {

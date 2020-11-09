@@ -50,12 +50,12 @@
 }
 .exercise-modal {
     display:table-cell; 
-    padding:5px;
+    padding: 0.3em;
 }
 
 .food-modal {
     display:table-cell; 
-    padding:5px;
+    padding: 0.3em;
 }
 
 .meals-table-container {
@@ -64,7 +64,7 @@
 }
 
 .meals-table {
-    width: 60vw;
+    width: 57vw;
     margin:auto;
     background: rgb(40,40,40);
     /* border-style: solid; */
@@ -81,7 +81,7 @@
     color: black;
 }
 .exercises-table {
-    width: 60vw;
+    width: 57vw;
     margin:auto;
     background: rgb(40,40,40);
     /* border-style: solid; */
@@ -131,23 +131,11 @@
     border-style: hidden;
     background: rgba(40,40,40, .84);
     text-align:center;
-    border-radius: 25px;
-    padding: 20px;
+    border-radius: 1.3vw;
+    padding: 0.5em;
     margin-top: 5%;
     color:white;
 }
-
-/* .macros-summary {
-    width: 85%;
-    margin: auto;
-    border-style: hidden;
-    background: rgba(40,40,40, .84);
-    text-align:center;
-    border-radius: 25px;
-    padding: 20px;
-    margin-top: 5%;
-    color:white;
-} */
 
 .gradient-border {
     --borderWidth: 3px;;
@@ -177,7 +165,7 @@
 }
 
 .calories-progress {
-    width: 280px;
+    width: 70%;
     margin: auto;
     margin-top: 2%;
     font-weight: bold;
@@ -209,7 +197,7 @@
     color:red;
     background: rgb(40,40,40);
     border-style:hidden;
-    font-size: 1.4vw;
+    font-size: 1.2vw;
 }
 
 @keyframes animatedgradient {
