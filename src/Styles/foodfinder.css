@@ -134,6 +134,7 @@
 .find-food-description li {
     list-style-type: none;
     margin-top: 3%;
+    font-size: 1.1vw;
 }
 
 .success-message {
