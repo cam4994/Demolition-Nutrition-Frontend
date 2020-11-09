@@ -152,3 +152,15 @@
     background-color: rgb(80, 80, 80);
     color: white;
 }
+
+.each-brandFood h3 {
+    font-size: 1.8vw;
+}
+
+.each-brandFood h4 {
+    font-size: 1.6vw;
+}
+
+.each-brandFood span, li {
+    font-size: 1.1vw;
+}
