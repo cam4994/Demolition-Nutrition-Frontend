@@ -18,9 +18,9 @@ export default class BrandFood extends React.Component {
                             <span><span className="teal-green">{fat}</span> g of fat</span>
                     </div>
                     <h4>{restaurant}</h4>
-                    <span>{address}, {city}, {state}, {zip}</span>
-                    <span>{parseFloat(distance / 1.6).toPrecision(3)} miles away</span>
-                    <span>{phone.replace('+1', '')}</span>
+                    <span>{address}, {city}, {state}, {zip}</span><br/>
+                    <span>{parseFloat(distance / 1.6).toPrecision(3)} miles away</span><br/>
+                    <span>{phone.replace('+1', '')}</span><br/>
                     <BrandFoodModal  successMessage={this.props.successMessage} food={this.props.food} user={this.props.user}/>
                 </div>
             </div>
