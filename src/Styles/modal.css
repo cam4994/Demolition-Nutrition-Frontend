@@ -224,7 +224,7 @@
     padding: 0.4em;
     color: white;
     text-align: center;
-    width: 100%;
+    font-size: 1.2vw;
 }
 
 .brandFoodModal .modal-content .modal-body .react-datepicker-wrapper input::placeholder {
