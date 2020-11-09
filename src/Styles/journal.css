@@ -5,7 +5,7 @@
     "e e"
     "b c"
     "b d";
-    grid-template-rows: 0.125fr 0.125fr 0.375fr 0.375fr;
+    grid-template-rows: 11vh 9vh 0.5fr 0.5fr;
     grid-template-columns: 0.35fr 0.65fr;                
     position: absolute;
     width: 100vw;

@@ -130,6 +130,7 @@
     border-color: rgb(127,255,212);
     color: white;
     width: 30%;
+    text-align: center;
  }
 
  .food-modal-category {
