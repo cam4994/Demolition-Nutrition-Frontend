@@ -2,7 +2,6 @@
     font-size: 1.5vw;
     background-color: rgb(127,255,212);
     color: black;
-    height: 9vh;
 }
 
 #exercise-modal-button {
@@ -10,7 +9,6 @@
     background-color: rgb(127,255,212);
     color: black;
     border-style:hidden;
-    height: 9vh;
 }
 
 #add-meal-modal-button:hover, #exercise-modal-button:hover {

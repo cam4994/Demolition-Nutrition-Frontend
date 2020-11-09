@@ -5,15 +5,16 @@
     ". b c"
     ". d c";
     grid-template-rows: 50px 345px 7500px;
-    grid-template-columns: 300px 1fr 450px;        
+    grid-template-columns: 25vw 45vw 30vw;        
     position: absolute;
     width: 100vw;
-    height: 100vh-65px;
   }
 
 .find-food-title {
+    margin-top: 3vh;
     grid-area: a;
     text-align: center;
+    font-size: 3vw;
 }
 
 .find-food-form {
@@ -22,34 +23,34 @@
     margin: auto;
     border-style: hidden;
     background: rgba(40,40,40, .84);
-    border-radius: 25px;
-    padding: 20px;
+    border-radius: 1.4vw;
+    padding: 0.5em;
     text-align: center
 }
 
 .find-food-form input {
     background-color:rgb(40, 40, 40);
-    border-radius: 20px;
+    border-radius: 1.4vw;
     border: 2px solid;
-    padding: 12px;
-    font-size: 16px;
+    padding: 0.5em;
+    font-size: 1.2vw;
     border-color: rgb(127,255,212);
     color: rgb(127,255,212);
     text-align: center;
     margin-top: 1%;
-    width: 300px;
+    width: 65%;
 }
 
 .find-food-form button {
     margin-top: 3%;
     background-color:rgb(40,40,40);
-    border-radius: 20px;
+    border-radius: 1.4vw;
     border: 2px solid;
-    padding: 12px;
+    padding: 0.5em;
     border-color: rgb(127,255,212);
     color: rgb(127,255,212);
     font-weight:bolder;
-    font-size: 16px;
+    font-size: 1.4vw;
 }
 
 .find-food-form button:hover {
@@ -57,11 +58,11 @@
 }
 
 .find-food-form select {
-    font-size: 16px;
+    font-size: 1.2vw;
     background-color:rgb(65,65,65);
     border-style:hidden;
-    border-radius: 20px;
-    padding: 6px;
+    border-radius: 1.4vw;
+    padding: 0.4em;
     color: rgb(127,255,212);
     margin-top: 2%;
 }
@@ -72,8 +73,8 @@
     margin: auto;
     border-style: hidden;
     background: rgba(40,40,40, .84);
-    border-radius: 25px;
-    padding: 20px;
+    border-radius: 1.4vw;
+    padding: 0.4em;
     text-align: center;
     margin-top: 1%;
 }
@@ -95,8 +96,8 @@
     margin: auto;
     border-style: hidden;
     background: rgba(50,50,50, 1);
-    border-radius: 25px;
-    padding: 10px;
+    border-radius: 1.5vw;
+    padding: 0.3em;
     z-index: 40;
     margin-top: 2%;
     text-align: center;
@@ -105,10 +106,10 @@
 .food-sort {
     background-color:rgb(40,40,40);
     border-style:solid;
-    border-radius: 20px;
+    border-radius: 1.4vw;
     border: 2px solid;
-    padding: 16px;
-    font-size: 20px;
+    padding: 0.4em;
+    font-size: 1.3vw;
     border-color: rgb(127,255,212);
     color: rgb(127,255,212);
     text-align: center;
@@ -121,12 +122,13 @@
 
 .find-food-description {
     grid-area: c;
-    width: 400px;
-    margin-top: 100px;
+    width: 28vw;
+    margin-top: 12vh;
 }
 
 .find-food-description h2 {
     text-align: center;
+    font-size: 2.2vw;
 }
 
 .find-food-description li {
@@ -142,7 +144,7 @@
     background-color: rgb(65, 65, 65);
     color: rgb(127,255,212);
     border-style: hidden;
-    font-size: 20px;
+    font-size: 1.3vw;
 }
 
 .brand-food-modal .add-brand-meal-button:hover {
