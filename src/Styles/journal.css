@@ -19,17 +19,17 @@
 }
 
 .react-datepicker__input-container {
-    margin-top: 15%;
+    margin-top: 5vh;
 }
 
 #calendar-datepicker {
         background-color:rgb(65,65,65);
         border-style:hidden;
         border-radius: 1.3vw;
-        padding: .5em;
+        padding: .4em;
         color: white;
         text-align: center;
-        width: 15vw;
+        width: 12vw;
         font-size: 1.2vw;
 }
 
