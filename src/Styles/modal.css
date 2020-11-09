@@ -20,7 +20,6 @@
     border-style:hidden;
     border-radius: 1.3vw;
     padding: 0.5em;
-    font-size: 1.8vw;
     color: rgb(127,255,212);
 }
 
@@ -170,6 +169,7 @@
     color: white;
     text-align: center; 
     width: 30%;
+    margin-top: 1.5%;
 }
 
 #exercise-modal-exercise {
