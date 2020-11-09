@@ -76,7 +76,7 @@
     border-radius: 1.4vw;
     padding: 0.4em;
     text-align: center;
-    margin-top: 1%;
+    margin-top: 2%;
 }
 
 .display-brand-error {
@@ -159,6 +159,10 @@
 
 .each-brandFood h4 {
     font-size: 1.6vw;
+}
+
+.each-brandFood ul {
+    text-align: center;
 }
 
 .each-brandFood span, li {
