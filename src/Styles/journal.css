@@ -6,11 +6,11 @@
     "e e"
     "b c"
     "b d";
-    grid-template-rows: 90px 90px 0.5fr 0.5fr;
+    grid-template-rows: 0.125fr 0.125fr 0.375fr 0.375fr;
     grid-template-columns: 0.35fr 0.65fr;                
     position: absolute;
     width: 100vw;
-    height: 100vh-65px;
+    height: 90vh;
     color:black;
   }
 
@@ -26,11 +26,12 @@
 #calendar-datepicker {
         background-color:rgb(65,65,65);
         border-style:hidden;
-        border-radius: 20px;
-        padding: 6px;
+        border-radius: 1.3vw;
+        padding: .5em;
         color: white;
         text-align: center;
-        width: 220px;
+        width: 15vw;
+        font-size: 1.2vw;
 }
 
 #calendar-datepicker::placeholder {
@@ -63,7 +64,7 @@
 }
 
 .meals-table {
-    width: 850px;
+    width: 60vw;
     margin:auto;
     background: rgb(40,40,40);
     /* border-style: solid; */
@@ -80,7 +81,7 @@
     color: black;
 }
 .exercises-table {
-    width: 850px;
+    width: 60vw;
     margin:auto;
     background: rgb(40,40,40);
     /* border-style: solid; */
@@ -99,7 +100,7 @@
 .journal-message{
     grid-area: b;
     text-align: center;
-    font-size: 40px;
+    font-size: 3vw;
     color:white;
     animation-duration: 450ms;
     animation-name: blink;
@@ -115,13 +116,13 @@
     border-style: hidden;
     background: rgba(40,40,40, .84);
     text-align:center;
-    border-radius: 25px;
-    padding: 20px;
+    border-radius: 1.3vw;
+    padding: 0.5em;
     color:white;
 }
 
 #macros-summary-title, #calories-summary-title {
-    font-size: 28px;
+    font-size: 2vw;
 }
 
 .macros-summary {
@@ -135,6 +136,18 @@
     margin-top: 5%;
     color:white;
 }
+
+/* .macros-summary {
+    width: 85%;
+    margin: auto;
+    border-style: hidden;
+    background: rgba(40,40,40, .84);
+    text-align:center;
+    border-radius: 25px;
+    padding: 20px;
+    margin-top: 5%;
+    color:white;
+} */
 
 .gradient-border {
     --borderWidth: 3px;;
@@ -174,7 +187,7 @@
     color:black;
 }
 .macros-progress {
-    width: 280px; 
+    width: 70%; 
     margin: auto; 
     font-weight:bold;
     margin-top: 3%;
@@ -189,14 +202,14 @@
 }
 
 .th-delete-button {
-    width: 75px;
+    width: .05vw;
 }
 
 .delete-entry-button {
     color:red;
     background: rgb(40,40,40);
     border-style:hidden;
-    font-size: 20px;
+    font-size: 1.4vw;
 }
 
 @keyframes animatedgradient {
