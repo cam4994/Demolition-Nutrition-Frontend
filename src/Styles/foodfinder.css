@@ -20,6 +20,7 @@
 .find-food-form {
     grid-area: b;
     width: 90%;
+    height: 40vh;
     margin: auto;
     border-style: hidden;
     background: rgba(40,40,40, .84);
@@ -165,6 +166,6 @@
     text-align: center;
 }
 
-.each-brandFood span, li {
+.each-brandFood span {
     font-size: 1.1vw;
 }
