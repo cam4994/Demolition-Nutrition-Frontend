@@ -29,7 +29,6 @@ export default class FoodFinder extends React.Component {
         Geocode.fromAddress(e.target.address.value).then(
             response => {
                 const { lat, lng } = response.results[0].geometry.location;
-                console.log(lat, lng);
                 this.fetchLocation(lat, lng, food, macrosAmount, macro)
             },
             error => {
