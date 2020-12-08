@@ -40,7 +40,7 @@ export default class FoodModal extends React.Component {
             })
     }
 
-    storeFoods = (foods) => {
+    storeFoods = async(foods) => {
         let foods_array = []
 
         foods.forEach(food => {
