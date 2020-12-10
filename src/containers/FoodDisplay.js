@@ -3,6 +3,7 @@ import Food from '../components/Food'
 
 export default function FoodDisplay(props) {
     let i = 0;
+    console.log(props.foods)
     return (
         <div className="food-display">
             {props.foods.map(food => {
