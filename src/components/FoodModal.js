@@ -43,36 +43,68 @@ export default class FoodModal extends React.Component {
         let foods_array = []
 
         foods.forEach(food => {
-            let configObj = {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json",
-                    "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
-                    "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`,
-                    "x-remote-user-id": "0"
-                },
-                body: JSON.stringify({
-                    "query": food.food_name
-                })
-            }
+            this.getNutrition(food, foods_array)
+            // let configObj = {
+            //     method: "POST",
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         "Accept": "application/json",
+            //         "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
+            //         "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`,
+            //         "x-remote-user-id": "0"
+            //     },
+            //     body: JSON.stringify({
+            //         "query": food.food_name
+            //     })
+            // }
 
-            fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', configObj)
-                .then(resp => resp.json())
-                .then(food => {
-                    let newFood = {
-                        name: food.foods[0].food_name,
-                        serving_qty: food.foods[0].serving_qty,
-                        serving_unit: food.foods[0].serving_unit,
-                        calories: food.foods[0].nf_calories,
-                        protein: food.foods[0].nf_protein,
-                        carbs: food.foods[0].nf_total_carbohydrate,
-                        fat: food.foods[0].nf_total_fat
-                    }
-                    foods_array.push(newFood)
-                })
+            // fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', configObj)
+            //     .then(resp => resp.json())
+            //     .then(food => {
+            //         let newFood = {
+            //             name: food.foods[0].food_name,
+            //             serving_qty: food.foods[0].serving_qty,
+            //             serving_unit: food.foods[0].serving_unit,
+            //             calories: food.foods[0].nf_calories,
+            //             protein: food.foods[0].nf_protein,
+            //             carbs: food.foods[0].nf_total_carbohydrate,
+            //             fat: food.foods[0].nf_total_fat
+            //         }
+            //         foods_array.push(newFood)
+            //     })
         })
-        setTimeout(() => this.setState({ foods: foods_array }), 900)
+        this.setState({ foods: foods_array })
+    }
+
+    getNutrition = async(food, foods_array) => {
+        let configObj = {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
+                "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`,
+                "x-remote-user-id": "0"
+            },
+            body: JSON.stringify({
+                "query": food.food_name
+            })
+        }
+
+        await fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', configObj)
+            .then(resp => resp.json())
+            .then(food => {
+                let newFood = {
+                    name: food.foods[0].food_name,
+                    serving_qty: food.foods[0].serving_qty,
+                    serving_unit: food.foods[0].serving_unit,
+                    calories: food.foods[0].nf_calories,
+                    protein: food.foods[0].nf_protein,
+                    carbs: food.foods[0].nf_total_carbohydrate,
+                    fat: food.foods[0].nf_total_fat
+                }
+                foods_array.push(newFood)
+            })
     }
 
     selectItem = (food) => {
