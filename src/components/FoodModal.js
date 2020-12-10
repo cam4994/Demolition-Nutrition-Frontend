@@ -35,13 +35,13 @@ export default class FoodModal extends React.Component {
         fetch(`https://trackapi.nutritionix.com/v2/search/instant?query=${name}`, configObj)
             .then(resp => resp.json())
             .then(foods => {
-                this.storeFoods(foods.common.slice(0, 10))
+                this.storeFoods(foods.common.slice(0, 3))
             })
     }
 
     storeFoods = (foods) => {
         let foods_array = []
-
+        console.log(foods)
         foods.forEach(food => {
             console.log(foods_array)
             this.getNutrition(food)
@@ -104,6 +104,7 @@ export default class FoodModal extends React.Component {
             carbs: food.foods[0].nf_total_carbohydrate,
             fat: food.foods[0].nf_total_fat
         }
+        console.log("new food", newFood)
         return newFood
     }
 
