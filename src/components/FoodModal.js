@@ -43,7 +43,9 @@ export default class FoodModal extends React.Component {
         let foods_array = []
 
         foods.forEach(food => {
-            this.getNutrition(food, foods_array)
+            console.log(foods_array)
+            this.getNutrition(food)
+                .then(newFood => foods_array.push(newFood))
             // let configObj = {
             //     method: "POST",
             //     headers: {
@@ -76,7 +78,7 @@ export default class FoodModal extends React.Component {
         this.setState({ foods: foods_array })
     }
 
-    getNutrition = async(food, foods_array) => {
+    getNutrition = async(eachFood) => {
         let configObj = {
             method: "POST",
             headers: {
@@ -87,24 +89,22 @@ export default class FoodModal extends React.Component {
                 "x-remote-user-id": "0"
             },
             body: JSON.stringify({
-                "query": food.food_name
+                "query": eachFood.food_name
             })
         }
 
-        await fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', configObj)
-            .then(resp => resp.json())
-            .then(food => {
-                let newFood = {
-                    name: food.foods[0].food_name,
-                    serving_qty: food.foods[0].serving_qty,
-                    serving_unit: food.foods[0].serving_unit,
-                    calories: food.foods[0].nf_calories,
-                    protein: food.foods[0].nf_protein,
-                    carbs: food.foods[0].nf_total_carbohydrate,
-                    fat: food.foods[0].nf_total_fat
-                }
-                foods_array.push(newFood)
-            })
+        let resp = await fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', configObj)
+        let food = await resp.json()
+        let newFood = {
+            name: food.foods[0].food_name,
+            serving_qty: food.foods[0].serving_qty,
+            serving_unit: food.foods[0].serving_unit,
+            calories: food.foods[0].nf_calories,
+            protein: food.foods[0].nf_protein,
+            carbs: food.foods[0].nf_total_carbohydrate,
+            fat: food.foods[0].nf_total_fat
+        }
+        return newFood
     }
 
     selectItem = (food) => {
