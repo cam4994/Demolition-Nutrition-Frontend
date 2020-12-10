@@ -41,11 +41,9 @@ export default class FoodModal extends React.Component {
 
     storeFoods = (foods) => {
         let foods_array = []
-        console.log(foods_array)
         foods.forEach(food => {
-            console.log(foods_array)
             this.getNutrition(food)
-                .then(newFood => console.log(newFood))
+                .then(newFood => foods_array.push(newFood))
             // let configObj = {
             //     method: "POST",
             //     headers: {
@@ -76,6 +74,7 @@ export default class FoodModal extends React.Component {
             //     })
         })
         console.log("When does this hit")
+        console.log(foods_array)
         this.setState({ foods: foods_array })
     }
 
