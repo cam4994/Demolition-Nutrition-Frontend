@@ -73,8 +73,6 @@ export default class FoodModal extends React.Component {
             //         foods_array.push(newFood)
             //     })
         })
-        console.log("When does this hit")
-        console.log(foods_array)
         this.setState({ foods: foods_array })
         console.log(this.state.foods)
     }
@@ -127,6 +125,7 @@ export default class FoodModal extends React.Component {
     }
 
     render() {
+        console.log(this.state.foods)
         return (
             <div className="food-modal">
                 <Button id="add-meal-modal-button" onClick={this.toggle}>
