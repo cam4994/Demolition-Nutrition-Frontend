@@ -72,12 +72,13 @@ export default class FoodModal extends React.Component {
                     foods_array.push(newFood)
                 })
         })
-        setTimeout(() => this.setState({ foods: foods_array }), 1000)
+        setTimeout(() => this.setState({ foods: foods_array }), 900)
     }
 
     selectItem = (food) => {
         //Food that was selected from the search feature
         this.setState({ selectedFood: food })
+        //Scroll down after selecting to footer where you can select amount of servings and meal type
         setTimeout(()=>{
             let foodModal = document.getElementById('food-modal-footer')
             foodModal.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"});
