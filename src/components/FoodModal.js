@@ -76,6 +76,7 @@ export default class FoodModal extends React.Component {
         console.log("When does this hit")
         console.log(foods_array)
         this.setState({ foods: foods_array })
+        console.log(this.state.foods)
     }
 
     getNutrition = async(eachFood) => {
