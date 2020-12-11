@@ -35,75 +35,43 @@ export default class FoodModal extends React.Component {
         fetch(`https://trackapi.nutritionix.com/v2/search/instant?query=${name}`, configObj)
             .then(resp => resp.json())
             .then(foods => {
-                this.storeFoods(foods.common.slice(0, 3))
+                this.storeFoods(foods.common.slice(0, 10))
             })
     }
 
     storeFoods = (foods) => {
         let foods_array = []
         foods.forEach(food => {
-            this.getNutrition(food)
-                .then(newFood => foods_array.push(newFood))
-            // let configObj = {
-            //     method: "POST",
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //         "Accept": "application/json",
-            //         "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
-            //         "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`,
-            //         "x-remote-user-id": "0"
-            //     },
-            //     body: JSON.stringify({
-            //         "query": food.food_name
-            //     })
-            // }
+            let configObj = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
+                    "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`,
+                    "x-remote-user-id": "0"
+                },
+                body: JSON.stringify({
+                    "query": food.food_name
+                })
+            }
 
-            // fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', configObj)
-            //     .then(resp => resp.json())
-            //     .then(food => {
-            //         let newFood = {
-            //             name: food.foods[0].food_name,
-            //             serving_qty: food.foods[0].serving_qty,
-            //             serving_unit: food.foods[0].serving_unit,
-            //             calories: food.foods[0].nf_calories,
-            //             protein: food.foods[0].nf_protein,
-            //             carbs: food.foods[0].nf_total_carbohydrate,
-            //             fat: food.foods[0].nf_total_fat
-            //         }
-            //         foods_array.push(newFood)
-            //     })
+            fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', configObj)
+                .then(resp => resp.json())
+                .then(food => {
+                    let newFood = {
+                        name: food.foods[0].food_name,
+                        serving_qty: food.foods[0].serving_qty,
+                        serving_unit: food.foods[0].serving_unit,
+                        calories: food.foods[0].nf_calories,
+                        protein: food.foods[0].nf_protein,
+                        carbs: food.foods[0].nf_total_carbohydrate,
+                        fat: food.foods[0].nf_total_fat
+                    }
+                    foods_array.push(newFood)
+                })
         })
-        this.setState({ foods: foods_array })
-        console.log(this.state.foods)
-    }
-
-    getNutrition = async(eachFood) => {
-        let configObj = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "x-app-id": `${process.env.REACT_APP_NUTRITION_API_ID}`,
-                "x-app-key": `${process.env.REACT_APP_NUTRITION_API_KEY}`,
-                "x-remote-user-id": "0"
-            },
-            body: JSON.stringify({
-                "query": eachFood.food_name
-            })
-        }
-
-        let resp = await fetch('https://trackapi.nutritionix.com/v2/natural/nutrients', configObj)
-        let food = await resp.json()
-        let newFood = {
-            name: food.foods[0].food_name,
-            serving_qty: food.foods[0].serving_qty,
-            serving_unit: food.foods[0].serving_unit,
-            calories: food.foods[0].nf_calories,
-            protein: food.foods[0].nf_protein,
-            carbs: food.foods[0].nf_total_carbohydrate,
-            fat: food.foods[0].nf_total_fat
-        }
-        return newFood
+        setTimeout(() => this.setState({ foods: foods_array }), 1000)
     }
 
     selectItem = (food) => {
@@ -125,7 +93,6 @@ export default class FoodModal extends React.Component {
     }
 
     render() {
-        console.log(this.state.foods)
         return (
             <div className="food-modal">
                 <Button id="add-meal-modal-button" onClick={this.toggle}>

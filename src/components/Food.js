@@ -11,7 +11,6 @@ export default class Food extends React.Component {
     }
     render() {
         let food = this.props.item
-        console.log(food)
         return (
             <div className="food">
                 <h4 className="capitalize">{food.name}</h4>
