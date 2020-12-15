@@ -22,9 +22,9 @@ export default class FoodFinder extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        let food = e.target.food.value
-        let macrosAmount = e.target.macros_value.value
-        let macro = e.target.macro.value
+        let food = e.target.food.value,
+        macrosAmount = e.target.macros_value.value,
+        macro = e.target.macro.value
         Geocode.setApiKey(`${process.env.REACT_APP_MAPS_API_KEY}`);
         Geocode.fromAddress(e.target.address.value).then(
             response => {

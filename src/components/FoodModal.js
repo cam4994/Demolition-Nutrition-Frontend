@@ -35,7 +35,7 @@ export default class FoodModal extends React.Component {
         fetch(`https://trackapi.nutritionix.com/v2/search/instant?query=${name}`, configObj)
             .then(resp => resp.json())
             .then(foods => {
-                this.storeFoods(foods.common.slice(0, 10))
+                this.storeFoods(foods.common.slice(0, 8))
             })
     }
 
@@ -71,7 +71,7 @@ export default class FoodModal extends React.Component {
                     foods_array.push(newFood)
                 })
         })
-        setTimeout(() => this.setState({ foods: foods_array }), 1000)
+        setTimeout(() => this.setState({ foods: foods_array }), 1200)
     }
 
     selectItem = (food) => {
